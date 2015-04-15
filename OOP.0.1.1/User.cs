@@ -9,6 +9,7 @@ namespace OOP._0._1._1
     class User
     {
         private string _name;
+        private string courseId;
 
         public void setName(string username)
         {

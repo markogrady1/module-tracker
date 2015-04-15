@@ -69,10 +69,9 @@ namespace OOP._0._1._1
         //Insert statement
         public void InsertNewCourse(string username, string coursename)
         {
+            username = username.ToLower();
+            coursename = coursename.ToLower();
             string query = "INSERT INTO course (coursename, coursecode,username) VALUES('"+coursename+"','ECSC3454', '"+username+"')";
-
-            //open connection
-
 
             //create command and assign the query and connection from the constructor
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -103,7 +102,7 @@ namespace OOP._0._1._1
         }
 
         //Select statement
-        public List<string> Select()
+        public List<string> SelectExistingCourses()
         {
             string query = "SELECT * FROM course";
 
@@ -125,9 +124,8 @@ namespace OOP._0._1._1
                     //Read the data and store them in the list
                     while (dataReader.Read())
                     {
-                        list.Add(dataReader["id"] + "");
-                        list.Add(dataReader["coursename"] + "");
-                        list.Add(dataReader["coursecode"] + "");
+                        String resultString = dataReader["username"] + ", " + dataReader["coursename"];
+                        list.Add(resultString);
                     }
                     //MessageBox.Show(list[1]);
                     //close Data Reader
@@ -213,5 +211,39 @@ namespace OOP._0._1._1
             }
         }
 
+        public string GetId(string username, string coursename, string table)
+        {
+            username = username.ToLower().Trim();
+            coursename = coursename.ToLower().Trim();
+            string query = "SELECT id FROM "+ table + " WHERE coursename='" + coursename + "' AND username='" + username + "';";
+            String resultString = null;
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            try
+            {
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                try
+                {
+                    while (dataReader.Read())
+                    {
+                        resultString = dataReader["id"]+"";
+                        MessageBox.Show(resultString);
+
+                    }
+                    dataReader.Close();
+                    CloseConnection();
+                    return resultString;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return null;
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+        }
     }
 }

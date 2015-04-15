@@ -1,9 +1,15 @@
 ﻿using System.Threading;
+using System.Windows.Forms;
 
 namespace OOP._0._1._1
 {
     class CourseController
     {
+
+        public CourseController()
+        {
+            db = new Database();
+        }
         private delegate void RunOnThreadPool(string username, string coursename);
         private Database db;
         private Course course;
@@ -26,7 +32,7 @@ namespace OOP._0._1._1
         
         public bool addToDatabase(string username, string coursename)
         {
-            db = new Database();
+            
             var stat = db.OpenConnection();
             if (stat)
             {
@@ -49,6 +55,17 @@ namespace OOP._0._1._1
         {
             
             db.InsertNewCourse(username, coursename);
+        }
+
+        public void MatchCourseData(string existingData)
+        {
+            string queryParameters = existingData;
+            string[] strArray = queryParameters.Split(',');
+
+            db.OpenConnection();
+            string id =  db.GetId(strArray[0], strArray[1], "course");
+
+            //id has been resolved from the database but we have not implemented it yet
         }
     }
 }
