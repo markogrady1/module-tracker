@@ -45,9 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssessmentController.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="CourseController.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="ModuleController.cs" />
     <Compile Include="StartUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +88,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addGradesBtn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

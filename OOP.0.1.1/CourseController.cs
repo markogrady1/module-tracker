@@ -21,8 +21,8 @@ namespace OOP._0._1._1
         }
         public bool setData(string username, string courseName)
         {
-            course.setCourseName(courseName);
-            user.setName(username);
+            course.CourseName = courseName;
+            user.Name = username;
            var res = addToDatabase(username, courseName);
             if (res)
                 return true;
@@ -55,17 +55,27 @@ namespace OOP._0._1._1
         {
             
             db.InsertNewCourse(username, coursename);
+            string id = db.GetId(username, coursename, "course");
+            course.CourseDatabaseId = id;
+            
         }
 
         public void MatchCourseData(string existingData)
         {
             string queryParameters = existingData;
             string[] strArray = queryParameters.Split(',');
-
+            
             db.OpenConnection();
             string id =  db.GetId(strArray[0], strArray[1], "course");
-
+            course.CourseDatabaseId = id;
+            
             //id has been resolved from the database but we have not implemented it yet
         }
+
+        public string getCourseDbId()
+        {
+            return course.CourseDatabaseId;
+        }
+
     }
 }

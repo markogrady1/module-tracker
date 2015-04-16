@@ -9,11 +9,18 @@ namespace OOP._0._1._1
     class User
     {
         private string _name;
-        private string courseId;
+        private string _currentCourseId;
 
-        public void setName(string username)
+        public string Name
         {
-            this._name = username;
+            get { return _name; }
+            set { _name = value; }
+        }
+
+        public string CurrentCourseId
+        {
+            get { return _currentCourseId; }
+            set { _currentCourseId = value; }
         }
     }
 }
