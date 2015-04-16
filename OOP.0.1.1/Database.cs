@@ -203,6 +203,7 @@ namespace OOP._0._1._1
         {
             username = username.ToLower().Trim();
             coursename = coursename.ToLower().Trim();
+            
             string query = "SELECT courseId FROM " + table + " WHERE coursename='" + coursename + "' AND username='" + username + "';";
             String resultString = null;
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -213,6 +214,7 @@ namespace OOP._0._1._1
                 {
                     while (dataReader.Read())
                     {
+                        MessageBox.Show(dataReader["courseId"] + "");
                         resultString = dataReader["courseId"] + "";
                     }
                     dataReader.Close();

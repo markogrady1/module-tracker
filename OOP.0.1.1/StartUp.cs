@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
@@ -17,7 +18,7 @@ namespace OOP._0._1._1
         private TabPage tabPageLvl4, tabPageLvl5, tabPageLvl6, tabPageView4, tabPageView5;
         private Thread t;
         private Database db;
-        private Course course;
+        
         private User user;
         private Panel mainCoverLvl4Pnl;
         private Panel mainCoverLvl5Pnl;
@@ -199,6 +200,7 @@ namespace OOP._0._1._1
             }
             else
             {
+                cc.setDependencies(new Course(), new User());
                 cc.MatchCourseData(existingData);
             }
 
@@ -285,28 +287,45 @@ namespace OOP._0._1._1
             if (level == "four")
             {
                 hidePanel(mainCoverLvl4Pnl);
-                configureLevelTab("four", moduleList);
+                configureLevelTab("four", moduleList, tabPageLvl4);
+            }
+
+            if (level == "five")
+            {
+                hidePanel(mainCoverLvl5Pnl);
+                configureLevelTab("five", moduleList, tabPageLvl5);
+            } 
+            if (level == "six")
+            {
+                hidePanel(mainCoverLvl6Pnl);
+                configureLevelTab("six", moduleList, tabPageLvl6);
             }
             populateAvailableModuleCombo();
         }
 
-        public void configureLevelTab(string level, List<string> moduleList)
+        public void configureLevelTab(string level, List<string> moduleList, TabPage currentPage)
         {
 
-            int x = 50;
-
+            
+            int panelStart = 10;
+            const int TOP_ROW_POS = 10;
             int modNameLabelStart = 10;
             int modNameStart = 10;
             int modeCodeLabelStart = 10;
             int modeCodeStart = 10;
             int assessmentNoLabelStart = 10;
             int assessmentNoStart = 10;
+           const int SECOND_ROW_POS = 40;
             int assessment1LblStart = 40;
             int assessment1Start = 40;
-           
+            int assessment2LblStart = 40;
+            int assessment2Start = 40;
+            int assessment3LblStart = 40;
+            int assessment3Start = 40;
+            int assessment4LblStart = 40;
+            int assessment4Start = 40;
 
-            if (level == "four")
-            {
+                Panel[] panel = new Panel[moduleList.Count];
                 Label[] modNameLbl = new Label[moduleList.Count];
                 Label[] modName = new Label[moduleList.Count];
                 Label[] modCodeLbl = new Label[moduleList.Count];
@@ -315,14 +334,29 @@ namespace OOP._0._1._1
                 Label[] assessmentNo = new Label[moduleList.Count];
                 Label[] assessment1Lbl = new Label[moduleList.Count];
                 Label[] assessment1 = new Label[moduleList.Count];
+                Label[] assessment2Lbl = new Label[moduleList.Count];
+                Label[] assessment2 = new Label[moduleList.Count];
+                Label[] assessment3Lbl = new Label[moduleList.Count];
                 Label[] assessment3 = new Label[moduleList.Count];
+                Label[] assessment4Lbl = new Label[moduleList.Count];
                 Label[] assessment4 = new Label[moduleList.Count];
 
+                int coloring = 0;
+                String panColor = "red";
+                if (coloring == 0)
+                {
+                    panColor = "red";
+                }
+                else
+                {
+                    panColor = "green";
+                }
                 for (var i = 0; i < moduleList.Count; i++)
                 {
 
                     string[] strArray = moduleList[i].Split(',');
                     MessageBox.Show("Module " + moduleList[i] + " contains " + strArray[0] + "," + strArray[1] + "," + strArray[2] + "," + strArray[3] + "," + strArray[4] + "," + strArray[5]);
+                    panel[i] = new Panel();
                     modNameLbl[i] = new Label();
                     modName[i] = new Label();
                     modCodeLbl[i] = new Label();
@@ -331,7 +365,11 @@ namespace OOP._0._1._1
                     assessmentNo[i] = new Label();
                     assessment1Lbl[i] = new Label();
                     assessment1[i] = new Label();
+                    assessment2Lbl[i] = new Label();
+                    assessment2[i] = new Label();
+                    assessment3Lbl[i] = new Label();
                     assessment3[i] = new Label();
+                    assessment4Lbl[i] = new Label();
                     assessment4[i] = new Label();
 
                     modNameLbl[i].Text = "Module Name:";
@@ -339,48 +377,166 @@ namespace OOP._0._1._1
                     modCodeLbl[i].Text = "Module Code:";
                     modCode[i].Text = strArray[2];
                     assessmentNoLbl[i].Text = "No. of Assessments:";
-                    assessmentNo[i].Text = ValidateAssessmentValue(strArray[5]);
-                    assessment1Lbl[i].Text = "Assessments One:";
-                    assessment1[i].Text = "Assessments One:";
+                    assessmentNo[i].Text = strArray[5];
+                    assessment1Lbl[i].Text = "Assessment One:";
+                    assessment1[i].Text = strArray[6];
+                    assessment2Lbl[i].Text = "Assessment Two:";
+                    assessment2[i].Text = strArray[7];
+                    assessment3Lbl[i].Text = "Assessment Three:";
+                    assessment3[i].Text = strArray[8];
+                    assessment4Lbl[i].Text = "Assessment Four:";
+                    assessment4[i].Text = strArray[9];
 
-                    modNameLbl[i].Location = new System.Drawing.Point(40, modNameLabelStart += 30);
-                    tabPageLvl4.Controls.Add(modNameLbl[i]);
+                    panel[i].Location = new Point(40, panelStart);
+                    panel[i].AutoSize = true;
+                    panel[i].BackColor = Color.DarkBlue;
+                    panel[i].Height = 70;
+                    currentPage.Controls.Add(panel[i]);
 
-                    modName[i].Location = new System.Drawing.Point(150, modNameStart += 30);
-                    modName[i].Size = new System.Drawing.Size(184, 18);
-                    tabPageLvl4.Controls.Add(modName[i]);
+                    modNameLbl[i].Location = new Point(40, TOP_ROW_POS);
+                    panel[i].Controls.Add(modNameLbl[i]);
 
-                    modCodeLbl[i].Location = new System.Drawing.Point(360, modeCodeLabelStart += 30);
-                    tabPageLvl4.Controls.Add(modCodeLbl[i]);
+                    modName[i].Location = new Point(140, TOP_ROW_POS);
+                    modName[i].AutoSize = true;
+                    panel[i].Controls.Add(modName[i]);
 
-                    modCode[i].Location = new System.Drawing.Point(460, modeCodeStart += 30);
-                    modCode[i].Size = new System.Drawing.Size(184, 18);
-                    tabPageLvl4.Controls.Add(modCode[i]);
+                    modCodeLbl[i].Location = new Point(360, TOP_ROW_POS);
+                    panel[i].Controls.Add(modCodeLbl[i]);
 
-                    assessmentNoLbl[i].Location = new System.Drawing.Point(660, assessmentNoLabelStart += 30);
-                    assessmentNoLbl[i].Size = new System.Drawing.Size(134, 18);
-                    tabPageLvl4.Controls.Add(assessmentNoLbl[i]);
+                    modCode[i].Location = new Point(460, TOP_ROW_POS);
+                    modCode[i].AutoSize = true;
+                    panel[i].Controls.Add(modCode[i]);
 
-                    assessmentNo[i].Location = new System.Drawing.Point(820, assessmentNoStart += 30);
-                    assessmentNo[i].Size = new System.Drawing.Size(150, 18);
-                    tabPageLvl4.Controls.Add(assessmentNo[i]);
+                    assessmentNoLbl[i].Location = new Point(660, TOP_ROW_POS);
+                    assessmentNoLbl[i].AutoSize = true;
+                    panel[i].Controls.Add(assessmentNoLbl[i]);
 
-                    assessment1Lbl[i].Location = new System.Drawing.Point(20, assessment1LblStart += 30);
-                    assessment1Lbl[i].Size = new System.Drawing.Size(150, 18);
-                    tabPageLvl4.Controls.Add(assessment1Lbl[i]);
+                    assessmentNo[i].Location = new Point(800, TOP_ROW_POS);
+                    assessmentNo[i].AutoSize = true;
+                    panel[i].Controls.Add(assessmentNo[i]);
+                    if (strArray[5] == "1")
+                    {
+                        setOneAssessment(assessment1Lbl, i, SECOND_ROW_POS, panel, assessment1);
+                    }
+                    if (strArray[5] == "2")
+                    {
+                        setTwoAssessments(assessment1Lbl, i, SECOND_ROW_POS, panel, assessment1, assessment2Lbl, assessment2);
+                    }
+                    if (strArray[5] == "3")
+                    {
+                        setThreeAssessments(assessment1Lbl, i, SECOND_ROW_POS, panel, assessment1, assessment2Lbl, assessment2, assessment3Lbl, assessment3);
+                    }
+                    if (strArray[5] == "4")
+                    {
+                        setFourAssessments(assessment1Lbl, i, SECOND_ROW_POS, panel, assessment1, assessment2Lbl, assessment2, assessment3Lbl, assessment3, assessment4Lbl, assessment4);
+                    }
+                    
+
+                    panelStart += 80;
 
                 }
-            }
+          
         }
 
-        private string ValidateAssessmentValue(string assessmentAmount)
+        private void setThreeAssessments(Label[] assessment1Lbl, int i, int SECOND_ROW_POS, Panel[] panel, Label[] assessment1, Label[] assessment2Lbl, Label[] assessment2, Label[] assessment3Lbl, Label[] assessment3)
         {
-            if (assessmentAmount == "0")
-            {
-                return "Assessment details do not exist for this module";
-            }
-            return assessmentAmount;
+            assessment1Lbl[i].Location = new Point(20, SECOND_ROW_POS);
+            assessment1Lbl[i].AutoSize = true;
+
+            panel[i].Controls.Add(assessment1Lbl[i]);
+
+            assessment1[i].Location = new Point(140, SECOND_ROW_POS);
+            assessment1[i].AutoSize = true;
+            panel[i].Controls.Add(assessment1[i]);
+
+            assessment2Lbl[i].Location = new Point(220, SECOND_ROW_POS);
+            assessment2Lbl[i].AutoSize = true;
+            panel[i].Controls.Add(assessment2Lbl[i]);
+
+            assessment2[i].Location = new Point(340, SECOND_ROW_POS);
+            assessment2[i].AutoSize = true;
+            panel[i].Controls.Add(assessment2[i]);
+
+            assessment3Lbl[i].Location = new Point(430, SECOND_ROW_POS);
+            assessment3Lbl[i].AutoSize = true;
+            panel[i].Controls.Add(assessment3Lbl[i]);
+
+            assessment3[i].Location = new Point(560, SECOND_ROW_POS);
+            assessment3[i].AutoSize = true;
+            panel[i].Controls.Add(assessment3[i]);
         }
+
+        private void setTwoAssessments(Label[] assessment1Lbl, int i, int SECOND_ROW_POS, Panel[] panel, Label[] assessment1, Label[] assessment2Lbl, Label[] assessment2)
+        {
+            assessment1Lbl[i].Location = new Point(20, SECOND_ROW_POS);
+            assessment1Lbl[i].AutoSize = true;
+
+            panel[i].Controls.Add(assessment1Lbl[i]);
+
+            assessment1[i].Location = new Point(140, SECOND_ROW_POS);
+            assessment1[i].AutoSize = true;
+            panel[i].Controls.Add(assessment1[i]);
+
+            assessment2Lbl[i].Location = new Point(220, SECOND_ROW_POS);
+            assessment2Lbl[i].AutoSize = true;
+            panel[i].Controls.Add(assessment2Lbl[i]);
+
+            assessment2[i].Location = new Point(340, SECOND_ROW_POS);
+            assessment2[i].AutoSize = true;
+            panel[i].Controls.Add(assessment2[i]);
+        }
+
+        private static void setFourAssessments(Label[] assessment1Lbl, int i, int SECOND_ROW_POS, Panel[] panel,
+            Label[] assessment1, Label[] assessment2Lbl, Label[] assessment2, Label[] assessment3Lbl, Label[] assessment3,
+            Label[] assessment4Lbl, Label[] assessment4)
+        {
+            assessment1Lbl[i].Location = new Point(20, SECOND_ROW_POS);
+            assessment1Lbl[i].AutoSize = true;
+
+            panel[i].Controls.Add(assessment1Lbl[i]);
+
+            assessment1[i].Location = new Point(140, SECOND_ROW_POS);
+            assessment1[i].AutoSize = true;
+            panel[i].Controls.Add(assessment1[i]);
+
+            assessment2Lbl[i].Location = new Point(220, SECOND_ROW_POS);
+            assessment2Lbl[i].AutoSize = true;
+            panel[i].Controls.Add(assessment2Lbl[i]);
+
+            assessment2[i].Location = new Point(340, SECOND_ROW_POS);
+            assessment2[i].AutoSize = true;
+            panel[i].Controls.Add(assessment2[i]);
+
+            assessment3Lbl[i].Location = new Point(430, SECOND_ROW_POS);
+            assessment3Lbl[i].AutoSize = true;
+            panel[i].Controls.Add(assessment3Lbl[i]);
+
+            assessment3[i].Location = new Point(560, SECOND_ROW_POS);
+            assessment3[i].AutoSize = true;
+            panel[i].Controls.Add(assessment3[i]);
+
+            assessment4Lbl[i].Location = new Point(670, SECOND_ROW_POS);
+            assessment4Lbl[i].AutoSize = true;
+            panel[i].Controls.Add(assessment4Lbl[i]);
+
+            assessment4[i].Location = new Point(800, SECOND_ROW_POS);
+            assessment4[i].AutoSize = true;
+            panel[i].Controls.Add(assessment4[i]);
+        }
+
+        private static void setOneAssessment(Label[] assessment1Lbl, int i, int SECOND_ROW_POS, Panel[] panel,
+            Label[] assessment1 )
+        {
+            assessment1Lbl[i].Location = new Point(20, SECOND_ROW_POS);
+            assessment1Lbl[i].AutoSize = true;
+
+            panel[i].Controls.Add(assessment1Lbl[i]);
+
+            assessment1[i].Location = new Point(140, SECOND_ROW_POS);
+            assessment1[i].AutoSize = true;
+            panel[i].Controls.Add(assessment1[i]);
+        }
+
 
         private void addGradesBtn_Click(object sender, EventArgs e)
         {

@@ -67,6 +67,16 @@ namespace OOP._0._1._1
             {
                 startUp.setLevel("four", levelFourModules);
             }
+
+            if (levelFiveModules.Count != 0)
+            {
+                startUp.setLevel("five", levelFiveModules);
+            }
+
+            if (levelSixModules.Count != 0)
+            {
+                startUp.setLevel("six", levelSixModules);
+            }
                 
             //}
 
