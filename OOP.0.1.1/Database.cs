@@ -214,7 +214,7 @@ namespace OOP._0._1._1
                 {
                     while (dataReader.Read())
                     {
-                        MessageBox.Show(dataReader["courseId"] + "");
+                        //MessageBox.Show(dataReader["courseId"] + "");
                         resultString = dataReader["courseId"] + "";
                     }
                     dataReader.Close();
@@ -337,7 +337,17 @@ namespace OOP._0._1._1
                             dataReader["moduleCode"] + "," +
                             dataReader["courseId"] + "," +
                             dataReader["level"] + "," +
-                            dataReader["assessmentAmount"] + ""
+                            dataReader["assessmentAmount"] + "," +
+                            //grades and weights for module
+                            dataReader["assess1"] + "," +
+                            dataReader["assess1Weight"] + "," +
+                            dataReader["assess2"] + "," +
+                            dataReader["assess2Weight"] + "," +
+                            dataReader["assess3"] + "," +
+                            dataReader["assess3Weight"] + "," +
+                            dataReader["assess4"] + "," +
+                            dataReader["assess4Weight"]
+                            
                             );
                     }
                     dataReader.Close();
@@ -361,13 +371,14 @@ namespace OOP._0._1._1
 
         public void UpdateModuleAssessments(string[] moduledata, string courseId, string[] assessArray)
         {
+            string modulename = moduledata[0].ToLower().Trim();
             string[] modData = moduledata;
             string pattern = "Level: ";
             Regex rgx = new Regex(pattern);
             string newLevelStr = rgx.Replace(modData[2], "");
             string modLevel = newLevelStr.ToLower().Trim();
             string courseID = courseId;
-            MessageBox.Show(courseID);
+            //MessageBox.Show(courseID);
             string[] assessmentArr = assessArray;
 
             string query = "UPDATE module " +
@@ -379,7 +390,7 @@ namespace OOP._0._1._1
                            "assess3Weight=" + assessmentArr[5] + ", " +
                            "assess4=" + assessmentArr[6] + ", " +
                            "assess4Weight=" + assessmentArr[7] + " " +
-                           "WHERE courseId=" + courseID + " AND level='" + modLevel + "';";
+                           "WHERE moduleName='" + modulename+"' AND courseId=" + courseID + " AND level='" + modLevel + "';";
             //create command and assign the query and connection from the constructor
             MySqlCommand cmd = new MySqlCommand(query, connection);
             try

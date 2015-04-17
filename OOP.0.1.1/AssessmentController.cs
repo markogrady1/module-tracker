@@ -22,9 +22,10 @@ namespace OOP._0._1._1
         private string _moduleDbIdValue;
         private string[] _moduleData;
         private ModuleController modController;
-
+        private Database db;
         public AssessmentController(ModuleController modController)
         {
+            db = new Database();
             this.modController = modController;
         }
 
@@ -62,10 +63,19 @@ namespace OOP._0._1._1
             assessmentArray[6] = _assess4;
             assessmentArray[7] = _assess4Weight; 
             
-            Database db = new Database();
+            
 
             db.OpenConnection();
             db.UpdateModuleAssessments(_moduleData,courseId , assessmentArray);
+        }
+
+        public List<string> resolveAllModules()
+        {
+            string courseId = modController.CourseId;
+            db.OpenConnection();
+            List<string> modList = db.getAllModules(courseId);
+
+            return modList;
         }
     }
 }

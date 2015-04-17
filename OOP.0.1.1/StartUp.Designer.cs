@@ -1,4 +1,6 @@
-﻿namespace OOP._0._1._1
+﻿using System.Windows.Forms;
+
+namespace OOP._0._1._1
 {
     partial class StartUp
     {
@@ -28,11 +30,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.addAddGradeTabPage = new System.Windows.Forms.TabPage();
+            this.addGradeTabPage = new System.Windows.Forms.TabPage();
             this.covertab3Pnl = new System.Windows.Forms.Panel();
             this.labelg = new System.Windows.Forms.Label();
             this.mainAddGradePanel = new System.Windows.Forms.Panel();
-            this.addGradesBtn = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.covertab2Pnl = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.moduleCodeTxt = new System.Windows.Forms.TextBox();
-            this.AddModuleBtnBlue = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.moduleAssessmentAmountCbo = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -89,7 +89,9 @@
             this.hiddenCombo = new System.Windows.Forms.ComboBox();
             this.mainCoverPnl2 = new System.Windows.Forms.Panel();
             this.mainTabControl = new System.Windows.Forms.TabControl();
-            this.addAddGradeTabPage.SuspendLayout();
+            this.AddModuleBtnBlue = new System.Windows.Forms.Label();
+            this.addGradesBtn = new System.Windows.Forms.Label();
+            this.addGradeTabPage.SuspendLayout();
             this.covertab3Pnl.SuspendLayout();
             this.mainAddGradePanel.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -101,16 +103,16 @@
             this.mainTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // addAddGradeTabPage
+            // addGradeTabPage
             // 
-            this.addAddGradeTabPage.Controls.Add(this.covertab3Pnl);
-            this.addAddGradeTabPage.Controls.Add(this.mainAddGradePanel);
-            this.addAddGradeTabPage.Location = new System.Drawing.Point(4, 25);
-            this.addAddGradeTabPage.Name = "addAddGradeTabPage";
-            this.addAddGradeTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.addAddGradeTabPage.Size = new System.Drawing.Size(1070, 533);
-            this.addAddGradeTabPage.TabIndex = 1;
-            this.addAddGradeTabPage.UseVisualStyleBackColor = true;
+            this.addGradeTabPage.Controls.Add(this.covertab3Pnl);
+            this.addGradeTabPage.Controls.Add(this.mainAddGradePanel);
+            this.addGradeTabPage.Location = new System.Drawing.Point(4, 25);
+            this.addGradeTabPage.Name = "addGradeTabPage";
+            this.addGradeTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.addGradeTabPage.Size = new System.Drawing.Size(1070, 533);
+            this.addGradeTabPage.TabIndex = 1;
+            this.addGradeTabPage.UseVisualStyleBackColor = true;
             // 
             // covertab3Pnl
             // 
@@ -160,16 +162,6 @@
             this.mainAddGradePanel.Name = "mainAddGradePanel";
             this.mainAddGradePanel.Size = new System.Drawing.Size(1025, 515);
             this.mainAddGradePanel.TabIndex = 1;
-            // 
-            // addGradesBtn
-            // 
-            this.addGradesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addGradesBtn.Image = global::OOP._0._1._1.Properties.Resources.addGradesBtn;
-            this.addGradesBtn.Location = new System.Drawing.Point(357, 342);
-            this.addGradesBtn.Name = "addGradesBtn";
-            this.addGradesBtn.Size = new System.Drawing.Size(135, 42);
-            this.addGradesBtn.TabIndex = 22;
-            this.addGradesBtn.Click += new System.EventHandler(this.addGradesBtn_Click);
             // 
             // label24
             // 
@@ -422,16 +414,6 @@
             this.moduleCodeTxt.Name = "moduleCodeTxt";
             this.moduleCodeTxt.Size = new System.Drawing.Size(229, 22);
             this.moduleCodeTxt.TabIndex = 11;
-            // 
-            // AddModuleBtnBlue
-            // 
-            this.AddModuleBtnBlue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddModuleBtnBlue.Image = global::OOP._0._1._1.Properties.Resources.btn;
-            this.AddModuleBtnBlue.Location = new System.Drawing.Point(322, 325);
-            this.AddModuleBtnBlue.Name = "AddModuleBtnBlue";
-            this.AddModuleBtnBlue.Size = new System.Drawing.Size(130, 42);
-            this.AddModuleBtnBlue.TabIndex = 10;
-            this.AddModuleBtnBlue.Click += new System.EventHandler(this.AddModuleBtnBlue_Click);
             // 
             // label10
             // 
@@ -726,13 +708,33 @@
             // 
             this.mainTabControl.Controls.Add(this.tabPage1);
             this.mainTabControl.Controls.Add(this.tabPage2);
-            this.mainTabControl.Controls.Add(this.addAddGradeTabPage);
+            this.mainTabControl.Controls.Add(this.addGradeTabPage);
             this.mainTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainTabControl.Location = new System.Drawing.Point(1, 1);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
             this.mainTabControl.Size = new System.Drawing.Size(1078, 562);
             this.mainTabControl.TabIndex = 2;
+            // 
+            // AddModuleBtnBlue
+            // 
+            this.AddModuleBtnBlue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddModuleBtnBlue.Image = global::OOP._0._1._1.Properties.Resources.btn;
+            this.AddModuleBtnBlue.Location = new System.Drawing.Point(322, 325);
+            this.AddModuleBtnBlue.Name = "AddModuleBtnBlue";
+            this.AddModuleBtnBlue.Size = new System.Drawing.Size(130, 42);
+            this.AddModuleBtnBlue.TabIndex = 10;
+            this.AddModuleBtnBlue.Click += new System.EventHandler(this.AddModuleBtnBlue_Click);
+            // 
+            // addGradesBtn
+            // 
+            this.addGradesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addGradesBtn.Image = global::OOP._0._1._1.Properties.Resources.addGradesBtn;
+            this.addGradesBtn.Location = new System.Drawing.Point(357, 342);
+            this.addGradesBtn.Name = "addGradesBtn";
+            this.addGradesBtn.Size = new System.Drawing.Size(135, 42);
+            this.addGradesBtn.TabIndex = 22;
+            this.addGradesBtn.Click += new System.EventHandler(this.addGradesBtn_Click);
             // 
             // StartUp
             // 
@@ -742,7 +744,7 @@
             this.Controls.Add(this.mainTabControl);
             this.Name = "StartUp";
             this.Text = "StartUp";
-            this.addAddGradeTabPage.ResumeLayout(false);
+            this.addGradeTabPage.ResumeLayout(false);
             this.covertab3Pnl.ResumeLayout(false);
             this.covertab3Pnl.PerformLayout();
             this.mainAddGradePanel.ResumeLayout(false);
@@ -764,7 +766,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabPage addAddGradeTabPage;
+        private System.Windows.Forms.TabPage addGradeTabPage;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel mainCoverPnl;
@@ -825,7 +827,25 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox availableModulesCbo;
         private System.Windows.Forms.ComboBox hiddenCombo;
-        
+        private Panel[] panel;
+        private Label[] modNameLbl;
+        private Label[] modName;
+        private Label[] modCodeLbl;
+        private Label[] modCode;
+        private Label[] assessmentNoLbl;
+        private Label[] assessmentNo;
+        private Label[] assessment1Lbl;
+        private Label[] assessment1;
+        private Label[] assessment2Lbl;
+        private Label[] assessment2;
+        private Label[] assessment3Lbl;
+        private Label[] assessment3;
+        private Label[] assessment4Lbl;
+        private Label[] assessment4;
+        private ComboBox hiddenPredictionChoiceCbo;
+        private ComboBox modulePredictionChoiceCbo;
+        private Panel predictionTopControlsPnl;
+        private Label modPredictChoiceBtn;
     }
 }
 

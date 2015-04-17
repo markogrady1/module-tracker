@@ -80,17 +80,17 @@ namespace OOP._0._1._1
                 
             //}
 
-            foreach (string line in levelFiveModules)
-            {
-                MessageBox.Show(line);
-                //startUp.setLevel("four", levelFourModules);
-            }
+            //foreach (string line in levelFiveModules)
+            //{
+            //    MessageBox.Show(line);
+            //    //startUp.setLevel("four", levelFourModules);
+            //}
 
-            foreach (string line in levelSixModules)
-            {
-                MessageBox.Show(line);
-                //startUp.setLevel("four", levelFourModules);
-            }
+            //foreach (string line in levelSixModules)
+            //{
+            //    MessageBox.Show(line);
+            //    //startUp.setLevel("four", levelFourModules);
+            //}
            
         }
 
