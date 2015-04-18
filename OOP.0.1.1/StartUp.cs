@@ -343,43 +343,43 @@ namespace OOP._0._1._1
 
         public void configModulePredictionTab(TabPage currentPage)
         {
-            
+
             List<string> moduleList = moduleController.resolveAllModules();
             currentPage.Controls.Clear();
-            
+
             predictionTopControlsPnl = new Panel();
             predictionTopControlsPnl.AutoSize = true;
             predictionTopControlsPnl.Location = new Point(40, 20);
-            
-            
+
+
             Label selectLbl = new Label();
             selectLbl.Text = "Select a module";
             selectLbl.AutoSize = true;
-            selectLbl.Location = new Point(40,17);
+            selectLbl.Location = new Point(40, 17);
 
             hiddenPredictionChoiceCbo = new ComboBox();
-            
+
 
             modulePredictionChoiceCbo = new ComboBox();
             modulePredictionChoiceCbo.AutoSize = true;
             modulePredictionChoiceCbo.Width = 400;
             modulePredictionChoiceCbo.DropDownStyle = ComboBoxStyle.DropDownList;
             modulePredictionChoiceCbo.Font = new Font("Verdana", 11, FontStyle.Regular);
-            modulePredictionChoiceCbo.Location = new Point(150,10);
+            modulePredictionChoiceCbo.Location = new Point(150, 10);
 
             modPredictChoiceBtn = new Label();
             modPredictChoiceBtn.Cursor = Cursors.Hand;
             modPredictChoiceBtn.Image = Properties.Resources.submit;
             modPredictChoiceBtn.Location = new Point(60, 80);
             modPredictChoiceBtn.Name = "modPredictChoiceBtn";
-            modPredictChoiceBtn.Size = new Size(580, 42);
-            
-            
+            modPredictChoiceBtn.Size = new Size(135, 42);
+
+
             for (var i = 0; i < moduleList.Count; i++)
             {
                 string[] strArray = moduleList[i].Split(',');
                 string modName = strArray[1].Substring(0, 1).ToUpper() + strArray[1].Substring(1).ToLower();
-                            modName = Regex.Replace(modName, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+                modName = Regex.Replace(modName, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
                 string modCode = strArray[2].ToUpper();
                 string level = strArray[4].Substring(0, 1).ToUpper() + strArray[4].Substring(1).ToLower();
                 string comboStr = modName + " - " + modCode + " - Level: " + level;
@@ -401,8 +401,48 @@ namespace OOP._0._1._1
         private void modPredictChoiceBtn_Click(object sender, EventArgs e)
         {
             int index = modulePredictionChoiceCbo.SelectedIndex;
-            string moduleDBId = hiddenPredictionChoiceCbo.Items[index].ToString();
-            MessageBox.Show(modulePredictionChoiceCbo.Text + " contains " + moduleDBId);
+            if (index != -1)
+            {
+                if (resultsPanel != null)
+                {
+                    resultsPanel.Controls.Clear();
+                }
+                
+                string vals = hiddenPredictionChoiceCbo.Items[index].ToString();
+
+                Prediction prediction = new Prediction();
+                prediction.modulePrediction(vals);
+                prediction.ResolveAllResults();
+                int actual = prediction.getModuleTotal();
+                resultsPanel = new Panel();
+                
+                resultsPanel.Location = new Point(100, 200);
+                resultsPanel.BackColor = Color.LightPink;
+                resultsPanel.AutoSize = true;
+                moduleResultLbl = new Label();
+                moduleResultLbl.Location = new Point(500, 0);
+                moduleResultLbl.AutoSize = true;
+                moduleResultLbl.Text = actual.ToString();
+                moduleResultLbl.Font = new Font("Courgette", 100.25F, FontStyle.Regular);
+                if (actual < 30)
+                {
+                    moduleResultLbl.ForeColor = Color.Red;
+                }
+                else
+                {
+                    moduleResultLbl.ForeColor = Color.Green;
+                }
+                
+                resultsPanel.Controls.Add(moduleResultLbl);
+
+                tabPageModulePrediction.Controls.Add(resultsPanel);
+               
+            }
+            else
+            {
+                MessageBox.Show("You have not chosen a module");
+            }
+
         }
         public void configLevelTab(string level, List<string> moduleList, TabPage currentPage)
         {

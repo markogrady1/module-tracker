@@ -846,6 +846,8 @@ namespace OOP._0._1._1
         private ComboBox modulePredictionChoiceCbo;
         private Panel predictionTopControlsPnl;
         private Label modPredictChoiceBtn;
+        private Panel resultsPanel;
+        private Label moduleResultLbl;
     }
 }
 
