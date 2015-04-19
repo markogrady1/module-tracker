@@ -410,5 +410,48 @@ namespace OOP._0._1._1
 
 
         }
+
+        public List<string> getCourseDetails(string id)
+        {
+            string query = "SELECT * FROM course WHERE  courseId="+id+";";
+
+            //Create a list to store the result
+            List<string> list = new List<string>();
+
+
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            //Create a data reader and Execute the command 
+            try
+            {
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                try
+                {
+                    //Read the data and store them in the list
+                    while (dataReader.Read())
+                    {
+                        String resultString = dataReader["username"] + ", " + dataReader["coursename"];
+                        list.Add(resultString);
+                    }
+
+                    dataReader.Close();
+
+                    //close Connection
+                    this.CloseConnection();
+
+                    //return list to be displayed
+                    return list;
+                }
+                catch (MySqlException ex)
+                {
+                    return null;
+                }
+            }
+            catch (MySqlException e)
+            {
+                return null;
+            }
+
+
+        }
     }
 }

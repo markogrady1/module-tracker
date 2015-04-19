@@ -12,6 +12,7 @@ namespace OOP._0._1._1
 {
     public partial class StartUp : Form
     {
+        private Boolean existingState = false;
         private delegate void RunOnThreadPool(int threadId);
         private TabControl tabControlViews;
 
@@ -173,6 +174,12 @@ namespace OOP._0._1._1
 
         private void SubmitCourseNameBtn_Click(object sender, EventArgs e)
         {
+            if (existingState)
+            {
+                availableModulesCbo.Items.Clear();
+                existingState = false;
+            }
+            
             resetTabs();
             string chosenCourse = availableCoursesCbo.Text;
             string username = userNameTxt.Text;
@@ -224,7 +231,7 @@ namespace OOP._0._1._1
 
         private void openExistingPredictionBtn_Click(object sender, EventArgs e)
         {
-
+            resetTabs();
             string existingData = existingCourseCbo.Text;
             if (existingData == "")
             {
@@ -234,6 +241,34 @@ namespace OOP._0._1._1
             {
                 cc.setDependencies(new Course(), new User());
                 cc.MatchCourseData(existingData);
+                string id = cc.getCourseDbId();
+                moduleController.CourseId = id;
+                bool result = cc.setExistingData(existingData);
+                
+                mainCoverPnl.Visible = true;
+                mainCoverPnl.BringToFront();
+                mainTabControl.SelectedTab = tabPage2;
+
+                string queryParameters = existingData;
+                string[] strArray = queryParameters.Split(',');
+                string user = strArray[0].Substring(0, 1).ToUpper() + strArray[0].Substring(1).ToLower();
+                user = Regex.Replace(user, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+
+                string course = strArray[1].Substring(0, 1).ToUpper() + strArray[1].Substring(1).ToLower();
+                course = Regex.Replace(course, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+
+                addModUserLbl.Text = user;
+                addModCourseLbl.Text = course;
+                covertab2Pnl.Visible = true;
+                covertab2Pnl.BringToFront();
+                moduleNameTxt.Focus();
+                ConfigureTabs();
+                moduleController.resetAllModules();
+                covertab3Pnl.Visible = false;
+                addGradeTabPage.Text = "Add Module Grade";
+                existingCourseCbo.SelectedIndex = -1;
+                existingState = true;
+
             }
 
         }
@@ -393,7 +428,9 @@ namespace OOP._0._1._1
             predictionTopControlsPnl.Controls.Add(selectLbl);
             predictionTopControlsPnl.Controls.Add(modulePredictionChoiceCbo);
             predictionTopControlsPnl.Controls.Add(modPredictChoiceBtn);
+            modPredictChoiceBtn.BackColor = Color.Brown;
             currentPage.Controls.Add(predictionTopControlsPnl);
+            predictionTopControlsPnl.BackColor = Color.Blue;
             modPredictChoiceBtn.Click += this.modPredictChoiceBtn_Click;
 
         }
@@ -403,27 +440,73 @@ namespace OOP._0._1._1
             int index = modulePredictionChoiceCbo.SelectedIndex;
             if (index != -1)
             {
-                if (resultsPanel != null)
+                if (detailsPanel != null)
                 {
-                    resultsPanel.Controls.Clear();
+                    detailsPanel.Controls.Clear();
                 }
-                
+
                 string vals = hiddenPredictionChoiceCbo.Items[index].ToString();
 
                 Prediction prediction = new Prediction();
                 prediction.modulePrediction(vals);
                 prediction.ResolveAllResults();
+
                 int actual = prediction.getModuleTotal();
-                resultsPanel = new Panel();
-                
-                resultsPanel.Location = new Point(100, 200);
-                resultsPanel.BackColor = Color.LightPink;
-                resultsPanel.AutoSize = true;
+
+                detailsPanel = new Panel();
+
+                List<string> data = cc.getCourseData(prediction.CourseId);
+                string[] courseDat = data[0].Split(',');
+
+
+                detailsPanel.Location = new Point(0, 200);
+                detailsPanel.BackColor = Color.Transparent;
+                detailsPanel.AutoSize = true;
+
+                Label courseDetailsLbl = new Label();
+                courseDetailsLbl.Location = new Point(200, 0);
+                courseDetailsLbl.Font = new Font("Verdana", 11.25F, FontStyle.Regular);
+                courseDetailsLbl.BackColor = Color.BlueViolet;
+                courseDetailsLbl.AutoSize = true;
+                courseDetailsLbl.Text = GetCapitalValue(courseDat[0]) + "      " + GetCapitalValue(courseDat[1]);
+
+
                 moduleResultLbl = new Label();
-                moduleResultLbl.Location = new Point(500, 0);
+                moduleResultLbl.Location = new Point(600, 0);
                 moduleResultLbl.AutoSize = true;
                 moduleResultLbl.Text = actual.ToString();
+                moduleResultLbl.BackColor = Color.BlueViolet;
                 moduleResultLbl.Font = new Font("Courgette", 100.25F, FontStyle.Regular);
+
+                moduleDetailsLbl = new Label();
+                moduleDetailsLbl.Location = new Point(200, 30);
+                moduleDetailsLbl.AutoSize = true;
+                moduleDetailsLbl.BackColor = Color.BlueViolet;
+                moduleDetailsLbl.Font = new Font("Verdana", 11.25F, FontStyle.Regular);
+                moduleDetailsLbl.Text = modulePredictionChoiceCbo.Text; ;
+
+                int numberOfAssessments = prediction.AssessmentAmount;
+
+                if (numberOfAssessments == 1)
+                {
+                    layoutOne(prediction, vals);
+                }
+                if (numberOfAssessments == 2)
+                {
+                    layoutTwo(prediction, vals);
+                }
+                if (numberOfAssessments == 3)
+                {
+                    layoutThree(prediction, vals);
+                }
+                if (numberOfAssessments == 4)
+                {
+                    layoutFour(prediction, vals);
+                }
+
+
+
+
                 if (actual < 30)
                 {
                     moduleResultLbl.ForeColor = Color.Red;
@@ -432,11 +515,15 @@ namespace OOP._0._1._1
                 {
                     moduleResultLbl.ForeColor = Color.Green;
                 }
-                
-                resultsPanel.Controls.Add(moduleResultLbl);
 
-                tabPageModulePrediction.Controls.Add(resultsPanel);
-               
+                //resultsPanel.Controls.Add(moduleResultLbl);
+                detailsPanel.Controls.Add(courseDetailsLbl);
+                detailsPanel.Controls.Add(moduleDetailsLbl);
+                detailsPanel.Controls.Add(moduleResultLbl);
+                detailsPanel.BackColor = Color.Chartreuse;
+
+                tabPageModulePrediction.Controls.Add(detailsPanel);
+                //tabPageModulePrediction.Controls.Add(resultsPanel);
             }
             else
             {
@@ -444,6 +531,145 @@ namespace OOP._0._1._1
             }
 
         }
+
+
+        private void layoutOne(Prediction prediction, string vals)
+        {
+            string[] allData = vals.Split(',');
+            Label assessOneTitle = new Label();
+            assessOneTitle.AutoSize = true;
+            assessOneTitle.Text = "Assessment One: " + allData[6] + "/100";
+            Label assessOneWeight = new Label();
+            assessOneWeight.AutoSize = true;
+            assessOneWeight.Text = "Weight: " + allData[7];
+            assessOneTitle.Location = new Point(200, 50);
+            assessOneWeight.Location = new Point(200, 70);
+            detailsPanel.Controls.Add(assessOneTitle);
+            detailsPanel.Controls.Add(assessOneWeight);
+        }
+
+        private void layoutTwo(Prediction prediction, string vals)
+        {
+            //first assessment
+            string[] allData = vals.Split(',');
+            Label assessOneTitle = new Label();
+            assessOneTitle.AutoSize = true;
+            assessOneTitle.Text = "Assessment One: " + allData[6] + "/100";
+            Label assessOneWeight = new Label();
+            assessOneWeight.AutoSize = true;
+            assessOneWeight.Text = "Weight: " + allData[7];
+            assessOneTitle.Location = new Point(200, 50);
+            assessOneWeight.Location = new Point(200, 70);
+            detailsPanel.Controls.Add(assessOneTitle);
+            detailsPanel.Controls.Add(assessOneWeight);
+            //second assessment
+            Label assessTwoTitle = new Label();
+            assessTwoTitle.AutoSize = true;
+            assessTwoTitle.Text = "Assessment One: " + allData[8] + "/100";
+            Label assessTwoWeight = new Label();
+            assessTwoWeight.AutoSize = true;
+            assessTwoWeight.Text = "Weight: " + allData[9];
+            assessTwoTitle.Location = new Point(200, 90);
+            assessTwoWeight.Location = new Point(200, 110);
+            detailsPanel.Controls.Add(assessTwoTitle);
+            detailsPanel.Controls.Add(assessTwoWeight);
+        }
+
+        private void layoutThree(Prediction prediction, string vals)
+        {
+            //first assessment
+            string[] allData = vals.Split(',');
+            Label assessOneTitle = new Label();
+            assessOneTitle.AutoSize = true;
+            assessOneTitle.Text = "Assessment One: " + allData[6] + "/100";
+            Label assessOneWeight = new Label();
+            assessOneWeight.AutoSize = true;
+            assessOneWeight.Text = "Weight: " + allData[7];
+            assessOneTitle.Location = new Point(200, 50);
+            assessOneWeight.Location = new Point(200, 70);
+            detailsPanel.Controls.Add(assessOneTitle);
+            detailsPanel.Controls.Add(assessOneWeight);
+            //second assessment
+            Label assessTwoTitle = new Label();
+            assessTwoTitle.AutoSize = true;
+            assessTwoTitle.Text = "Assessment One: " + allData[8] + "/100";
+            Label assessTwoWeight = new Label();
+            assessTwoWeight.AutoSize = true;
+            assessTwoWeight.Text = "Weight: " + allData[9];
+            assessTwoTitle.Location = new Point(200, 90);
+            assessTwoWeight.Location = new Point(200, 110);
+            detailsPanel.Controls.Add(assessTwoTitle);
+            detailsPanel.Controls.Add(assessTwoWeight);
+            //third assessment
+            Label assessThreeTitle = new Label();
+            assessThreeTitle.AutoSize = true;
+            assessThreeTitle.Text = "Assessment One: " + allData[8] + "/100";
+            Label assessThreeWeight = new Label();
+            assessThreeWeight.AutoSize = true;
+            assessThreeWeight.Text = "Weight: " + allData[9];
+            assessThreeTitle.Location = new Point(200, 130);
+            assessThreeWeight.Location = new Point(200, 150);
+            detailsPanel.Controls.Add(assessThreeTitle);
+            detailsPanel.Controls.Add(assessThreeWeight);
+        }
+
+
+        private void layoutFour(Prediction prediction, string vals)
+        {
+            //first assessment
+            string[] allData = vals.Split(',');
+            Label assessOneTitle = new Label();
+            assessOneTitle.AutoSize = true;
+            assessOneTitle.Text = "Assessment One: " + allData[6] + "/100";
+            Label assessOneWeight = new Label();
+            assessOneWeight.AutoSize = true;
+            assessOneWeight.Text = "Weight: " + allData[7];
+            assessOneTitle.Location = new Point(200, 50);
+            assessOneWeight.Location = new Point(200, 70);
+            detailsPanel.Controls.Add(assessOneTitle);
+            detailsPanel.Controls.Add(assessOneWeight);
+            //second assessment
+            Label assessTwoTitle = new Label();
+            assessTwoTitle.AutoSize = true;
+            assessTwoTitle.Text = "Assessment One: " + allData[8] + "/100";
+            Label assessTwoWeight = new Label();
+            assessTwoWeight.AutoSize = true;
+            assessTwoWeight.Text = "Weight: " + allData[9];
+            assessTwoTitle.Location = new Point(200, 90);
+            assessTwoWeight.Location = new Point(200, 110);
+            detailsPanel.Controls.Add(assessTwoTitle);
+            detailsPanel.Controls.Add(assessTwoWeight);
+            //third assessment
+            Label assessThreeTitle = new Label();
+            assessThreeTitle.AutoSize = true;
+            assessThreeTitle.Text = "Assessment One: " + allData[8] + "/100";
+            Label assessThreeWeight = new Label();
+            assessThreeWeight.AutoSize = true;
+            assessThreeWeight.Text = "Weight: " + allData[9];
+            assessThreeTitle.Location = new Point(200, 130);
+            assessThreeWeight.Location = new Point(200, 150);
+            detailsPanel.Controls.Add(assessThreeTitle);
+            detailsPanel.Controls.Add(assessThreeWeight);
+            //third assessment
+            Label assessFourTitle = new Label();
+            assessFourTitle.AutoSize = true;
+            assessFourTitle.Text = "Assessment One: " + allData[8] + "/100";
+            Label assessFourWeight = new Label();
+            assessFourWeight.AutoSize = true;
+            assessFourWeight.Text = "Weight: " + allData[9];
+            assessFourTitle.Location = new Point(200, 170);
+            assessFourWeight.Location = new Point(200, 190);
+            detailsPanel.Controls.Add(assessFourTitle);
+            detailsPanel.Controls.Add(assessFourWeight);
+        }
+
+        protected string GetCapitalValue(string name)
+        {
+            string modName = name.Substring(0, 1).ToUpper() + name.Substring(1).ToLower();
+            modName = Regex.Replace(modName, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+            return modName;
+        }
+
         public void configLevelTab(string level, List<string> moduleList, TabPage currentPage)
         {
             int panelStart = 10;
@@ -673,7 +899,20 @@ namespace OOP._0._1._1
             panel[i].Controls.Add(assessment1[i]);
         }
 
-
+        public void availableModulesCbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = availableModulesCbo.SelectedIndex;
+            string moduleDBId = hiddenModuleGradesCbo.Items[index].ToString();
+            string[] modGrades = moduleDBId.Split(',');
+            assessment1GradeTxt.Text = modGrades[0];
+            assessment1WeightTxt.Text = modGrades[1];
+            assessment2GradeTxt.Text = modGrades[2];
+            assessment2WeightTxt.Text = modGrades[3];
+            assessment3GradeTxt.Text = modGrades[4];
+            assessment3WeightTxt.Text = modGrades[5];
+            assessment4GradeTxt.Text = modGrades[6];
+            assessment4WeightTxt.Text = modGrades[7];
+        }
         private void addGradesBtn_Click(object sender, EventArgs e)
         {
             if (availableModulesCbo.Text == "")
@@ -803,6 +1042,7 @@ namespace OOP._0._1._1
             List<string> modList = moduleController.resolveAllModules();
             availableModulesCbo.Items.Clear();
             hiddenCombo.Items.Clear();
+            hiddenModuleGradesCbo = new ComboBox();
             for (var i = 0; i < modList.Count; i++)
             {
                 string[] modArr = modList[i].Split(',');
@@ -814,7 +1054,12 @@ namespace OOP._0._1._1
                 string moduleDetail = modname + "- " + modCode + " - Level: " + modLevel;
 
                 availableModulesCbo.Items.Add(moduleDetail);
+
+
+                string grades = modArr[6] + "," + modArr[7] + "," + modArr[8] + "," + modArr[9] + "," + modArr[10] + "," +
+                                modArr[11] + "," + modArr[12] + "," + modArr[13];
                 hiddenCombo.Items.Add(modArr[0]);
+                hiddenModuleGradesCbo.Items.Add(grades);
             }
 
         }

@@ -11,6 +11,9 @@ namespace OOP._0._1._1
         private float _avgTwo;
         private float _avgThree;
         private float _avgFour;
+        private string _moduleName;
+        private string _moduleCode;
+        private string _courseId;
 
         public float AvgOne
         {
@@ -32,15 +35,39 @@ namespace OOP._0._1._1
             get { return _avgFour; }
         }
 
+        public string ModuleName
+        {
+            get { return _moduleName; }
+        }
+
+       
+        public string ModuleCode
+        {
+            get { return _moduleCode; }
+        }
+        
+        public string CourseId
+        {
+            get { return _courseId; }
+        }
+
+        
+        public int AssessmentAmount
+        {
+            get { return _assessmentAmount; }
+        }
+
         public void modulePrediction(string moduleValues)
         {
             _completeModuleArray = moduleValues.Split(',');
             _moduleGrades = GetAssessmentGrades(_completeModuleArray);
             _assessmentAmount = GetAmountOfAssessments(_completeModuleArray);
+            _courseId = _completeModuleArray[3];
+            _moduleName = _completeModuleArray[1];
+            _moduleCode = _completeModuleArray[2];
         }
 
-
-
+      
         public string GetModuleName(string[] moduleData)
         {
             return moduleData[1];

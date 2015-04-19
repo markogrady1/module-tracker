@@ -52,6 +52,10 @@ namespace OOP._0._1._1
             getAllModulesByLevel();
         }
 
+        public void resetAllModules()
+        {
+            getAllModulesByLevel();
+        }
         public void getAllModulesByLevel()
         {
             db.OpenConnection();

@@ -1,19 +1,21 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace OOP._0._1._1
 {
     class CourseController
     {
+        private delegate void RunOnThreadPool(string username, string coursename);
+        private Database db;
+        private Course course;
+        private User user;
 
         public CourseController()
         {
             db = new Database();
         }
-        private delegate void RunOnThreadPool(string username, string coursename);
-        private Database db;
-        private Course course;
-        private User user;
+      
         public void setDependencies(Course course, User user)
         {
             this.course = course;
@@ -29,7 +31,16 @@ namespace OOP._0._1._1
             else
                 return false;
         }
-        
+
+        public bool setExistingData(string existingData)
+        {
+            string queryParameters = existingData;
+            string[] strArray = queryParameters.Split(',');
+            
+            user.Name = strArray[0];
+            course.CourseName = strArray[1];
+            return true;
+        }
         public bool addToDatabase(string username, string coursename)
         {
             
@@ -72,10 +83,17 @@ namespace OOP._0._1._1
             //id has been resolved from the database but we have not implemented it yet
         }
 
+       
         public string getCourseDbId()
         {
             return course.CourseDatabaseId;
         }
 
+        public List<string> getCourseData(string courseDat)
+        {
+            db.OpenConnection();
+            List<string>data = db.getCourseDetails(courseDat);
+            return data;
+        } 
     }
 }

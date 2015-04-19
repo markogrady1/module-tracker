@@ -735,6 +735,7 @@ namespace OOP._0._1._1
             this.addGradesBtn.Size = new System.Drawing.Size(135, 42);
             this.addGradesBtn.TabIndex = 22;
             this.addGradesBtn.Click += new System.EventHandler(this.addGradesBtn_Click);
+            this.availableModulesCbo.SelectedIndexChanged += new System.EventHandler(this.availableModulesCbo_SelectedIndexChanged);
             // 
             // StartUp
             // 
@@ -843,11 +844,15 @@ namespace OOP._0._1._1
         private Label[] assessment4Lbl;
         private Label[] assessment4;
         private ComboBox hiddenPredictionChoiceCbo;
+        private ComboBox hiddenModuleGradesCbo;
         private ComboBox modulePredictionChoiceCbo;
         private Panel predictionTopControlsPnl;
         private Label modPredictChoiceBtn;
         private Panel resultsPanel;
+        private Panel detailsPanel;
         private Label moduleResultLbl;
+        private Label moduleDetailsLbl;
+        private Label codeLbl;
     }
 }
 
