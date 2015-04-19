@@ -172,53 +172,53 @@ namespace OOP._0._1._1
             openExistingCoursePnl.Visible = true;
         }
 
-        private void SubmitCourseNameBtn_Click(object sender, EventArgs e)
-        {
-            if (existingState)
-            {
-                availableModulesCbo.Items.Clear();
-                existingState = false;
-            }
-            
-            resetTabs();
-            string chosenCourse = availableCoursesCbo.Text;
-            string username = userNameTxt.Text;
+        //private void SubmitCourseNameBtn_Click(object sender, EventArgs e)
+        //{
+        //    if (existingState)
+        //    {
+        //        availableModulesCbo.Items.Clear();
+        //        existingState = false;
+        //    }
 
-            if (chosenCourse == "")
-            {
-                MessageBox.Show("Please select a course");
-            }
-            else
-            {
-                if (username == "")
-                {
-                    MessageBox.Show("Please enter your name");
-                }
-                else
-                {
-                    username = username.Substring(0, 1).ToUpper() + username.Substring(1).ToLower();
-                    cc.setDependencies(new Course(), new User());
-                    bool result = cc.setData(username, chosenCourse);
-                    if (result)
-                    {
-                        resetTextFields(userNameTxt);
-                        resetComboBox(availableCoursesCbo);
-                        MessageBox.Show("A new course has been created.\n" +
-                                                               "You may now add modules to it.");
-                        ConfigureTabs();
-                        mainCoverPnl.Visible = true;
-                        mainCoverPnl.BringToFront();
-                        mainTabControl.SelectedTab = tabPage2;
-                        addModUserLbl.Text = username;
-                        addModCourseLbl.Text = chosenCourse;
-                        covertab2Pnl.Visible = true;
-                        covertab2Pnl.BringToFront();
-                        moduleNameTxt.Focus();
+        //    resetTabs();
+        //    string chosenCourse = availableCoursesCbo.Text;
+        //    string username = userNameTxt.Text;
 
-                    }
-                }
-            }
-        }
+        //    if (chosenCourse == "")
+        //    {
+        //        MessageBox.Show("Please select a course");
+        //    }
+        //    else
+        //    {
+        //        if (username == "")
+        //        {
+        //            MessageBox.Show("Please enter your name");
+        //        }
+        //        else
+        //        {
+        //            username = username.Substring(0, 1).ToUpper() + username.Substring(1).ToLower();
+        //            cc.setDependencies(new Course(), new User());
+        //            bool result = cc.setData(username, chosenCourse);
+        //            if (result)
+        //            {
+        //                resetTextFields(userNameTxt);
+        //                resetComboBox(availableCoursesCbo);
+        //                MessageBox.Show("A new course has been created.\n" +
+        //                                                       "You may now add modules to it.");
+        //                ConfigureTabs();
+        //                mainCoverPnl.Visible = true;
+        //                mainCoverPnl.BringToFront();
+        //                mainTabControl.SelectedTab = tabPage2;
+        //                addModUserLbl.Text = username;
+        //                addModCourseLbl.Text = chosenCourse;
+        //                covertab2Pnl.Visible = true;
+        //                covertab2Pnl.BringToFront();
+        //                moduleNameTxt.Focus();
+
+        //            }
+        //        }
+        //    }
+        //}
 
         public void resetTabs()
         {
@@ -229,56 +229,51 @@ namespace OOP._0._1._1
             this.mainTabControl.Controls.Remove(this.tabPageModulePrediction);
         }
 
-        private void openExistingPredictionBtn_Click(object sender, EventArgs e)
-        {
-            resetTabs();
-            string existingData = existingCourseCbo.Text;
-            if (existingData == "")
-            {
-                MessageBox.Show("You did not select an existing course");
-            }
-            else
-            {
-                cc.setDependencies(new Course(), new User());
-                cc.MatchCourseData(existingData);
-                string id = cc.getCourseDbId();
-                moduleController.CourseId = id;
-                bool result = cc.setExistingData(existingData);
-                
-                mainCoverPnl.Visible = true;
-                mainCoverPnl.BringToFront();
-                mainTabControl.SelectedTab = tabPage2;
+        //private void openExistingPredictionBtn_Click(object sender, EventArgs e)
+        //{
+        //    resetTabs();
+        //    string existingData = existingCourseCbo.Text;
+        //    if (existingData == "")
+        //    {
+        //        MessageBox.Show("You did not select an existing course");
+        //    }
+        //    else
+        //    {
+        //        cc.setDependencies(new Course(), new User());
+        //        cc.MatchCourseData(existingData);
+        //        string id = cc.getCourseDbId();
+        //        moduleController.CourseId = id;
+        //        bool result = cc.setExistingData(existingData);
 
-                string queryParameters = existingData;
-                string[] strArray = queryParameters.Split(',');
-                string user = strArray[0].Substring(0, 1).ToUpper() + strArray[0].Substring(1).ToLower();
-                user = Regex.Replace(user, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+        //        mainCoverPnl.Visible = true;
+        //        mainCoverPnl.BringToFront();
+        //        mainTabControl.SelectedTab = tabPage2;
 
-                string course = strArray[1].Substring(0, 1).ToUpper() + strArray[1].Substring(1).ToLower();
-                course = Regex.Replace(course, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+        //        string queryParameters = existingData;
+        //        string[] strArray = queryParameters.Split(',');
+        //        string user = strArray[0].Substring(0, 1).ToUpper() + strArray[0].Substring(1).ToLower();
+        //        user = Regex.Replace(user, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
 
-                addModUserLbl.Text = user;
-                addModCourseLbl.Text = course;
-                covertab2Pnl.Visible = true;
-                covertab2Pnl.BringToFront();
-                moduleNameTxt.Focus();
-                ConfigureTabs();
-                moduleController.resetAllModules();
-                covertab3Pnl.Visible = false;
-                addGradeTabPage.Text = "Add Module Grade";
-                existingCourseCbo.SelectedIndex = -1;
-                existingState = true;
+        //        string course = strArray[1].Substring(0, 1).ToUpper() + strArray[1].Substring(1).ToLower();
+        //        course = Regex.Replace(course, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
 
-            }
+        //        addModUserLbl.Text = user;
+        //        addModCourseLbl.Text = course;
+        //        covertab2Pnl.Visible = true;
+        //        covertab2Pnl.BringToFront();
+        //        moduleNameTxt.Focus();
+        //        ConfigureTabs();
+        //        moduleController.resetAllModules();
+        //        covertab3Pnl.Visible = false;
+        //        addGradeTabPage.Text = "Add Module Grade";
+        //        existingCourseCbo.SelectedIndex = -1;
+        //        existingState = true;
 
-        }
+        //    }
 
-        private void activeCreateNewCourseBtn_Click(object sender, EventArgs e)
-        {
-            mainCoverPnl.Visible = false;
-            mainCoverPnl.SendToBack();
+        //}
 
-        }
+       
 
         private void AddModuleBtnBlue_Click(object sender, EventArgs e)
         {
@@ -382,7 +377,7 @@ namespace OOP._0._1._1
             List<string> moduleList = moduleController.resolveAllModules();
             currentPage.Controls.Clear();
 
-            
+
             predictionTopControlsPnl = new Panel();
             predictionTopControlsPnl.AutoSize = true;
             predictionTopControlsPnl.Location = new Point(40, 20);
@@ -456,20 +451,20 @@ namespace OOP._0._1._1
 
                 instructionLbl = new Label();
                 instructionLbl.Image = Properties.Resources.modPassInstruction;
-                instructionLbl.Location = new Point(0, 18);
-                instructionLbl.Size  = new Size(531, 50);
+                instructionLbl.Location = new Point(0, 33);
+                instructionLbl.Size = new Size(531, 50);
                 instructionLbl.BringToFront();
 
                 legendLbl = new Label();
                 legendLbl.Image = Properties.Resources.legend;
                 legendLbl.Location = new Point(561, 0);
-                legendLbl.Size = new Size(165, 72);
+                legendLbl.Size = new Size(165, 102);
 
                 instructionPnl = new Panel();
                 instructionPnl.Location = new Point(30, 145);
                 instructionPnl.Controls.Add(instructionLbl);
                 instructionPnl.Controls.Add(legendLbl);
-                instructionPnl.Size = new Size(726, 72);
+                instructionPnl.Size = new Size(726, 102);
                 instructionPnl.BackColor = Color.CadetBlue;
                 detailsPnl = new Panel();
 
@@ -477,7 +472,7 @@ namespace OOP._0._1._1
                 string[] courseDat = data[0].Split(',');
 
 
-                detailsPnl.Location = new Point(0, 220);
+                detailsPnl.Location = new Point(0, 250);
                 detailsPnl.BackColor = Color.Transparent;
                 detailsPnl.AutoSize = true;
 
@@ -523,16 +518,31 @@ namespace OOP._0._1._1
                 }
 
 
+                string[] allData = vals.Split(',');
 
 
-                if (actual < 30)
+
+                if (actual < 40)
                 {
                     moduleResultLbl.ForeColor = Color.FromArgb(246, 11, 11);
                 }
                 else
                 {
-                    moduleResultLbl.ForeColor = Color.FromArgb(24, 240, 13);
+                    if ((actual > 40) && (parseData(allData[6]) < 30 && parseData(allData[7]) > 0) ||
+                        (parseData(allData[8]) < 30 && parseData(allData[9]) > 0) ||
+                        (parseData(allData[10]) < 30 && parseData(allData[11]) > 0) ||
+                        (parseData(allData[12]) < 30 && parseData(allData[13]) > 0))
+                    {
+                        moduleResultLbl.ForeColor = Color.FromArgb(246, 132, 11);
+                            //246,132,11 = referral - 246, 11, 11 = fail - 24, 240, 13 = pass
+                    }
+                    else
+                    {
+                        moduleResultLbl.ForeColor = Color.FromArgb(24, 240, 13);
+                    }
                 }
+                
+
 
                 //resultsPnl.Controls.Add(moduleResultLbl);
                 detailsPnl.Controls.Add(courseDetailsLbl);
@@ -548,6 +558,11 @@ namespace OOP._0._1._1
                 MessageBox.Show("You have not chosen a module");
             }
 
+        }
+
+        private int parseData(string s)
+        {
+            return Convert.ToInt32(s);
         }
 
 
@@ -735,9 +750,9 @@ namespace OOP._0._1._1
                 assessment4[i] = new Label();
                 assessment1Lbl[i].Text = null;
                 modNameLbl[i].Text = "Module Name:";
-                modName[i].Text = strArray[1];
+                modName[i].Text = GetCapitalValue(strArray[1]);
                 modCodeLbl[i].Text = "Module Code:";
-                modCode[i].Text = strArray[2];
+                modCode[i].Text = strArray[2].ToUpper();
                 assessmentNoLbl[i].Text = "No. of Assessments:";
                 assessmentNo[i].Text = strArray[5];
                 assessment1Lbl[i].Text = "Assessment One:";
@@ -810,8 +825,6 @@ namespace OOP._0._1._1
                 {
                     setFourAssessments(assessment1Lbl, i, SECOND_ROW_POS, panel, assessment1, assessment2Lbl, assessment2, assessment3Lbl, assessment3, assessment4Lbl, assessment4);
                 }
-
-
                 panelStart += 80;
 
             }
@@ -1023,7 +1036,6 @@ namespace OOP._0._1._1
                             assessController.setSpecificModule(modData, moduleDBId);
                             assessController.updateSystem();
                             moduleController.getAllModulesByLevel();
-                            MessageBox.Show("New grades have been added to the " + modulename + " module");
                             resetTextFields(assessment1GradeTxt);
                             resetTextFields(assessment1WeightTxt);
                             resetTextFields(assessment2GradeTxt);
@@ -1032,6 +1044,7 @@ namespace OOP._0._1._1
                             resetTextFields(assessment3WeightTxt);
                             resetTextFields(assessment4GradeTxt);
                             resetTextFields(assessment4WeightTxt);
+                            MessageBox.Show("New grades have been added to the " + modulename + " module");
                             assessment1GradeTxt.Focus();
 
                         }
@@ -1080,6 +1093,104 @@ namespace OOP._0._1._1
                 hiddenModuleGradesCbo.Items.Add(grades);
             }
 
+        }
+
+        private void activeCreateNewCourseBtn_Click(object sender, EventArgs e)
+        {
+            mainCoverPnl.Visible = false;
+            mainCoverPnl.SendToBack();
+
+        }
+
+        private void openExistingPredictionBtn_Click(object sender, EventArgs e)
+        {
+            resetTabs();
+            string existingData = existingCourseCbo.Text;
+            if (existingData == "")
+            {
+                MessageBox.Show("You did not select an existing course");
+            }
+            else
+            {
+                cc.setDependencies(new Course(), new User());
+                cc.MatchCourseData(existingData);
+                string id = cc.getCourseDbId();
+                moduleController.CourseId = id;
+                bool result = cc.setExistingData(existingData);
+
+                mainCoverPnl.Visible = true;
+                mainCoverPnl.BringToFront();
+                mainTabControl.SelectedTab = tabPage2;
+
+                string queryParameters = existingData;
+                string[] strArray = queryParameters.Split(',');
+                string user = strArray[0].Substring(0, 1).ToUpper() + strArray[0].Substring(1).ToLower();
+                user = Regex.Replace(user, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+
+                string course = strArray[1].Substring(0, 1).ToUpper() + strArray[1].Substring(1).ToLower();
+                course = Regex.Replace(course, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+
+                addModUserLbl.Text = user;
+                addModCourseLbl.Text = course;
+                covertab2Pnl.Visible = true;
+                covertab2Pnl.BringToFront();
+                moduleNameTxt.Focus();
+                ConfigureTabs();
+                moduleController.resetAllModules();
+                covertab3Pnl.Visible = false;
+                addGradeTabPage.Text = "Add Module Grade";
+                existingCourseCbo.SelectedIndex = -1;
+                existingState = true;
+
+            }
+        }
+
+        private void submitCourseNameBtn_Click(object sender, EventArgs e)
+        {
+            if (existingState)
+            {
+                availableModulesCbo.Items.Clear();
+                existingState = false;
+            }
+
+            resetTabs();
+            string chosenCourse = availableCoursesCbo.Text;
+            string username = userNameTxt.Text;
+
+            if (chosenCourse == "")
+            {
+                MessageBox.Show("Please select a course");
+            }
+            else
+            {
+                if (username == "")
+                {
+                    MessageBox.Show("Please enter your name");
+                }
+                else
+                {
+                    username = username.Substring(0, 1).ToUpper() + username.Substring(1).ToLower();
+                    cc.setDependencies(new Course(), new User());
+                    bool result = cc.setData(username, chosenCourse);
+                    if (result)
+                    {
+                        resetTextFields(userNameTxt);
+                        resetComboBox(availableCoursesCbo);
+                        MessageBox.Show("A new course has been created.\n" +
+                                                               "You may now add modules to it.");
+                        ConfigureTabs();
+                        mainCoverPnl.Visible = true;
+                        mainCoverPnl.BringToFront();
+                        mainTabControl.SelectedTab = tabPage2;
+                        addModUserLbl.Text = username;
+                        addModCourseLbl.Text = chosenCourse;
+                        covertab2Pnl.Visible = true;
+                        covertab2Pnl.BringToFront();
+                        moduleNameTxt.Focus();
+
+                    }
+                }
+            }
         }
     }
 }

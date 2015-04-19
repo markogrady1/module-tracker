@@ -71,24 +71,24 @@ namespace OOP._0._1._1
             this.addModUserLbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.mainCoverPnl = new System.Windows.Forms.Panel();
-            this.activeCreateNewCourseBtn = new System.Windows.Forms.Button();
             this.selectCoursePnl = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.userNameTxt = new System.Windows.Forms.TextBox();
-            this.SubmitCourseNameBtn = new System.Windows.Forms.Button();
             this.availableCoursesCbo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.openExistingCoursePnl = new System.Windows.Forms.Panel();
-            this.openExistingPredictionBtn = new System.Windows.Forms.Button();
             this.existingCourseCbo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.buildCourseBtn = new System.Windows.Forms.Button();
+            this.mainCoverPnl = new System.Windows.Forms.Panel();
             this.hiddenCombo = new System.Windows.Forms.ComboBox();
             this.mainCoverPnl2 = new System.Windows.Forms.Panel();
             this.mainTabControl = new System.Windows.Forms.TabControl();
-            this.label3 = new System.Windows.Forms.Label();
+            this.submitCourseNameBtn = new System.Windows.Forms.Label();
+            this.openExistingPredictionBtn = new System.Windows.Forms.Label();
+            this.activeCreateNewCourseBtn = new System.Windows.Forms.Label();
             this.AddModuleBtnBlue = new System.Windows.Forms.Label();
             this.addGradesBtn = new System.Windows.Forms.Label();
             this.addGradeTabPage.SuspendLayout();
@@ -97,9 +97,9 @@ namespace OOP._0._1._1
             this.tabPage2.SuspendLayout();
             this.covertab2Pnl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.mainCoverPnl.SuspendLayout();
             this.selectCoursePnl.SuspendLayout();
             this.openExistingCoursePnl.SuspendLayout();
+            this.mainCoverPnl.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -354,7 +354,7 @@ namespace OOP._0._1._1
             this.availableModulesCbo.FormattingEnabled = true;
             this.availableModulesCbo.Location = new System.Drawing.Point(376, 94);
             this.availableModulesCbo.Name = "availableModulesCbo";
-            this.availableModulesCbo.Size = new System.Drawing.Size(270, 26);
+            this.availableModulesCbo.Size = new System.Drawing.Size(396, 26);
             this.availableModulesCbo.TabIndex = 1;
             this.availableModulesCbo.SelectedIndexChanged += new System.EventHandler(this.availableModulesCbo_SelectedIndexChanged);
             // 
@@ -523,10 +523,10 @@ namespace OOP._0._1._1
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.mainCoverPnl);
             this.tabPage1.Controls.Add(this.selectCoursePnl);
             this.tabPage1.Controls.Add(this.openExistingCoursePnl);
             this.tabPage1.Controls.Add(this.buildCourseBtn);
+            this.tabPage1.Controls.Add(this.mainCoverPnl);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -535,32 +535,12 @@ namespace OOP._0._1._1
             this.tabPage1.Text = "Home";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // mainCoverPnl
-            // 
-            this.mainCoverPnl.Controls.Add(this.activeCreateNewCourseBtn);
-            this.mainCoverPnl.Location = new System.Drawing.Point(3, 0);
-            this.mainCoverPnl.Name = "mainCoverPnl";
-            this.mainCoverPnl.Size = new System.Drawing.Size(690, 216);
-            this.mainCoverPnl.TabIndex = 12;
-            this.mainCoverPnl.Visible = false;
-            // 
-            // activeCreateNewCourseBtn
-            // 
-            this.activeCreateNewCourseBtn.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activeCreateNewCourseBtn.Location = new System.Drawing.Point(275, 91);
-            this.activeCreateNewCourseBtn.Name = "activeCreateNewCourseBtn";
-            this.activeCreateNewCourseBtn.Size = new System.Drawing.Size(140, 48);
-            this.activeCreateNewCourseBtn.TabIndex = 0;
-            this.activeCreateNewCourseBtn.Text = "Create New Course";
-            this.activeCreateNewCourseBtn.UseVisualStyleBackColor = true;
-            this.activeCreateNewCourseBtn.Click += new System.EventHandler(this.activeCreateNewCourseBtn_Click);
-            // 
             // selectCoursePnl
             // 
+            this.selectCoursePnl.Controls.Add(this.submitCourseNameBtn);
             this.selectCoursePnl.Controls.Add(this.label4);
             this.selectCoursePnl.Controls.Add(this.label2);
             this.selectCoursePnl.Controls.Add(this.userNameTxt);
-            this.selectCoursePnl.Controls.Add(this.SubmitCourseNameBtn);
             this.selectCoursePnl.Controls.Add(this.availableCoursesCbo);
             this.selectCoursePnl.Controls.Add(this.label1);
             this.selectCoursePnl.Location = new System.Drawing.Point(3, 6);
@@ -597,17 +577,6 @@ namespace OOP._0._1._1
             this.userNameTxt.Size = new System.Drawing.Size(302, 26);
             this.userNameTxt.TabIndex = 5;
             // 
-            // SubmitCourseNameBtn
-            // 
-            this.SubmitCourseNameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubmitCourseNameBtn.Location = new System.Drawing.Point(275, 139);
-            this.SubmitCourseNameBtn.Name = "SubmitCourseNameBtn";
-            this.SubmitCourseNameBtn.Size = new System.Drawing.Size(140, 41);
-            this.SubmitCourseNameBtn.TabIndex = 4;
-            this.SubmitCourseNameBtn.Text = "Create";
-            this.SubmitCourseNameBtn.UseVisualStyleBackColor = true;
-            this.SubmitCourseNameBtn.Click += new System.EventHandler(this.SubmitCourseNameBtn_Click);
-            // 
             // availableCoursesCbo
             // 
             this.availableCoursesCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -640,17 +609,6 @@ namespace OOP._0._1._1
             this.openExistingCoursePnl.TabIndex = 2;
             this.openExistingCoursePnl.Visible = false;
             // 
-            // openExistingPredictionBtn
-            // 
-            this.openExistingPredictionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.openExistingPredictionBtn.Location = new System.Drawing.Point(275, 123);
-            this.openExistingPredictionBtn.Name = "openExistingPredictionBtn";
-            this.openExistingPredictionBtn.Size = new System.Drawing.Size(140, 41);
-            this.openExistingPredictionBtn.TabIndex = 11;
-            this.openExistingPredictionBtn.Text = "Open";
-            this.openExistingPredictionBtn.UseVisualStyleBackColor = true;
-            this.openExistingPredictionBtn.Click += new System.EventHandler(this.openExistingPredictionBtn_Click);
-            // 
             // existingCourseCbo
             // 
             this.existingCourseCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -671,6 +629,16 @@ namespace OOP._0._1._1
             this.label6.TabIndex = 9;
             this.label6.Text = "Select Course";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courgette", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(222, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(277, 24);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Open Existing Course Prediction";
+            // 
             // buildCourseBtn
             // 
             this.buildCourseBtn.Location = new System.Drawing.Point(40, 38);
@@ -680,6 +648,15 @@ namespace OOP._0._1._1
             this.buildCourseBtn.Text = "Build Course";
             this.buildCourseBtn.UseVisualStyleBackColor = true;
             this.buildCourseBtn.Click += new System.EventHandler(this.buildCourseBtn_Click);
+            // 
+            // mainCoverPnl
+            // 
+            this.mainCoverPnl.Controls.Add(this.activeCreateNewCourseBtn);
+            this.mainCoverPnl.Location = new System.Drawing.Point(3, 0);
+            this.mainCoverPnl.Name = "mainCoverPnl";
+            this.mainCoverPnl.Size = new System.Drawing.Size(690, 216);
+            this.mainCoverPnl.TabIndex = 12;
+            this.mainCoverPnl.Visible = false;
             // 
             // hiddenCombo
             // 
@@ -707,15 +684,35 @@ namespace OOP._0._1._1
             this.mainTabControl.Size = new System.Drawing.Size(1078, 562);
             this.mainTabControl.TabIndex = 2;
             // 
-            // label3
+            // submitCourseNameBtn
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courgette", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(222, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(277, 24);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Open Existing Course Prediction";
+            this.submitCourseNameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.submitCourseNameBtn.Image = global::OOP._0._1._1.Properties.Resources.create;
+            this.submitCourseNameBtn.Location = new System.Drawing.Point(273, 145);
+            this.submitCourseNameBtn.Name = "submitCourseNameBtn";
+            this.submitCourseNameBtn.Size = new System.Drawing.Size(152, 48);
+            this.submitCourseNameBtn.TabIndex = 8;
+            this.submitCourseNameBtn.Click += new System.EventHandler(this.submitCourseNameBtn_Click);
+            // 
+            // openExistingPredictionBtn
+            // 
+            this.openExistingPredictionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.openExistingPredictionBtn.Image = global::OOP._0._1._1.Properties.Resources.openCourse;
+            this.openExistingPredictionBtn.Location = new System.Drawing.Point(273, 121);
+            this.openExistingPredictionBtn.Name = "openExistingPredictionBtn";
+            this.openExistingPredictionBtn.Size = new System.Drawing.Size(150, 41);
+            this.openExistingPredictionBtn.TabIndex = 12;
+            this.openExistingPredictionBtn.Click += new System.EventHandler(this.openExistingPredictionBtn_Click);
+            // 
+            // activeCreateNewCourseBtn
+            // 
+            this.activeCreateNewCourseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.activeCreateNewCourseBtn.Image = global::OOP._0._1._1.Properties.Resources.createNewCourse;
+            this.activeCreateNewCourseBtn.Location = new System.Drawing.Point(272, 103);
+            this.activeCreateNewCourseBtn.Name = "activeCreateNewCourseBtn";
+            this.activeCreateNewCourseBtn.Size = new System.Drawing.Size(151, 48);
+            this.activeCreateNewCourseBtn.TabIndex = 1;
+            this.activeCreateNewCourseBtn.Click += new System.EventHandler(this.activeCreateNewCourseBtn_Click);
             // 
             // AddModuleBtnBlue
             // 
@@ -755,11 +752,11 @@ namespace OOP._0._1._1
             this.covertab2Pnl.ResumeLayout(false);
             this.covertab2Pnl.PerformLayout();
             this.tabPage1.ResumeLayout(false);
-            this.mainCoverPnl.ResumeLayout(false);
             this.selectCoursePnl.ResumeLayout(false);
             this.selectCoursePnl.PerformLayout();
             this.openExistingCoursePnl.ResumeLayout(false);
             this.openExistingCoursePnl.PerformLayout();
+            this.mainCoverPnl.ResumeLayout(false);
             this.mainTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -772,16 +769,13 @@ namespace OOP._0._1._1
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel mainCoverPnl;
         private System.Windows.Forms.Panel mainCoverPnl2;
-        private System.Windows.Forms.Button activeCreateNewCourseBtn;
         private System.Windows.Forms.Panel selectCoursePnl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox userNameTxt;
-        private System.Windows.Forms.Button SubmitCourseNameBtn;
         private System.Windows.Forms.ComboBox availableCoursesCbo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel openExistingCoursePnl;
-        private System.Windows.Forms.Button openExistingPredictionBtn;
         private System.Windows.Forms.ComboBox existingCourseCbo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
@@ -856,6 +850,9 @@ namespace OOP._0._1._1
         private Label codeLbl;
         private Label instructionLbl;
         private Label legendLbl;
+        private Label activeCreateNewCourseBtn;
+        private Label openExistingPredictionBtn;
+        private Label submitCourseNameBtn;
     }
 }
 
