@@ -84,11 +84,11 @@ namespace OOP._0._1._1
             this.openExistingPredictionBtn = new System.Windows.Forms.Button();
             this.existingCourseCbo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.buildCourseBtn = new System.Windows.Forms.Button();
             this.hiddenCombo = new System.Windows.Forms.ComboBox();
             this.mainCoverPnl2 = new System.Windows.Forms.Panel();
             this.mainTabControl = new System.Windows.Forms.TabControl();
+            this.label3 = new System.Windows.Forms.Label();
             this.AddModuleBtnBlue = new System.Windows.Forms.Label();
             this.addGradesBtn = new System.Windows.Forms.Label();
             this.addGradeTabPage.SuspendLayout();
@@ -356,6 +356,7 @@ namespace OOP._0._1._1
             this.availableModulesCbo.Name = "availableModulesCbo";
             this.availableModulesCbo.Size = new System.Drawing.Size(270, 26);
             this.availableModulesCbo.TabIndex = 1;
+            this.availableModulesCbo.SelectedIndexChanged += new System.EventHandler(this.availableModulesCbo_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -670,16 +671,6 @@ namespace OOP._0._1._1
             this.label6.TabIndex = 9;
             this.label6.Text = "Select Course";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courgette", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(222, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(277, 24);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Open Existing Course Prediction";
-            // 
             // buildCourseBtn
             // 
             this.buildCourseBtn.Location = new System.Drawing.Point(40, 38);
@@ -716,6 +707,16 @@ namespace OOP._0._1._1
             this.mainTabControl.Size = new System.Drawing.Size(1078, 562);
             this.mainTabControl.TabIndex = 2;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courgette", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(222, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(277, 24);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Open Existing Course Prediction";
+            // 
             // AddModuleBtnBlue
             // 
             this.AddModuleBtnBlue.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -735,7 +736,6 @@ namespace OOP._0._1._1
             this.addGradesBtn.Size = new System.Drawing.Size(135, 42);
             this.addGradesBtn.TabIndex = 22;
             this.addGradesBtn.Click += new System.EventHandler(this.addGradesBtn_Click);
-            this.availableModulesCbo.SelectedIndexChanged += new System.EventHandler(this.availableModulesCbo_SelectedIndexChanged);
             // 
             // StartUp
             // 
@@ -848,11 +848,14 @@ namespace OOP._0._1._1
         private ComboBox modulePredictionChoiceCbo;
         private Panel predictionTopControlsPnl;
         private Label modPredictChoiceBtn;
-        private Panel resultsPanel;
-        private Panel detailsPanel;
+        private Panel resultsPnl;
+        private Panel detailsPnl;
+        private Panel instructionPnl;
         private Label moduleResultLbl;
         private Label moduleDetailsLbl;
         private Label codeLbl;
+        private Label instructionLbl;
+        private Label legendLbl;
     }
 }
 

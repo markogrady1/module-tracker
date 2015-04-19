@@ -382,6 +382,7 @@ namespace OOP._0._1._1
             List<string> moduleList = moduleController.resolveAllModules();
             currentPage.Controls.Clear();
 
+            
             predictionTopControlsPnl = new Panel();
             predictionTopControlsPnl.AutoSize = true;
             predictionTopControlsPnl.Location = new Point(40, 20);
@@ -440,9 +441,9 @@ namespace OOP._0._1._1
             int index = modulePredictionChoiceCbo.SelectedIndex;
             if (index != -1)
             {
-                if (detailsPanel != null)
+                if (detailsPnl != null)
                 {
-                    detailsPanel.Controls.Clear();
+                    detailsPnl.Controls.Clear();
                 }
 
                 string vals = hiddenPredictionChoiceCbo.Items[index].ToString();
@@ -453,15 +454,32 @@ namespace OOP._0._1._1
 
                 int actual = prediction.getModuleTotal();
 
-                detailsPanel = new Panel();
+                instructionLbl = new Label();
+                instructionLbl.Image = Properties.Resources.modPassInstruction;
+                instructionLbl.Location = new Point(0, 18);
+                instructionLbl.Size  = new Size(531, 50);
+                instructionLbl.BringToFront();
+
+                legendLbl = new Label();
+                legendLbl.Image = Properties.Resources.legend;
+                legendLbl.Location = new Point(561, 0);
+                legendLbl.Size = new Size(165, 72);
+
+                instructionPnl = new Panel();
+                instructionPnl.Location = new Point(30, 145);
+                instructionPnl.Controls.Add(instructionLbl);
+                instructionPnl.Controls.Add(legendLbl);
+                instructionPnl.Size = new Size(726, 72);
+                instructionPnl.BackColor = Color.CadetBlue;
+                detailsPnl = new Panel();
 
                 List<string> data = cc.getCourseData(prediction.CourseId);
                 string[] courseDat = data[0].Split(',');
 
 
-                detailsPanel.Location = new Point(0, 200);
-                detailsPanel.BackColor = Color.Transparent;
-                detailsPanel.AutoSize = true;
+                detailsPnl.Location = new Point(0, 220);
+                detailsPnl.BackColor = Color.Transparent;
+                detailsPnl.AutoSize = true;
 
                 Label courseDetailsLbl = new Label();
                 courseDetailsLbl.Location = new Point(200, 0);
@@ -509,21 +527,21 @@ namespace OOP._0._1._1
 
                 if (actual < 30)
                 {
-                    moduleResultLbl.ForeColor = Color.Red;
+                    moduleResultLbl.ForeColor = Color.FromArgb(246, 11, 11);
                 }
                 else
                 {
-                    moduleResultLbl.ForeColor = Color.Green;
+                    moduleResultLbl.ForeColor = Color.FromArgb(24, 240, 13);
                 }
 
-                //resultsPanel.Controls.Add(moduleResultLbl);
-                detailsPanel.Controls.Add(courseDetailsLbl);
-                detailsPanel.Controls.Add(moduleDetailsLbl);
-                detailsPanel.Controls.Add(moduleResultLbl);
-                detailsPanel.BackColor = Color.Chartreuse;
-
-                tabPageModulePrediction.Controls.Add(detailsPanel);
-                //tabPageModulePrediction.Controls.Add(resultsPanel);
+                //resultsPnl.Controls.Add(moduleResultLbl);
+                detailsPnl.Controls.Add(courseDetailsLbl);
+                detailsPnl.Controls.Add(moduleDetailsLbl);
+                detailsPnl.Controls.Add(moduleResultLbl);
+                detailsPnl.BackColor = Color.Chartreuse;
+                tabPageModulePrediction.Controls.Add(instructionPnl);
+                tabPageModulePrediction.Controls.Add(detailsPnl);
+                //tabPageModulePrediction.Controls.Add(resultsPnl);
             }
             else
             {
@@ -544,8 +562,8 @@ namespace OOP._0._1._1
             assessOneWeight.Text = "Weight: " + allData[7];
             assessOneTitle.Location = new Point(200, 50);
             assessOneWeight.Location = new Point(200, 70);
-            detailsPanel.Controls.Add(assessOneTitle);
-            detailsPanel.Controls.Add(assessOneWeight);
+            detailsPnl.Controls.Add(assessOneTitle);
+            detailsPnl.Controls.Add(assessOneWeight);
         }
 
         private void layoutTwo(Prediction prediction, string vals)
@@ -560,8 +578,8 @@ namespace OOP._0._1._1
             assessOneWeight.Text = "Weight: " + allData[7];
             assessOneTitle.Location = new Point(200, 50);
             assessOneWeight.Location = new Point(200, 70);
-            detailsPanel.Controls.Add(assessOneTitle);
-            detailsPanel.Controls.Add(assessOneWeight);
+            detailsPnl.Controls.Add(assessOneTitle);
+            detailsPnl.Controls.Add(assessOneWeight);
             //second assessment
             Label assessTwoTitle = new Label();
             assessTwoTitle.AutoSize = true;
@@ -571,8 +589,8 @@ namespace OOP._0._1._1
             assessTwoWeight.Text = "Weight: " + allData[9];
             assessTwoTitle.Location = new Point(200, 90);
             assessTwoWeight.Location = new Point(200, 110);
-            detailsPanel.Controls.Add(assessTwoTitle);
-            detailsPanel.Controls.Add(assessTwoWeight);
+            detailsPnl.Controls.Add(assessTwoTitle);
+            detailsPnl.Controls.Add(assessTwoWeight);
         }
 
         private void layoutThree(Prediction prediction, string vals)
@@ -587,8 +605,8 @@ namespace OOP._0._1._1
             assessOneWeight.Text = "Weight: " + allData[7];
             assessOneTitle.Location = new Point(200, 50);
             assessOneWeight.Location = new Point(200, 70);
-            detailsPanel.Controls.Add(assessOneTitle);
-            detailsPanel.Controls.Add(assessOneWeight);
+            detailsPnl.Controls.Add(assessOneTitle);
+            detailsPnl.Controls.Add(assessOneWeight);
             //second assessment
             Label assessTwoTitle = new Label();
             assessTwoTitle.AutoSize = true;
@@ -598,19 +616,19 @@ namespace OOP._0._1._1
             assessTwoWeight.Text = "Weight: " + allData[9];
             assessTwoTitle.Location = new Point(200, 90);
             assessTwoWeight.Location = new Point(200, 110);
-            detailsPanel.Controls.Add(assessTwoTitle);
-            detailsPanel.Controls.Add(assessTwoWeight);
+            detailsPnl.Controls.Add(assessTwoTitle);
+            detailsPnl.Controls.Add(assessTwoWeight);
             //third assessment
             Label assessThreeTitle = new Label();
             assessThreeTitle.AutoSize = true;
-            assessThreeTitle.Text = "Assessment One: " + allData[8] + "/100";
+            assessThreeTitle.Text = "Assessment One: " + allData[10] + "/100";
             Label assessThreeWeight = new Label();
             assessThreeWeight.AutoSize = true;
-            assessThreeWeight.Text = "Weight: " + allData[9];
+            assessThreeWeight.Text = "Weight: " + allData[11];
             assessThreeTitle.Location = new Point(200, 130);
             assessThreeWeight.Location = new Point(200, 150);
-            detailsPanel.Controls.Add(assessThreeTitle);
-            detailsPanel.Controls.Add(assessThreeWeight);
+            detailsPnl.Controls.Add(assessThreeTitle);
+            detailsPnl.Controls.Add(assessThreeWeight);
         }
 
 
@@ -626,8 +644,8 @@ namespace OOP._0._1._1
             assessOneWeight.Text = "Weight: " + allData[7];
             assessOneTitle.Location = new Point(200, 50);
             assessOneWeight.Location = new Point(200, 70);
-            detailsPanel.Controls.Add(assessOneTitle);
-            detailsPanel.Controls.Add(assessOneWeight);
+            detailsPnl.Controls.Add(assessOneTitle);
+            detailsPnl.Controls.Add(assessOneWeight);
             //second assessment
             Label assessTwoTitle = new Label();
             assessTwoTitle.AutoSize = true;
@@ -637,8 +655,8 @@ namespace OOP._0._1._1
             assessTwoWeight.Text = "Weight: " + allData[9];
             assessTwoTitle.Location = new Point(200, 90);
             assessTwoWeight.Location = new Point(200, 110);
-            detailsPanel.Controls.Add(assessTwoTitle);
-            detailsPanel.Controls.Add(assessTwoWeight);
+            detailsPnl.Controls.Add(assessTwoTitle);
+            detailsPnl.Controls.Add(assessTwoWeight);
             //third assessment
             Label assessThreeTitle = new Label();
             assessThreeTitle.AutoSize = true;
@@ -648,8 +666,8 @@ namespace OOP._0._1._1
             assessThreeWeight.Text = "Weight: " + allData[9];
             assessThreeTitle.Location = new Point(200, 130);
             assessThreeWeight.Location = new Point(200, 150);
-            detailsPanel.Controls.Add(assessThreeTitle);
-            detailsPanel.Controls.Add(assessThreeWeight);
+            detailsPnl.Controls.Add(assessThreeTitle);
+            detailsPnl.Controls.Add(assessThreeWeight);
             //third assessment
             Label assessFourTitle = new Label();
             assessFourTitle.AutoSize = true;
@@ -659,8 +677,8 @@ namespace OOP._0._1._1
             assessFourWeight.Text = "Weight: " + allData[9];
             assessFourTitle.Location = new Point(200, 170);
             assessFourWeight.Location = new Point(200, 190);
-            detailsPanel.Controls.Add(assessFourTitle);
-            detailsPanel.Controls.Add(assessFourWeight);
+            detailsPnl.Controls.Add(assessFourTitle);
+            detailsPnl.Controls.Add(assessFourWeight);
         }
 
         protected string GetCapitalValue(string name)
