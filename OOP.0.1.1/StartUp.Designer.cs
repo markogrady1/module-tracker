@@ -34,6 +34,7 @@ namespace OOP._0._1._1
             this.covertab3Pnl = new System.Windows.Forms.Panel();
             this.labelg = new System.Windows.Forms.Label();
             this.mainAddGradePanel = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
             this.addGradesBtn = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -73,6 +74,11 @@ namespace OOP._0._1._1
             this.addModUserLbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.openExistingCoursePnl = new System.Windows.Forms.Panel();
+            this.openExistingPredictionBtn = new System.Windows.Forms.Label();
+            this.existingCourseCbo = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.selectCoursePnl = new System.Windows.Forms.Panel();
             this.submitCourseNameBtn = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -80,14 +86,9 @@ namespace OOP._0._1._1
             this.userNameTxt = new System.Windows.Forms.TextBox();
             this.availableCoursesCbo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.openExistingCoursePnl = new System.Windows.Forms.Panel();
-            this.openExistingPredictionBtn = new System.Windows.Forms.Label();
-            this.existingCourseCbo = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.buildCourseBtn = new System.Windows.Forms.Button();
             this.mainCoverPnl = new System.Windows.Forms.Panel();
             this.activeCreateNewCourseBtn = new System.Windows.Forms.Label();
+            this.buildCourseBtn = new System.Windows.Forms.Label();
             this.hiddenCombo = new System.Windows.Forms.ComboBox();
             this.mainCoverPnl2 = new System.Windows.Forms.Panel();
             this.mainTabControl = new System.Windows.Forms.TabControl();
@@ -97,8 +98,8 @@ namespace OOP._0._1._1
             this.tabPage2.SuspendLayout();
             this.covertab2Pnl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.selectCoursePnl.SuspendLayout();
             this.openExistingCoursePnl.SuspendLayout();
+            this.selectCoursePnl.SuspendLayout();
             this.mainCoverPnl.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.SuspendLayout();
@@ -135,6 +136,7 @@ namespace OOP._0._1._1
             // 
             // mainAddGradePanel
             // 
+            this.mainAddGradePanel.Controls.Add(this.label25);
             this.mainAddGradePanel.Controls.Add(this.addGradesBtn);
             this.mainAddGradePanel.Controls.Add(this.label24);
             this.mainAddGradePanel.Controls.Add(this.label23);
@@ -162,6 +164,14 @@ namespace OOP._0._1._1
             this.mainAddGradePanel.Name = "mainAddGradePanel";
             this.mainAddGradePanel.Size = new System.Drawing.Size(1025, 515);
             this.mainAddGradePanel.TabIndex = 1;
+            // 
+            // label25
+            // 
+            this.label25.Image = global::OOP._0._1._1.Properties.Resources.addModules;
+            this.label25.Location = new System.Drawing.Point(338, 27);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(332, 36);
+            this.label25.TabIndex = 23;
             // 
             // addGradesBtn
             // 
@@ -371,10 +381,10 @@ namespace OOP._0._1._1
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(179, 98);
+            this.label12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(173, 98);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(180, 18);
+            this.label12.Size = new System.Drawing.Size(199, 18);
             this.label12.TabIndex = 0;
             this.label12.Text = "Select Module for Grading";
             // 
@@ -412,18 +422,19 @@ namespace OOP._0._1._1
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(174, 181);
+            this.label11.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(164, 181);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(97, 18);
+            this.label11.Size = new System.Drawing.Size(105, 18);
             this.label11.TabIndex = 12;
             this.label11.Text = "Module Code";
             // 
             // moduleCodeTxt
             // 
-            this.moduleCodeTxt.Location = new System.Drawing.Point(325, 177);
+            this.moduleCodeTxt.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moduleCodeTxt.Location = new System.Drawing.Point(325, 178);
             this.moduleCodeTxt.Name = "moduleCodeTxt";
-            this.moduleCodeTxt.Size = new System.Drawing.Size(229, 22);
+            this.moduleCodeTxt.Size = new System.Drawing.Size(254, 26);
             this.moduleCodeTxt.TabIndex = 11;
             // 
             // AddModuleBtnBlue
@@ -439,10 +450,10 @@ namespace OOP._0._1._1
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(176, 266);
+            this.label10.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(164, 257);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(143, 18);
+            this.label10.Size = new System.Drawing.Size(157, 18);
             this.label10.TabIndex = 8;
             this.label10.Text = "No. of Assessments";
             // 
@@ -455,18 +466,18 @@ namespace OOP._0._1._1
             "2",
             "3",
             "4"});
-            this.moduleAssessmentAmountCbo.Location = new System.Drawing.Point(325, 263);
+            this.moduleAssessmentAmountCbo.Location = new System.Drawing.Point(325, 254);
             this.moduleAssessmentAmountCbo.Name = "moduleAssessmentAmountCbo";
-            this.moduleAssessmentAmountCbo.Size = new System.Drawing.Size(113, 24);
+            this.moduleAssessmentAmountCbo.Size = new System.Drawing.Size(113, 21);
             this.moduleAssessmentAmountCbo.TabIndex = 7;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(176, 219);
+            this.label9.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(164, 219);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 18);
+            this.label9.Size = new System.Drawing.Size(104, 18);
             this.label9.TabIndex = 6;
             this.label9.Text = "Module Level";
             // 
@@ -478,55 +489,57 @@ namespace OOP._0._1._1
             "Level Four",
             "Level Five",
             "Level Six"});
-            this.moduleLevelCbo.Location = new System.Drawing.Point(325, 214);
+            this.moduleLevelCbo.Location = new System.Drawing.Point(325, 217);
             this.moduleLevelCbo.Name = "moduleLevelCbo";
-            this.moduleLevelCbo.Size = new System.Drawing.Size(172, 24);
+            this.moduleLevelCbo.Size = new System.Drawing.Size(172, 21);
             this.moduleLevelCbo.TabIndex = 5;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(176, 142);
+            this.label8.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(164, 142);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(101, 18);
+            this.label8.Size = new System.Drawing.Size(110, 18);
             this.label8.TabIndex = 4;
             this.label8.Text = "Module Name";
             // 
             // moduleNameTxt
             // 
+            this.moduleNameTxt.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.moduleNameTxt.Location = new System.Drawing.Point(325, 139);
             this.moduleNameTxt.Name = "moduleNameTxt";
-            this.moduleNameTxt.Size = new System.Drawing.Size(229, 22);
+            this.moduleNameTxt.Size = new System.Drawing.Size(254, 26);
             this.moduleNameTxt.TabIndex = 3;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(322, 92);
+            this.label7.Image = global::OOP._0._1._1.Properties.Resources.addModulesToCourse;
+            this.label7.Location = new System.Drawing.Point(300, 79);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(201, 18);
+            this.label7.Size = new System.Drawing.Size(302, 27);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Add Modules To This Course";
             // 
             // addModCourseLbl
             // 
             this.addModCourseLbl.AutoSize = true;
-            this.addModCourseLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addModCourseLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addModCourseLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.addModCourseLbl.Location = new System.Drawing.Point(321, 15);
             this.addModCourseLbl.Name = "addModCourseLbl";
-            this.addModCourseLbl.Size = new System.Drawing.Size(112, 20);
+            this.addModCourseLbl.Size = new System.Drawing.Size(121, 18);
             this.addModCourseLbl.TabIndex = 1;
             this.addModCourseLbl.Text = "course name";
             // 
             // addModUserLbl
             // 
             this.addModUserLbl.AutoSize = true;
-            this.addModUserLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addModUserLbl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addModUserLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.addModUserLbl.Location = new System.Drawing.Point(135, 15);
             this.addModUserLbl.Name = "addModUserLbl";
-            this.addModUserLbl.Size = new System.Drawing.Size(98, 20);
+            this.addModUserLbl.Size = new System.Drawing.Size(105, 18);
             this.addModUserLbl.TabIndex = 0;
             this.addModUserLbl.Text = "User Name";
             // 
@@ -543,89 +556,17 @@ namespace OOP._0._1._1
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.selectCoursePnl);
             this.tabPage1.Controls.Add(this.openExistingCoursePnl);
-            this.tabPage1.Controls.Add(this.buildCourseBtn);
+            this.tabPage1.Controls.Add(this.selectCoursePnl);
             this.tabPage1.Controls.Add(this.mainCoverPnl);
+            this.tabPage1.Controls.Add(this.buildCourseBtn);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1070, 533);
+            this.tabPage1.Size = new System.Drawing.Size(1070, 611);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Home";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // selectCoursePnl
-            // 
-            this.selectCoursePnl.Controls.Add(this.submitCourseNameBtn);
-            this.selectCoursePnl.Controls.Add(this.label4);
-            this.selectCoursePnl.Controls.Add(this.label2);
-            this.selectCoursePnl.Controls.Add(this.userNameTxt);
-            this.selectCoursePnl.Controls.Add(this.availableCoursesCbo);
-            this.selectCoursePnl.Controls.Add(this.label1);
-            this.selectCoursePnl.Location = new System.Drawing.Point(3, 6);
-            this.selectCoursePnl.Name = "selectCoursePnl";
-            this.selectCoursePnl.Size = new System.Drawing.Size(690, 210);
-            this.selectCoursePnl.TabIndex = 1;
-            this.selectCoursePnl.Visible = false;
-            // 
-            // submitCourseNameBtn
-            // 
-            this.submitCourseNameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.submitCourseNameBtn.Image = global::OOP._0._1._1.Properties.Resources.create;
-            this.submitCourseNameBtn.Location = new System.Drawing.Point(273, 145);
-            this.submitCourseNameBtn.Name = "submitCourseNameBtn";
-            this.submitCourseNameBtn.Size = new System.Drawing.Size(152, 48);
-            this.submitCourseNameBtn.TabIndex = 8;
-            this.submitCourseNameBtn.Click += new System.EventHandler(this.submitCourseNameBtn_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(99, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 18);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Enter name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Courgette", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(240, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 24);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Create A New Course";
-            // 
-            // userNameTxt
-            // 
-            this.userNameTxt.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNameTxt.Location = new System.Drawing.Point(216, 53);
-            this.userNameTxt.Name = "userNameTxt";
-            this.userNameTxt.Size = new System.Drawing.Size(302, 26);
-            this.userNameTxt.TabIndex = 5;
-            // 
-            // availableCoursesCbo
-            // 
-            this.availableCoursesCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.availableCoursesCbo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.availableCoursesCbo.FormattingEnabled = true;
-            this.availableCoursesCbo.Location = new System.Drawing.Point(216, 97);
-            this.availableCoursesCbo.Name = "availableCoursesCbo";
-            this.availableCoursesCbo.Size = new System.Drawing.Size(251, 26);
-            this.availableCoursesCbo.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(99, 100);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Select Course";
             // 
             // openExistingCoursePnl
             // 
@@ -634,9 +575,9 @@ namespace OOP._0._1._1
             this.openExistingCoursePnl.Controls.Add(this.label6);
             this.openExistingCoursePnl.Controls.Add(this.label3);
             this.openExistingCoursePnl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.openExistingCoursePnl.Location = new System.Drawing.Point(3, 222);
+            this.openExistingCoursePnl.Location = new System.Drawing.Point(130, 225);
             this.openExistingCoursePnl.Name = "openExistingCoursePnl";
-            this.openExistingCoursePnl.Size = new System.Drawing.Size(690, 255);
+            this.openExistingCoursePnl.Size = new System.Drawing.Size(690, 229);
             this.openExistingCoursePnl.TabIndex = 2;
             this.openExistingCoursePnl.Visible = false;
             // 
@@ -644,7 +585,7 @@ namespace OOP._0._1._1
             // 
             this.openExistingPredictionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.openExistingPredictionBtn.Image = global::OOP._0._1._1.Properties.Resources.openCourse;
-            this.openExistingPredictionBtn.Location = new System.Drawing.Point(273, 121);
+            this.openExistingPredictionBtn.Location = new System.Drawing.Point(306, 121);
             this.openExistingPredictionBtn.Name = "openExistingPredictionBtn";
             this.openExistingPredictionBtn.Size = new System.Drawing.Size(150, 41);
             this.openExistingPredictionBtn.TabIndex = 12;
@@ -657,7 +598,7 @@ namespace OOP._0._1._1
             this.existingCourseCbo.FormattingEnabled = true;
             this.existingCourseCbo.Location = new System.Drawing.Point(226, 69);
             this.existingCourseCbo.Name = "existingCourseCbo";
-            this.existingCourseCbo.Size = new System.Drawing.Size(241, 26);
+            this.existingCourseCbo.Size = new System.Drawing.Size(333, 26);
             this.existingCourseCbo.TabIndex = 10;
             // 
             // label6
@@ -672,30 +613,90 @@ namespace OOP._0._1._1
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Courgette", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Image = global::OOP._0._1._1.Properties.Resources.existing;
             this.label3.Location = new System.Drawing.Point(222, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(277, 24);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Open Existing Course Prediction";
             // 
-            // buildCourseBtn
+            // selectCoursePnl
             // 
-            this.buildCourseBtn.Location = new System.Drawing.Point(40, 38);
-            this.buildCourseBtn.Name = "buildCourseBtn";
-            this.buildCourseBtn.Size = new System.Drawing.Size(75, 23);
-            this.buildCourseBtn.TabIndex = 0;
-            this.buildCourseBtn.Text = "Build Course";
-            this.buildCourseBtn.UseVisualStyleBackColor = true;
-            this.buildCourseBtn.Click += new System.EventHandler(this.buildCourseBtn_Click);
+            this.selectCoursePnl.Controls.Add(this.submitCourseNameBtn);
+            this.selectCoursePnl.Controls.Add(this.label4);
+            this.selectCoursePnl.Controls.Add(this.label2);
+            this.selectCoursePnl.Controls.Add(this.userNameTxt);
+            this.selectCoursePnl.Controls.Add(this.availableCoursesCbo);
+            this.selectCoursePnl.Controls.Add(this.label1);
+            this.selectCoursePnl.Location = new System.Drawing.Point(28, 0);
+            this.selectCoursePnl.Name = "selectCoursePnl";
+            this.selectCoursePnl.Size = new System.Drawing.Size(792, 210);
+            this.selectCoursePnl.TabIndex = 1;
+            this.selectCoursePnl.Visible = false;
+            // 
+            // submitCourseNameBtn
+            // 
+            this.submitCourseNameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.submitCourseNameBtn.Image = global::OOP._0._1._1.Properties.Resources.create;
+            this.submitCourseNameBtn.Location = new System.Drawing.Point(408, 145);
+            this.submitCourseNameBtn.Name = "submitCourseNameBtn";
+            this.submitCourseNameBtn.Size = new System.Drawing.Size(152, 48);
+            this.submitCourseNameBtn.TabIndex = 8;
+            this.submitCourseNameBtn.Click += new System.EventHandler(this.submitCourseNameBtn_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(199, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 18);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Enter name";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Courgette", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Image = global::OOP._0._1._1.Properties.Resources.createCourse;
+            this.label2.Location = new System.Drawing.Point(322, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(278, 24);
+            this.label2.TabIndex = 6;
+            // 
+            // userNameTxt
+            // 
+            this.userNameTxt.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameTxt.Location = new System.Drawing.Point(316, 52);
+            this.userNameTxt.Name = "userNameTxt";
+            this.userNameTxt.Size = new System.Drawing.Size(345, 26);
+            this.userNameTxt.TabIndex = 5;
+            // 
+            // availableCoursesCbo
+            // 
+            this.availableCoursesCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.availableCoursesCbo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availableCoursesCbo.FormattingEnabled = true;
+            this.availableCoursesCbo.Location = new System.Drawing.Point(316, 96);
+            this.availableCoursesCbo.Name = "availableCoursesCbo";
+            this.availableCoursesCbo.Size = new System.Drawing.Size(345, 26);
+            this.availableCoursesCbo.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(199, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 18);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Select Course";
             // 
             // mainCoverPnl
             // 
             this.mainCoverPnl.Controls.Add(this.activeCreateNewCourseBtn);
-            this.mainCoverPnl.Location = new System.Drawing.Point(3, 0);
+            this.mainCoverPnl.Location = new System.Drawing.Point(25, 3);
             this.mainCoverPnl.Name = "mainCoverPnl";
-            this.mainCoverPnl.Size = new System.Drawing.Size(690, 216);
+            this.mainCoverPnl.Size = new System.Drawing.Size(792, 216);
             this.mainCoverPnl.TabIndex = 12;
             this.mainCoverPnl.Visible = false;
             // 
@@ -703,11 +704,21 @@ namespace OOP._0._1._1
             // 
             this.activeCreateNewCourseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.activeCreateNewCourseBtn.Image = global::OOP._0._1._1.Properties.Resources.createNewCourse;
-            this.activeCreateNewCourseBtn.Location = new System.Drawing.Point(272, 103);
+            this.activeCreateNewCourseBtn.Location = new System.Drawing.Point(411, 103);
             this.activeCreateNewCourseBtn.Name = "activeCreateNewCourseBtn";
             this.activeCreateNewCourseBtn.Size = new System.Drawing.Size(151, 48);
             this.activeCreateNewCourseBtn.TabIndex = 1;
             this.activeCreateNewCourseBtn.Click += new System.EventHandler(this.activeCreateNewCourseBtn_Click);
+            // 
+            // buildCourseBtn
+            // 
+            this.buildCourseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buildCourseBtn.Image = global::OOP._0._1._1.Properties.Resources.buildCourse;
+            this.buildCourseBtn.Location = new System.Drawing.Point(38, 118);
+            this.buildCourseBtn.Name = "buildCourseBtn";
+            this.buildCourseBtn.Size = new System.Drawing.Size(146, 42);
+            this.buildCourseBtn.TabIndex = 2;
+            this.buildCourseBtn.Click += new System.EventHandler(this.buildCourseBtn_Click);
             // 
             // hiddenCombo
             // 
@@ -726,20 +737,18 @@ namespace OOP._0._1._1
             // mainTabControl
             // 
             this.mainTabControl.Controls.Add(this.tabPage1);
-            this.mainTabControl.Controls.Add(this.tabPage2);
-            this.mainTabControl.Controls.Add(this.addGradeTabPage);
             this.mainTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainTabControl.Location = new System.Drawing.Point(1, 1);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(1078, 562);
+            this.mainTabControl.Size = new System.Drawing.Size(1078, 640);
             this.mainTabControl.TabIndex = 2;
             // 
             // StartUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 565);
+            this.ClientSize = new System.Drawing.Size(1078, 641);
             this.Controls.Add(this.mainTabControl);
             this.Name = "StartUp";
             this.Text = "StartUp";
@@ -753,10 +762,10 @@ namespace OOP._0._1._1
             this.covertab2Pnl.ResumeLayout(false);
             this.covertab2Pnl.PerformLayout();
             this.tabPage1.ResumeLayout(false);
-            this.selectCoursePnl.ResumeLayout(false);
-            this.selectCoursePnl.PerformLayout();
             this.openExistingCoursePnl.ResumeLayout(false);
             this.openExistingCoursePnl.PerformLayout();
+            this.selectCoursePnl.ResumeLayout(false);
+            this.selectCoursePnl.PerformLayout();
             this.mainCoverPnl.ResumeLayout(false);
             this.mainTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -780,7 +789,6 @@ namespace OOP._0._1._1
         private System.Windows.Forms.ComboBox existingCourseCbo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button buildCourseBtn;
         private System.Windows.Forms.TabControl mainTabControl;
         private System.Windows.Forms.Panel covertab2Pnl;
         private System.Windows.Forms.Panel covertab3Pnl;
@@ -854,6 +862,8 @@ namespace OOP._0._1._1
         private Label activeCreateNewCourseBtn;
         private Label openExistingPredictionBtn;
         private Label submitCourseNameBtn;
+        private Label buildCourseBtn;
+        private Label label25;
     }
 }
 

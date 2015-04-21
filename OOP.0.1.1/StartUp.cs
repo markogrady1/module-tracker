@@ -79,6 +79,10 @@ namespace OOP._0._1._1
 
         public void ConfigureTabs()
         {
+            mainTabControl.Controls.Remove(tabPage2);
+            mainTabControl.Controls.Remove(addGradeTabPage);
+            mainTabControl.Controls.Add(tabPage2);
+            mainTabControl.Controls.Add(addGradeTabPage);
             mainCoverLvl4Pnl = new Panel();
             mainCoverLvl5Pnl = new Panel();
             mainCoverLvl6Pnl = new Panel();
@@ -166,11 +170,11 @@ namespace OOP._0._1._1
             lbl.Text = "No Modules to predict";
         }
 
-        private void buildCourseBtn_Click(object sender, System.EventArgs e)
-        {
-            selectCoursePnl.Visible = true;
-            openExistingCoursePnl.Visible = true;
-        }
+        //private void buildCourseBtn_Click(object sender, System.EventArgs e)
+        //{
+        //    selectCoursePnl.Visible = true;
+        //    openExistingCoursePnl.Visible = true;
+        //}
 
         //private void SubmitCourseNameBtn_Click(object sender, EventArgs e)
         //{
@@ -766,7 +770,8 @@ namespace OOP._0._1._1
                 assessment4Lbl[i].Text = "Assessment Four:";
                 assessment4[i].Text = strArray[9];
 
-                panel[i].Location = new Point(40, panelStart);
+                panel[i].Location = new Point(100, panelStart);
+                panel[i].Padding = new Padding(0, 0, 25, 0);
                 panel[i].AutoSize = true;
                 panel[i].BackColor = Color.DarkBlue;
                 panel[i].Height = 70;
@@ -803,11 +808,11 @@ namespace OOP._0._1._1
                 panel[i].Controls.Add(assessmentNo[i]);
                 if (i % 2 == 0)
                 {
-                    panel[i].BackColor = Color.DarkCyan;
+                    panel[i].BackColor = Color.FromArgb(200,211,250);
                 }
                 else
                 {
-                    panel[i].BackColor = Color.CadetBlue;
+                    panel[i].BackColor = Color.FromArgb(105,193,196);
                 }
                 if (strArray[5] == "1")
                 {
@@ -1117,7 +1122,7 @@ namespace OOP._0._1._1
                 string id = cc.getCourseDbId();
                 moduleController.CourseId = id;
                 bool result = cc.setExistingData(existingData);
-
+                ConfigureTabs();
                 mainCoverPnl.Visible = true;
                 mainCoverPnl.BringToFront();
                 mainTabControl.SelectedTab = tabPage2;
@@ -1135,7 +1140,7 @@ namespace OOP._0._1._1
                 covertab2Pnl.Visible = true;
                 covertab2Pnl.BringToFront();
                 moduleNameTxt.Focus();
-                ConfigureTabs();
+                
                 moduleController.resetAllModules();
                 covertab3Pnl.Visible = false;
                 addGradeTabPage.Text = "Add Module Grade";
@@ -1147,11 +1152,12 @@ namespace OOP._0._1._1
 
         private void submitCourseNameBtn_Click(object sender, EventArgs e)
         {
-            if (existingState)
-            {
+            //if (existingState)
+            //{
                 availableModulesCbo.Items.Clear();
+                
                 existingState = false;
-            }
+            //}
 
             resetTabs();
             string chosenCourse = availableCoursesCbo.Text;
@@ -1191,6 +1197,12 @@ namespace OOP._0._1._1
                     }
                 }
             }
+        }
+
+        private void buildCourseBtn_Click(object sender, EventArgs e)
+        {
+            selectCoursePnl.Visible = true;
+            openExistingCoursePnl.Visible = true;
         }
     }
 }

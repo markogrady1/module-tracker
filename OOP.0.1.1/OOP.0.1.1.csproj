@@ -119,6 +119,21 @@
   <ItemGroup>
     <None Include="Resources\create.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\createCourse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\existing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buildCourse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addModulesToCourse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addModules.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
