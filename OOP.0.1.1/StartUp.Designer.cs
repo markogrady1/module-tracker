@@ -60,6 +60,8 @@ namespace OOP._0._1._1
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.covertab2Pnl = new System.Windows.Forms.Panel();
+            this.moduleCreditsCbo = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.moduleCodeTxt = new System.Windows.Forms.TextBox();
             this.AddModuleBtnBlue = new System.Windows.Forms.Label();
@@ -111,7 +113,7 @@ namespace OOP._0._1._1
             this.addGradeTabPage.Location = new System.Drawing.Point(4, 25);
             this.addGradeTabPage.Name = "addGradeTabPage";
             this.addGradeTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.addGradeTabPage.Size = new System.Drawing.Size(1070, 533);
+            this.addGradeTabPage.Size = new System.Drawing.Size(1070, 611);
             this.addGradeTabPage.TabIndex = 1;
             this.addGradeTabPage.UseVisualStyleBackColor = true;
             // 
@@ -369,14 +371,10 @@ namespace OOP._0._1._1
             // 
             // availableModulesCbo
             // 
-            this.availableModulesCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.availableModulesCbo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.availableModulesCbo.FormattingEnabled = true;
-            this.availableModulesCbo.Location = new System.Drawing.Point(376, 94);
+            this.availableModulesCbo.Location = new System.Drawing.Point(0, 0);
             this.availableModulesCbo.Name = "availableModulesCbo";
-            this.availableModulesCbo.Size = new System.Drawing.Size(396, 26);
-            this.availableModulesCbo.TabIndex = 1;
-            this.availableModulesCbo.SelectedIndexChanged += new System.EventHandler(this.availableModulesCbo_SelectedIndexChanged);
+            this.availableModulesCbo.Size = new System.Drawing.Size(121, 21);
+            this.availableModulesCbo.TabIndex = 24;
             // 
             // label12
             // 
@@ -395,12 +393,14 @@ namespace OOP._0._1._1
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1070, 533);
+            this.tabPage2.Size = new System.Drawing.Size(1070, 611);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // covertab2Pnl
             // 
+            this.covertab2Pnl.Controls.Add(this.moduleCreditsCbo);
+            this.covertab2Pnl.Controls.Add(this.label26);
             this.covertab2Pnl.Controls.Add(this.label11);
             this.covertab2Pnl.Controls.Add(this.moduleCodeTxt);
             this.covertab2Pnl.Controls.Add(this.AddModuleBtnBlue);
@@ -419,11 +419,35 @@ namespace OOP._0._1._1
             this.covertab2Pnl.TabIndex = 0;
             this.covertab2Pnl.Visible = false;
             // 
+            // moduleCreditsCbo
+            // 
+            this.moduleCreditsCbo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.moduleCreditsCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.moduleCreditsCbo.FormattingEnabled = true;
+            this.moduleCreditsCbo.Items.AddRange(new object[] {
+            "15",
+            "30",
+            "45"});
+            this.moduleCreditsCbo.Location = new System.Drawing.Point(324, 294);
+            this.moduleCreditsCbo.Name = "moduleCreditsCbo";
+            this.moduleCreditsCbo.Size = new System.Drawing.Size(113, 21);
+            this.moduleCreditsCbo.TabIndex = 14;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(259, 294);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(60, 18);
+            this.label26.TabIndex = 13;
+            this.label26.Text = "Credits";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(164, 181);
+            this.label11.Location = new System.Drawing.Point(214, 181);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(105, 18);
             this.label11.TabIndex = 12;
@@ -441,7 +465,7 @@ namespace OOP._0._1._1
             // 
             this.AddModuleBtnBlue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddModuleBtnBlue.Image = global::OOP._0._1._1.Properties.Resources.btn;
-            this.AddModuleBtnBlue.Location = new System.Drawing.Point(322, 325);
+            this.AddModuleBtnBlue.Location = new System.Drawing.Point(322, 345);
             this.AddModuleBtnBlue.Name = "AddModuleBtnBlue";
             this.AddModuleBtnBlue.Size = new System.Drawing.Size(130, 42);
             this.AddModuleBtnBlue.TabIndex = 10;
@@ -451,7 +475,7 @@ namespace OOP._0._1._1
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(164, 257);
+            this.label10.Location = new System.Drawing.Point(162, 257);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(157, 18);
             this.label10.TabIndex = 8;
@@ -475,7 +499,7 @@ namespace OOP._0._1._1
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(164, 219);
+            this.label9.Location = new System.Drawing.Point(215, 219);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(104, 18);
             this.label9.TabIndex = 6;
@@ -483,6 +507,7 @@ namespace OOP._0._1._1
             // 
             // moduleLevelCbo
             // 
+            this.moduleLevelCbo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.moduleLevelCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.moduleLevelCbo.FormattingEnabled = true;
             this.moduleLevelCbo.Items.AddRange(new object[] {
@@ -498,7 +523,7 @@ namespace OOP._0._1._1
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(164, 142);
+            this.label8.Location = new System.Drawing.Point(209, 142);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(110, 18);
             this.label8.TabIndex = 4;
@@ -563,7 +588,7 @@ namespace OOP._0._1._1
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1070, 611);
+            this.tabPage1.Size = new System.Drawing.Size(1070, 711);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Home";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -574,7 +599,7 @@ namespace OOP._0._1._1
             this.openExistingCoursePnl.Controls.Add(this.existingCourseCbo);
             this.openExistingCoursePnl.Controls.Add(this.label6);
             this.openExistingCoursePnl.Controls.Add(this.label3);
-            this.openExistingCoursePnl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.openExistingCoursePnl.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.openExistingCoursePnl.Location = new System.Drawing.Point(130, 225);
             this.openExistingCoursePnl.Name = "openExistingCoursePnl";
             this.openExistingCoursePnl.Size = new System.Drawing.Size(690, 229);
@@ -593,6 +618,7 @@ namespace OOP._0._1._1
             // 
             // existingCourseCbo
             // 
+            this.existingCourseCbo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.existingCourseCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.existingCourseCbo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.existingCourseCbo.FormattingEnabled = true;
@@ -648,11 +674,11 @@ namespace OOP._0._1._1
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(199, 52);
+            this.label4.Location = new System.Drawing.Point(186, 54);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 18);
+            this.label4.Size = new System.Drawing.Size(126, 18);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Enter name";
+            this.label4.Text = "Enter username";
             // 
             // label2
             // 
@@ -673,6 +699,7 @@ namespace OOP._0._1._1
             // 
             // availableCoursesCbo
             // 
+            this.availableCoursesCbo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.availableCoursesCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.availableCoursesCbo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.availableCoursesCbo.FormattingEnabled = true;
@@ -685,7 +712,7 @@ namespace OOP._0._1._1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(199, 99);
+            this.label1.Location = new System.Drawing.Point(186, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 18);
             this.label1.TabIndex = 1;
@@ -741,17 +768,17 @@ namespace OOP._0._1._1
             this.mainTabControl.Location = new System.Drawing.Point(1, 1);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(1078, 640);
+            this.mainTabControl.Size = new System.Drawing.Size(1078, 740);
             this.mainTabControl.TabIndex = 2;
             // 
             // StartUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 641);
+            this.ClientSize = new System.Drawing.Size(1078, 681);
             this.Controls.Add(this.mainTabControl);
             this.Name = "StartUp";
-            this.Text = "StartUp";
+            this.Text = "Grade Prediction System";
             this.addGradeTabPage.ResumeLayout(false);
             this.covertab3Pnl.ResumeLayout(false);
             this.covertab3Pnl.PerformLayout();
@@ -864,6 +891,8 @@ namespace OOP._0._1._1
         private Label submitCourseNameBtn;
         private Label buildCourseBtn;
         private Label label25;
+        private ComboBox moduleCreditsCbo;
+        private Label label26;
     }
 }
 

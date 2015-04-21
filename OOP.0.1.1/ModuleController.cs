@@ -16,6 +16,8 @@ namespace OOP._0._1._1
         private string _username;
         private string _coursename;
         private string _moduleName, _moduleCode, _moduleLevel, _moduleAssessmentAmount, _courseId;
+        private string _moduleCredit;
+
         public ModuleController(StartUp startup)
         {
             this.startUp = startup;
@@ -28,7 +30,7 @@ namespace OOP._0._1._1
             set { _courseId = value; }
         }
 
-        public void CreateNewModule(CourseController cc, string username, string coursename, string moduleName, string moduleCode, string moduleLevel, string moduleAssessmentAmount)
+        public void CreateNewModule(CourseController cc, string username, string coursename, string moduleName, string moduleCode, string moduleLevel, string moduleAssessmentAmount, string moduleCredit)
         {
             _username = username;
             _coursename = coursename;
@@ -36,7 +38,7 @@ namespace OOP._0._1._1
             _moduleCode = moduleCode;
             _moduleLevel = moduleLevel;
             _moduleAssessmentAmount = moduleAssessmentAmount;
-            
+            _moduleCredit = moduleCredit;
             //string courseID = db.GetId(username, coursename, "course");
             this._courseId = cc.getCourseDbId();
             Module module = new Module();
@@ -48,7 +50,7 @@ namespace OOP._0._1._1
             module.ModuleLevel = newLevelStr;
             module.ModuleAssessmentAmount = moduleAssessmentAmount;
             db.OpenConnection();
-            db.InsertNewModule(moduleName, moduleCode, moduleLevel, moduleAssessmentAmount, this._courseId);
+            db.InsertNewModule(moduleName, moduleCode, moduleLevel, moduleAssessmentAmount, moduleCredit, _courseId);
             getAllModulesByLevel();
         }
 

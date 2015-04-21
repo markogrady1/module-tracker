@@ -27,6 +27,7 @@ namespace OOP._0._1._1
         private AssessmentController assessController;
         private ModuleController moduleController;
 
+
         public StartUp()
         {
             InitializeComponent();
@@ -121,6 +122,19 @@ namespace OOP._0._1._1
             AddCover(tabPageLvl6, mainCoverLvl6Pnl, levSixStatusLbl);
             tabPageModulePrediction.Text = "Module Prediction";
             AddModulePredictionCover(tabPageModulePrediction, modulePredictPnl, modulePredictStatusLbl);
+
+
+            availableModulesCbo.DropDownStyle = ComboBoxStyle.DropDownList;
+            availableModulesCbo.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            availableModulesCbo.FormattingEnabled = true;
+            availableModulesCbo.Location = new Point(376, 94);
+            availableModulesCbo.Name = "availableModulesCbo";
+            availableModulesCbo.Size = new Size(396, 26);
+            availableModulesCbo.TabIndex = 1;
+            availableModulesCbo.SelectedIndexChanged += availableModulesCbo_SelectedIndexChanged;
+            availableModulesCbo.Cursor = Cursors.Hand;
+
+            moduleAssessmentAmountCbo.Cursor = Cursors.Hand;
         }
 
         private void AddCover(TabPage tb, Panel pnl, Label lbl)
@@ -277,7 +291,7 @@ namespace OOP._0._1._1
 
         //}
 
-       
+
 
         private void AddModuleBtnBlue_Click(object sender, EventArgs e)
         {
@@ -285,6 +299,7 @@ namespace OOP._0._1._1
             string moduleCode = moduleCodeTxt.Text;
             string moduleLevel = moduleLevelCbo.Text;
             string moduleAssessmentAmount = moduleAssessmentAmountCbo.Text;
+            string moduleCredit = moduleCreditsCbo.Text;
             if (moduleName == "")
             {
                 MessageBox.Show("You must provide a module name");
@@ -309,31 +324,96 @@ namespace OOP._0._1._1
                         }
                         else
                         {
-                            moduleAssessmentAmount = moduleAssessmentAmount == ""
-                          ? "0"
-                          : moduleAssessmentAmount;
+                            if (moduleCredit == "")
+                            {
+                                MessageBox.Show("You must provide the available credits for this module");
+                            }
+                            else
+                            {
 
-                            moduleController.CreateNewModule(cc,
-                                addModUserLbl.Text,
-                                addModCourseLbl.Text,
-                                moduleName,
-                                moduleCode,
-                                moduleLevel,
-                                moduleAssessmentAmount
+                                int fourLimit = 0;
+                                int fiveLimit = 0;
+                                int sixLimit = 0;
+                                fourLimit = moduleLevel == "Level Four" ? Convert.ToInt32(moduleCredit) : 0;
+                                fiveLimit = moduleLevel == "Level Five" ? Convert.ToInt32(moduleCredit) : 0;
+                                sixLimit = moduleLevel == "Level Six" ? Convert.ToInt32(moduleCredit) : 0;
 
-                                );
-                            covertab3Pnl.Visible = false;
-                            addGradeTabPage.Text = "Add Module Grade";
 
-                            resetComboBox(moduleLevelCbo);
-                            resetComboBox(moduleAssessmentAmountCbo);
-                            resetTextFields(moduleNameTxt);
-                            resetTextFields(moduleCodeTxt);
+                                List<string> creditCheckList = moduleController.resolveAllModules();
+                                bool limitReached = false;
+                                foreach (var list in creditCheckList)
+                                {
+                                    string[] modData = list.Split(',');
 
-                            moduleName = moduleName.Substring(0, 1).ToUpper() + moduleName.Substring(1).ToLower();
-                            moduleName = Regex.Replace(moduleName, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
-                            MessageBox.Show("The " + moduleName + " module has been created.\n" +
-                                                               "You may now grade the assessments.");
+                                    if (modData[4] == "four" && moduleLevel == "Level Four")
+                                    {
+                                        fourLimit += Convert.ToInt32(modData[14]);
+                                        if (fourLimit > 120)
+                                        {
+                                            MessageBox.Show("Level four has a limit of 120 credits.\nThis limit  has been reached.");
+                                            limitReached = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (modData[4] == "five" && moduleLevel == "Level Five")
+                                    {
+                                        fiveLimit += Convert.ToInt32(modData[14]);
+                                        if (fiveLimit > 120)
+                                        {
+                                            MessageBox.Show("Level five has a limit of 120 credits.\nThis limit  has been reached.");
+                                            limitReached = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (modData[4] == "six" && moduleLevel == "Level Six")
+                                    {
+                                        sixLimit += Convert.ToInt32(modData[14]);
+                                        if (sixLimit > 120)
+                                        {
+                                            MessageBox.Show("Level six has a limit of 120 credits.\nThis limit  has been reached.");
+                                            limitReached = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (!limitReached)
+                                {
+                                    moduleAssessmentAmount = moduleAssessmentAmount == ""
+                         ? "0"
+                         : moduleAssessmentAmount;
+
+                                    moduleController.CreateNewModule(cc,
+                                        addModUserLbl.Text,
+                                        addModCourseLbl.Text,
+                                        moduleName,
+                                        moduleCode,
+                                        moduleLevel,
+                                        moduleAssessmentAmount,
+                                        moduleCredit
+                                        );
+                                    covertab3Pnl.Visible = false;
+                                    addGradeTabPage.Text = "Add Module Grade";
+
+                                    resetComboBox(moduleLevelCbo);
+                                    resetComboBox(moduleAssessmentAmountCbo);
+                                    resetComboBox(moduleCreditsCbo);
+                                    resetTextFields(moduleNameTxt);
+                                    resetTextFields(moduleCodeTxt);
+
+                                    moduleName = moduleName.Substring(0, 1).ToUpper() + moduleName.Substring(1).ToLower();
+                                    moduleName = Regex.Replace(moduleName, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+                                    MessageBox.Show("The " + moduleName + " module has been created.\n" +
+                                                                       "You may now grade the assessments.");
+
+
+
+
+                                }
+
+                            }
+
                         }
 
                     }
@@ -401,6 +481,7 @@ namespace OOP._0._1._1
             modulePredictionChoiceCbo.DropDownStyle = ComboBoxStyle.DropDownList;
             modulePredictionChoiceCbo.Font = new Font("Verdana", 11, FontStyle.Regular);
             modulePredictionChoiceCbo.Location = new Point(150, 10);
+            modulePredictionChoiceCbo.Cursor = Cursors.Hand;
 
             modPredictChoiceBtn = new Label();
             modPredictChoiceBtn.Cursor = Cursors.Hand;
@@ -538,14 +619,14 @@ namespace OOP._0._1._1
                         (parseData(allData[12]) < 30 && parseData(allData[13]) > 0))
                     {
                         moduleResultLbl.ForeColor = Color.FromArgb(246, 132, 11);
-                            //246,132,11 = referral - 246, 11, 11 = fail - 24, 240, 13 = pass
+                        //246,132,11 = referral - 246, 11, 11 = fail - 24, 240, 13 = pass
                     }
                     else
                     {
                         moduleResultLbl.ForeColor = Color.FromArgb(24, 240, 13);
                     }
                 }
-                
+
 
 
                 //resultsPnl.Controls.Add(moduleResultLbl);
@@ -711,7 +792,8 @@ namespace OOP._0._1._1
         {
             int panelStart = 10;
             const int TOP_ROW_POS = 10;
-            const int SECOND_ROW_POS = 40;
+            const int MID_ROW_POS = 30;
+            const int SECOND_ROW_POS = 50;
 
             currentPage.Controls.Clear();
             panel = new Panel[moduleList.Count];
@@ -729,6 +811,8 @@ namespace OOP._0._1._1
             assessment3 = new Label[moduleList.Count];
             assessment4Lbl = new Label[moduleList.Count];
             assessment4 = new Label[moduleList.Count];
+            Label[] creditLbl = new Label[moduleList.Count];
+            Label[] credit = new Label[moduleList.Count];
             DateTime now = DateTime.Now;
 
             for (var i = 0; i < moduleList.Count; i++)
@@ -753,6 +837,9 @@ namespace OOP._0._1._1
                 assessment4Lbl[i] = new Label();
                 assessment4[i] = new Label();
                 assessment1Lbl[i].Text = null;
+                creditLbl[i] = new Label();
+                credit[i] = new Label();
+
                 modNameLbl[i].Text = "Module Name:";
                 modName[i].Text = GetCapitalValue(strArray[1]);
                 modCodeLbl[i].Text = "Module Code:";
@@ -769,14 +856,27 @@ namespace OOP._0._1._1
                 assessment3[i].Text = strArray[8];
                 assessment4Lbl[i].Text = "Assessment Four:";
                 assessment4[i].Text = strArray[9];
+                creditLbl[i].Text = "Credits:";
+                credit[i].Text =  strArray[10];
+
 
                 panel[i].Location = new Point(100, panelStart);
                 panel[i].Padding = new Padding(0, 0, 25, 0);
+
                 panel[i].AutoSize = true;
                 panel[i].BackColor = Color.DarkBlue;
                 panel[i].Height = 70;
                 //panel[i].Width = 700;
                 panel[i].BringToFront();
+
+
+
+
+
+
+
+
+
 
                 currentPage.Controls.Add(panel[i]);
                 currentPage.BringToFront();
@@ -803,16 +903,30 @@ namespace OOP._0._1._1
                 assessmentNoLbl[i].AutoSize = true;
                 panel[i].Controls.Add(assessmentNoLbl[i]);
 
+                
+                creditLbl[i].Font = new Font("Verdana", 9.75F, FontStyle.Bold);
+                creditLbl[i].Location = new Point(40, MID_ROW_POS);
+                creditLbl[i].AutoSize = true;
+                
+                panel[i].Controls.Add(creditLbl[i]);
+
+                
+                credit[i].Font = new Font("Verdana", 9.75F, FontStyle.Regular);
+                credit[i].Location = new Point(100, MID_ROW_POS);
+                credit[i].AutoSize = true;
+                
+                panel[i].Controls.Add(credit[i]);
+
                 assessmentNo[i].Location = new Point(820, TOP_ROW_POS);
                 assessmentNo[i].AutoSize = true;
                 panel[i].Controls.Add(assessmentNo[i]);
                 if (i % 2 == 0)
                 {
-                    panel[i].BackColor = Color.FromArgb(200,211,250);
+                    panel[i].BackColor = Color.FromArgb(200, 211, 250);
                 }
                 else
                 {
-                    panel[i].BackColor = Color.FromArgb(105,193,196);
+                    panel[i].BackColor = Color.FromArgb(105, 193, 196);
                 }
                 if (strArray[5] == "1")
                 {
@@ -1140,7 +1254,7 @@ namespace OOP._0._1._1
                 covertab2Pnl.Visible = true;
                 covertab2Pnl.BringToFront();
                 moduleNameTxt.Focus();
-                
+
                 moduleController.resetAllModules();
                 covertab3Pnl.Visible = false;
                 addGradeTabPage.Text = "Add Module Grade";
@@ -1154,9 +1268,9 @@ namespace OOP._0._1._1
         {
             //if (existingState)
             //{
-                availableModulesCbo.Items.Clear();
-                
-                existingState = false;
+            availableModulesCbo.Items.Clear();
+
+            existingState = false;
             //}
 
             resetTabs();

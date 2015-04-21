@@ -234,7 +234,7 @@ namespace OOP._0._1._1
             }
         }
 
-        public void InsertNewModule(string moduleName, string moduleCode, string moduleLevel, string moduleAssessmentAmount, string courseDBId)
+        public void InsertNewModule(string moduleName, string moduleCode, string moduleLevel, string moduleAssessmentAmount,string moduleCredit, string courseDBId)
         {
             string modName = moduleName.ToLower().Trim();
             string modCode = moduleCode.ToLower().Trim();
@@ -243,10 +243,11 @@ namespace OOP._0._1._1
             string newLevelStr = rgx.Replace(moduleLevel, "");
             string modLevel = newLevelStr.ToLower().Trim();
             string modAssessAmount = moduleAssessmentAmount.Trim();
+            string modCredit = moduleCredit.Trim();
             string courseId = courseDBId;
 
-            string query = "INSERT INTO module(moduleName, moduleCode, courseId,  level, assessmentAmount)" +
-                           " values('" + modName + "','" + modCode + "'," + courseId + ",'" + modLevel + "'," + modAssessAmount + ");";
+            string query = "INSERT INTO module(moduleName, moduleCode, courseId,  level, assessmentAmount,credit)" +
+                           " values('" + modName + "','" + modCode + "'," + courseId + ",'" + modLevel + "'," + modAssessAmount + ","+modCredit+");";
             //create command and assign the query and connection from the constructor
             MySqlCommand cmd = new MySqlCommand(query, connection);
             try
@@ -291,8 +292,8 @@ namespace OOP._0._1._1
                             dataReader["assess1"] + "," +
                             dataReader["assess2"] + "," +
                             dataReader["assess3"] + "," +
-                            dataReader["assess4"] 
-                           
+                            dataReader["assess4"] + "," +
+                            dataReader["credit"]
                             );
                     }
                     dataReader.Close();
@@ -346,7 +347,8 @@ namespace OOP._0._1._1
                             dataReader["assess3"] + "," +
                             dataReader["assess3Weight"] + "," +
                             dataReader["assess4"] + "," +
-                            dataReader["assess4Weight"]
+                            dataReader["assess4Weight"]+ "," +
+                            dataReader["credit"]
                             
                             );
                     }
