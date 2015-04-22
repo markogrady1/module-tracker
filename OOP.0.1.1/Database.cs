@@ -246,7 +246,7 @@ namespace OOP._0._1._1
             string modCredit = moduleCredit.Trim();
             string courseId = courseDBId;
 
-            string query = "INSERT INTO module(moduleName, moduleCode, courseId,  level, assessmentAmount,credit)" +
+            string query = "INSERT INTO module(moduleName, moduleCode, courseId,  level, assessmentAmount, credit)" +
                            " values('" + modName + "','" + modCode + "'," + courseId + ",'" + modLevel + "'," + modAssessAmount + ","+modCredit+");";
             //create command and assign the query and connection from the constructor
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -265,7 +265,7 @@ namespace OOP._0._1._1
 
         public List<String> getModulesByLevel(string courseId, string level)
         {
-
+            
             string courseID = courseId;
             string modLevel = level.ToLower().Trim();
             string query = "SELECT * FROM module WHERE courseId=" + courseID + " AND level='" + modLevel + "';";
@@ -317,8 +317,9 @@ namespace OOP._0._1._1
 
         public List<String> getAllModules(string courseId)
         {
+            
             String courseID = courseId;
-            string query = "SELECT * FROM module WHERE courseId=" + courseID + ";";
+            string query = "SELECT * FROM module WHERE courseId=" + courseID + " ";
             List<string> modulesList = new List<string>();
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -329,6 +330,7 @@ namespace OOP._0._1._1
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 try
                 {
+                   
                     while (dataReader.Read())
                     {
 
@@ -454,6 +456,63 @@ namespace OOP._0._1._1
             }
 
 
+        }
+
+        public List<string> getAllDegreeModules(string courseId)
+        {
+            String courseID = courseId;
+            string query = "SELECT * FROM module WHERE courseId=" + courseID + " AND  level='five' OR   level='six';";
+            List<string> modulesList = new List<string>();
+
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+
+
+            try
+            {
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                try
+                {
+
+                    while (dataReader.Read())
+                    {
+
+                        modulesList.Add(
+                            dataReader["moduleId"] + "," +
+                            dataReader["moduleName"] + "," +
+                            dataReader["moduleCode"] + "," +
+                            dataReader["courseId"] + "," +
+                            dataReader["level"] + "," +
+                            dataReader["assessmentAmount"] + "," +
+                            //grades and weights for module
+                            dataReader["assess1"] + "," +
+                            dataReader["assess1Weight"] + "," +
+                            dataReader["assess2"] + "," +
+                            dataReader["assess2Weight"] + "," +
+                            dataReader["assess3"] + "," +
+                            dataReader["assess3Weight"] + "," +
+                            dataReader["assess4"] + "," +
+                            dataReader["assess4Weight"] + "," +
+                            dataReader["credit"]
+
+                            );
+                    }
+                    dataReader.Close();
+                    CloseConnection();
+                    return modulesList;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    CloseConnection();
+                    return null;
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+                CloseConnection();
+                return null;
+            }
         }
     }
 }

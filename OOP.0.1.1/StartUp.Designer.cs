@@ -30,7 +30,13 @@ namespace OOP._0._1._1
         /// </summary>
         private void InitializeComponent()
         {
-            this.addGradeTabPage = new System.Windows.Forms.TabPage();
+            this.degreePredictionTabPage = new System.Windows.Forms.TabPage();
+            this.degreePredictionPnl = new System.Windows.Forms.Panel();
+            this.dgSummaryTitle = new System.Windows.Forms.Label();
+            this.dgPredictUsernamePnl = new System.Windows.Forms.Panel();
+            this.dgCourseNameLbl = new System.Windows.Forms.Label();
+            this.dgUsernameLbl = new System.Windows.Forms.Label();
+            this.dgTotalOutComeLbl = new System.Windows.Forms.Label();
             this.covertab3Pnl = new System.Windows.Forms.Panel();
             this.labelg = new System.Windows.Forms.Label();
             this.mainAddGradePanel = new System.Windows.Forms.Panel();
@@ -58,6 +64,7 @@ namespace OOP._0._1._1
             this.label13 = new System.Windows.Forms.Label();
             this.availableModulesCbo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.addGradeTabPage = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.covertab2Pnl = new System.Windows.Forms.Panel();
             this.moduleCreditsCbo = new System.Windows.Forms.ComboBox();
@@ -94,9 +101,11 @@ namespace OOP._0._1._1
             this.hiddenCombo = new System.Windows.Forms.ComboBox();
             this.mainCoverPnl2 = new System.Windows.Forms.Panel();
             this.mainTabControl = new System.Windows.Forms.TabControl();
-            this.addGradeTabPage.SuspendLayout();
+            this.degreePredictionCoverPnl = new System.Windows.Forms.Panel();
+            this.statLbl = new System.Windows.Forms.Label();
             this.covertab3Pnl.SuspendLayout();
             this.mainAddGradePanel.SuspendLayout();
+            this.addGradeTabPage.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.covertab2Pnl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -106,16 +115,54 @@ namespace OOP._0._1._1
             this.mainTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // addGradeTabPage
+            // degreePredictionTabPage
             // 
-            this.addGradeTabPage.Controls.Add(this.covertab3Pnl);
-            this.addGradeTabPage.Controls.Add(this.mainAddGradePanel);
-            this.addGradeTabPage.Location = new System.Drawing.Point(4, 25);
-            this.addGradeTabPage.Name = "addGradeTabPage";
-            this.addGradeTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.addGradeTabPage.Size = new System.Drawing.Size(1070, 611);
-            this.addGradeTabPage.TabIndex = 1;
-            this.addGradeTabPage.UseVisualStyleBackColor = true;
+            this.degreePredictionTabPage.Location = new System.Drawing.Point(0, 0);
+            this.degreePredictionTabPage.Name = "degreePredictionTabPage";
+            this.degreePredictionTabPage.Size = new System.Drawing.Size(200, 100);
+            this.degreePredictionTabPage.TabIndex = 0;
+            // 
+            // degreePredictionPnl
+            // 
+            this.degreePredictionPnl.Location = new System.Drawing.Point(0, 0);
+            this.degreePredictionPnl.Name = "degreePredictionPnl";
+            this.degreePredictionPnl.Size = new System.Drawing.Size(200, 100);
+            this.degreePredictionPnl.TabIndex = 0;
+            // 
+            // dgSummaryTitle
+            // 
+            this.dgSummaryTitle.Location = new System.Drawing.Point(0, 0);
+            this.dgSummaryTitle.Name = "dgSummaryTitle";
+            this.dgSummaryTitle.Size = new System.Drawing.Size(100, 23);
+            this.dgSummaryTitle.TabIndex = 0;
+            // 
+            // dgPredictUsernamePnl
+            // 
+            this.dgPredictUsernamePnl.Location = new System.Drawing.Point(0, 0);
+            this.dgPredictUsernamePnl.Name = "dgPredictUsernamePnl";
+            this.dgPredictUsernamePnl.Size = new System.Drawing.Size(200, 100);
+            this.dgPredictUsernamePnl.TabIndex = 0;
+            // 
+            // dgCourseNameLbl
+            // 
+            this.dgCourseNameLbl.Location = new System.Drawing.Point(0, 0);
+            this.dgCourseNameLbl.Name = "dgCourseNameLbl";
+            this.dgCourseNameLbl.Size = new System.Drawing.Size(100, 23);
+            this.dgCourseNameLbl.TabIndex = 0;
+            // 
+            // dgUsernameLbl
+            // 
+            this.dgUsernameLbl.Location = new System.Drawing.Point(0, 0);
+            this.dgUsernameLbl.Name = "dgUsernameLbl";
+            this.dgUsernameLbl.Size = new System.Drawing.Size(100, 23);
+            this.dgUsernameLbl.TabIndex = 0;
+            // 
+            // dgTotalOutComeLbl
+            // 
+            this.dgTotalOutComeLbl.Location = new System.Drawing.Point(0, 0);
+            this.dgTotalOutComeLbl.Name = "dgTotalOutComeLbl";
+            this.dgTotalOutComeLbl.Size = new System.Drawing.Size(100, 23);
+            this.dgTotalOutComeLbl.TabIndex = 0;
             // 
             // covertab3Pnl
             // 
@@ -373,7 +420,7 @@ namespace OOP._0._1._1
             // 
             this.availableModulesCbo.Location = new System.Drawing.Point(0, 0);
             this.availableModulesCbo.Name = "availableModulesCbo";
-            this.availableModulesCbo.Size = new System.Drawing.Size(121, 21);
+            this.availableModulesCbo.Size = new System.Drawing.Size(121, 24);
             this.availableModulesCbo.TabIndex = 24;
             // 
             // label12
@@ -385,6 +432,17 @@ namespace OOP._0._1._1
             this.label12.Size = new System.Drawing.Size(199, 18);
             this.label12.TabIndex = 0;
             this.label12.Text = "Select Module for Grading";
+            // 
+            // addGradeTabPage
+            // 
+            this.addGradeTabPage.Controls.Add(this.mainAddGradePanel);
+            this.addGradeTabPage.Controls.Add(this.covertab3Pnl);
+            this.addGradeTabPage.Location = new System.Drawing.Point(4, 25);
+            this.addGradeTabPage.Name = "addGradeTabPage";
+            this.addGradeTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.addGradeTabPage.Size = new System.Drawing.Size(1070, 711);
+            this.addGradeTabPage.TabIndex = 1;
+            this.addGradeTabPage.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -770,6 +828,21 @@ namespace OOP._0._1._1
             this.mainTabControl.SelectedIndex = 0;
             this.mainTabControl.Size = new System.Drawing.Size(1078, 740);
             this.mainTabControl.TabIndex = 2;
+            this.mainTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl_Selecting);
+            // 
+            // degreePredictionCoverPnl
+            // 
+            this.degreePredictionCoverPnl.Location = new System.Drawing.Point(0, 0);
+            this.degreePredictionCoverPnl.Name = "degreePredictionCoverPnl";
+            this.degreePredictionCoverPnl.Size = new System.Drawing.Size(200, 100);
+            this.degreePredictionCoverPnl.TabIndex = 0;
+            // 
+            // statLbl
+            // 
+            this.statLbl.Location = new System.Drawing.Point(0, 0);
+            this.statLbl.Name = "statLbl";
+            this.statLbl.Size = new System.Drawing.Size(100, 23);
+            this.statLbl.TabIndex = 0;
             // 
             // StartUp
             // 
@@ -779,11 +852,11 @@ namespace OOP._0._1._1
             this.Controls.Add(this.mainTabControl);
             this.Name = "StartUp";
             this.Text = "Grade Prediction System";
-            this.addGradeTabPage.ResumeLayout(false);
             this.covertab3Pnl.ResumeLayout(false);
             this.covertab3Pnl.PerformLayout();
             this.mainAddGradePanel.ResumeLayout(false);
             this.mainAddGradePanel.PerformLayout();
+            this.addGradeTabPage.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.covertab2Pnl.ResumeLayout(false);
@@ -801,6 +874,7 @@ namespace OOP._0._1._1
 
         #endregion
 
+        private System.Windows.Forms.TabPage degreePredictionTabPage;
         private System.Windows.Forms.TabPage addGradeTabPage;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
@@ -858,6 +932,11 @@ namespace OOP._0._1._1
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox availableModulesCbo;
         private System.Windows.Forms.ComboBox hiddenCombo;
+     
+        /// <summary>
+        /// some of the components that i added myself
+        /// </summary>
+
         private Panel[] panel;
         private Label[] modNameLbl;
         private Label[] modName;
@@ -893,6 +972,14 @@ namespace OOP._0._1._1
         private Label label25;
         private ComboBox moduleCreditsCbo;
         private Label label26;
+        private Panel degreePredictionCoverPnl;
+        private Label statLbl;
+        private Panel degreePredictionPnl;
+        private Label dgTotalOutComeLbl;
+        private Label dgCourseNameLbl;
+        private Label dgUsernameLbl;
+        private Panel dgPredictUsernamePnl;
+        private Label dgSummaryTitle;
     }
 }
 

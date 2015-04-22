@@ -54,6 +54,11 @@ namespace OOP._0._1._1
             getAllModulesByLevel();
         }
 
+        public void setCourseId(CourseController cc)
+        {
+            this._courseId = cc.getCourseDbId();
+        }
+
         public void resetAllModules()
         {
             getAllModulesByLevel();
@@ -105,8 +110,17 @@ namespace OOP._0._1._1
             
            db.OpenConnection();
            List<string>modList = db.getAllModules(_courseId);
-
+          
             return modList;
+        }
+
+        public List<string> resolveAllDegreeModules(Prediction prediction)
+        {
+            db.OpenConnection();
+            List<string> courseList = db.getAllDegreeModules(_courseId);
+            prediction.CalculateDegree(courseList);
+            return null;
+
         }
     }
 }

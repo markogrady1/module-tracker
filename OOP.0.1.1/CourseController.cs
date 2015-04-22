@@ -10,7 +10,7 @@ namespace OOP._0._1._1
         private Database db;
         private Course course;
         private User user;
-
+        private string courseName, userName;
         public CourseController()
         {
             db = new Database();
@@ -21,10 +21,15 @@ namespace OOP._0._1._1
             this.course = course;
             this.user = user;
         }
+
+       
+
         public bool setData(string username, string courseName)
         {
-            course.CourseName = courseName;
-            user.Name = username;
+            this.courseName = courseName;
+            this.userName = username;
+            course.CourseName = this.courseName;
+            user.Name = this.userName;
            var res = addToDatabase(username, courseName);
             if (res)
                 return true;
@@ -71,6 +76,14 @@ namespace OOP._0._1._1
             
         }
 
+        public void assignNewUser(string username, string coursename)
+        {
+            courseName = coursename;
+            userName = username;
+            course.CourseName = courseName;
+            user.Name = userName;
+        }
+
         public void MatchCourseData(string existingData)
         {
             string queryParameters = existingData;
@@ -94,6 +107,16 @@ namespace OOP._0._1._1
             db.OpenConnection();
             List<string>data = db.getCourseDetails(courseDat);
             return data;
-        } 
+        }
+
+        public string UserName
+        {
+            get { return userName; }
+        }
+
+        public string CourseName
+        {
+            get { return courseName; }
+        }
     }
 }

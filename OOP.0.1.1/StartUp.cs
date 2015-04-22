@@ -12,7 +12,7 @@ namespace OOP._0._1._1
 {
     public partial class StartUp : Form
     {
-        private Boolean existingState = false;
+        
         private delegate void RunOnThreadPool(int threadId);
         private TabControl tabControlViews;
 
@@ -26,7 +26,7 @@ namespace OOP._0._1._1
         private CourseController cc = new CourseController();
         private AssessmentController assessController;
         private ModuleController moduleController;
-
+        private Prediction prediction = new Prediction();
 
         public StartUp()
         {
@@ -80,6 +80,7 @@ namespace OOP._0._1._1
 
         public void ConfigureTabs()
         {
+
             mainTabControl.Controls.Remove(tabPage2);
             mainTabControl.Controls.Remove(addGradeTabPage);
             mainTabControl.Controls.Add(tabPage2);
@@ -133,8 +134,95 @@ namespace OOP._0._1._1
             availableModulesCbo.TabIndex = 1;
             availableModulesCbo.SelectedIndexChanged += availableModulesCbo_SelectedIndexChanged;
             availableModulesCbo.Cursor = Cursors.Hand;
-
+            
             moduleAssessmentAmountCbo.Cursor = Cursors.Hand;
+            mainTabControl.Controls.Add(degreePredictionTabPage);
+            degreePredictionTabPage.Text = "Degree Prediction";
+            degreePredictionTabPage.Controls.Add(degreePredictionCoverPnl);
+            degreePredictionCoverPnl.Controls.Add(statLbl);
+            degreePredictionCoverPnl.Location = new Point(7, 9);
+            degreePredictionCoverPnl.Name = "degreePredictionCoverPnl";
+            degreePredictionCoverPnl.Size = new Size(1060, 611);
+            degreePredictionCoverPnl.TabIndex = 0;
+            degreePredictionCoverPnl.ResumeLayout(false);
+            degreePredictionCoverPnl.PerformLayout();
+
+            // 
+            // statLbl
+            // 
+            this.statLbl.AutoSize = true;
+            this.statLbl.Font = new System.Drawing.Font("Courgette", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.statLbl.Location = new System.Drawing.Point(271, 99);
+            this.statLbl.Name = "statLbl";
+            this.statLbl.Size = new System.Drawing.Size(476, 81);
+            this.statLbl.TabIndex = 0;
+            this.statLbl.Text = "No Modules Exist";
+            // 
+            // degreePredictionTabPage
+            // 
+            this.degreePredictionTabPage.Controls.Add(this.degreePredictionPnl);
+            this.degreePredictionTabPage.Location = new System.Drawing.Point(4, 25);
+            this.degreePredictionTabPage.Name = "degreePredictionTabPage";
+            this.degreePredictionTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.degreePredictionTabPage.Size = new System.Drawing.Size(1070, 711);
+            this.degreePredictionTabPage.TabIndex = 1;
+            this.degreePredictionTabPage.UseVisualStyleBackColor = true;
+            // 
+            // degreePredictionPnl
+            // 
+            this.degreePredictionPnl.Controls.Add(this.dgSummaryTitle);
+            this.degreePredictionPnl.Controls.Add(this.dgPredictUsernamePnl);
+            this.degreePredictionPnl.Controls.Add(this.dgTotalOutComeLbl);
+            this.degreePredictionPnl.Location = new System.Drawing.Point(7, 9);
+            this.degreePredictionPnl.Name = "degreePredictionPnl";
+            this.degreePredictionPnl.Size = new System.Drawing.Size(1054, 644);
+            this.degreePredictionPnl.TabIndex = 0;
+            // 
+            // dgSummaryTitle
+            // 
+            this.dgSummaryTitle.Image = global::OOP._0._1._1.Properties.Resources.degreeSummary;
+            this.dgSummaryTitle.Location = new System.Drawing.Point(354, 14);
+            this.dgSummaryTitle.Name = "dgSummaryTitle";
+            this.dgSummaryTitle.Size = new System.Drawing.Size(290, 28);
+            this.dgSummaryTitle.TabIndex = 5;
+            // 
+            // dgPredictUsernamePnl
+            // 
+            this.dgPredictUsernamePnl.Controls.Add(this.dgCourseNameLbl);
+            this.dgPredictUsernamePnl.Controls.Add(this.dgUsernameLbl);
+            this.dgPredictUsernamePnl.Location = new System.Drawing.Point(117, 77);
+            this.dgPredictUsernamePnl.Name = "dgPredictUsernamePnl";
+            this.dgPredictUsernamePnl.Size = new System.Drawing.Size(766, 49);
+            this.dgPredictUsernamePnl.TabIndex = 4;
+            // 
+            // dgCourseNameLbl
+            // 
+            this.dgCourseNameLbl.AutoSize = true;
+            this.dgCourseNameLbl.Location = new System.Drawing.Point(421, 17);
+            this.dgCourseNameLbl.Name = "dgCourseNameLbl";
+            this.dgCourseNameLbl.Size = new System.Drawing.Size(83, 16);
+            this.dgCourseNameLbl.TabIndex = 1;
+            this.dgCourseNameLbl.Text = "coursename";
+            // 
+            // dgUsernameLbl
+            // 
+            this.dgUsernameLbl.AutoSize = true;
+            this.dgUsernameLbl.Location = new System.Drawing.Point(183, 17);
+            this.dgUsernameLbl.Name = "dgUsernameLbl";
+            this.dgUsernameLbl.Size = new System.Drawing.Size(68, 16);
+            this.dgUsernameLbl.TabIndex = 0;
+            this.dgUsernameLbl.Text = "username";
+            // 
+            // dgTotalOutComeLbl
+            // 
+            this.dgTotalOutComeLbl.AutoSize = true;
+            this.dgTotalOutComeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 69.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgTotalOutComeLbl.Location = new System.Drawing.Point(452, 244);
+            this.dgTotalOutComeLbl.Name = "dgTotalOutComeLbl";
+            this.dgTotalOutComeLbl.Size = new System.Drawing.Size(175, 105);
+            this.dgTotalOutComeLbl.TabIndex = 2;
+            this.dgTotalOutComeLbl.Text = "res";
         }
 
         private void AddCover(TabPage tb, Panel pnl, Label lbl)
@@ -245,6 +333,7 @@ namespace OOP._0._1._1
             this.mainTabControl.Controls.Remove(this.tabPageLvl5);
             this.mainTabControl.Controls.Remove(this.tabPageLvl6);
             this.mainTabControl.Controls.Remove(this.tabPageModulePrediction);
+            this.mainTabControl.Controls.Remove(this.degreePredictionTabPage);
         }
 
         //private void openExistingPredictionBtn_Click(object sender, EventArgs e)
@@ -337,8 +426,8 @@ namespace OOP._0._1._1
                                 fourLimit = moduleLevel == "Level Four" ? Convert.ToInt32(moduleCredit) : 0;
                                 fiveLimit = moduleLevel == "Level Five" ? Convert.ToInt32(moduleCredit) : 0;
                                 sixLimit = moduleLevel == "Level Six" ? Convert.ToInt32(moduleCredit) : 0;
-
-
+                                
+                                moduleController.setCourseId(cc);
                                 List<string> creditCheckList = moduleController.resolveAllModules();
                                 bool limitReached = false;
                                 foreach (var list in creditCheckList)
@@ -434,6 +523,7 @@ namespace OOP._0._1._1
 
         public void setLevel(string level, List<string> moduleList)
         {
+            hidePanel(degreePredictionCoverPnl);
             hidePanel(modulePredictPnl);
             if (level == "four")
             {
@@ -516,6 +606,21 @@ namespace OOP._0._1._1
 
         }
 
+        public void tabControl_Selecting(object sender, EventArgs e)
+        {
+            if (mainTabControl.SelectedTab == degreePredictionTabPage)
+            {
+                moduleController.resolveAllDegreeModules(prediction);
+                /*
+                 * set the calculation of the final degree here somewhere///////////////////
+                */
+                dgCourseNameLbl.Text = cc.CourseName;
+                dgUsernameLbl.Text = cc.UserName;
+                dgCourseNameLbl.Font = new Font("Verdana", 14, FontStyle.Regular);
+                dgUsernameLbl.Font = new Font("Verdana", 14, FontStyle.Regular);
+            }
+        }
+
         private void modPredictChoiceBtn_Click(object sender, EventArgs e)
         {
             int index = modulePredictionChoiceCbo.SelectedIndex;
@@ -528,7 +633,7 @@ namespace OOP._0._1._1
 
                 string vals = hiddenPredictionChoiceCbo.Items[index].ToString();
 
-                Prediction prediction = new Prediction();
+               
                 prediction.modulePrediction(vals);
                 prediction.ResolveAllResults();
 
@@ -1063,6 +1168,7 @@ namespace OOP._0._1._1
             assessment4GradeTxt.Text = modGrades[6];
             assessment4WeightTxt.Text = modGrades[7];
         }
+
         private void addGradesBtn_Click(object sender, EventArgs e)
         {
             if (availableModulesCbo.Text == "")
@@ -1218,7 +1324,7 @@ namespace OOP._0._1._1
         {
             mainCoverPnl.Visible = false;
             mainCoverPnl.SendToBack();
-
+            degreePredictionCoverPnl.Visible = true;
         }
 
         private void openExistingPredictionBtn_Click(object sender, EventArgs e)
@@ -1236,6 +1342,7 @@ namespace OOP._0._1._1
                 string id = cc.getCourseDbId();
                 moduleController.CourseId = id;
                 bool result = cc.setExistingData(existingData);
+                
                 ConfigureTabs();
                 mainCoverPnl.Visible = true;
                 mainCoverPnl.BringToFront();
@@ -1243,6 +1350,7 @@ namespace OOP._0._1._1
 
                 string queryParameters = existingData;
                 string[] strArray = queryParameters.Split(',');
+                cc.assignNewUser(strArray[0], strArray[1]);
                 string user = strArray[0].Substring(0, 1).ToUpper() + strArray[0].Substring(1).ToLower();
                 user = Regex.Replace(user, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
 
@@ -1259,20 +1367,18 @@ namespace OOP._0._1._1
                 covertab3Pnl.Visible = false;
                 addGradeTabPage.Text = "Add Module Grade";
                 existingCourseCbo.SelectedIndex = -1;
-                existingState = true;
+                availableModulesCbo.Items.Clear();
+                populateAvailableModuleCombo();
 
             }
         }
 
         private void submitCourseNameBtn_Click(object sender, EventArgs e)
         {
-            //if (existingState)
-            //{
+          
             availableModulesCbo.Items.Clear();
 
-            existingState = false;
-            //}
-
+         
             resetTabs();
             string chosenCourse = availableCoursesCbo.Text;
             string username = userNameTxt.Text;

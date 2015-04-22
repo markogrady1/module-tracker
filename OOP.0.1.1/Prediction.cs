@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace OOP._0._1._1
 {
@@ -40,18 +42,18 @@ namespace OOP._0._1._1
             get { return _moduleName; }
         }
 
-       
+
         public string ModuleCode
         {
             get { return _moduleCode; }
         }
-        
+
         public string CourseId
         {
             get { return _courseId; }
         }
 
-        
+
         public int AssessmentAmount
         {
             get { return _assessmentAmount; }
@@ -67,7 +69,7 @@ namespace OOP._0._1._1
             _moduleCode = _completeModuleArray[2];
         }
 
-      
+
         public string GetModuleName(string[] moduleData)
         {
             return moduleData[1];
@@ -219,5 +221,45 @@ namespace OOP._0._1._1
         }
 
 
+        public void CalculateDegree(List<string> list)
+        {
+            List<int> fivesTotals = new List<int>();
+            List<int> sixesTotals = new List<int>();
+            
+            int count = 0;
+            foreach (var moduleData in list)
+            {
+                String[] moduleArray = moduleData.Split(',');
+
+                if (moduleArray[4] == "five")
+                {
+
+                    modulePrediction(moduleData);
+                    ResolveAllResults();
+                    fivesTotals.Add(getModuleTotal());
+
+                    count++;
+                } 
+                
+                if (moduleArray[4] == "six")
+                {
+
+                    modulePrediction(moduleData);
+                    ResolveAllResults();
+                    sixesTotals.Add(getModuleTotal());
+
+                    count++;
+                }
+            }
+            foreach (var f in fivesTotals)
+            {
+                MessageBox.Show("five mod" + f);
+            } 
+            
+            foreach (var g in sixesTotals)
+            {
+                MessageBox.Show("six mod" + g);
+            }
+        }
     }
 }
