@@ -461,7 +461,68 @@ namespace OOP._0._1._1
         public List<string> getAllDegreeModules(string courseId)
         {
             String courseID = courseId;
-            string query = "SELECT * FROM module WHERE courseId=" + courseID + " AND  level='five' OR   level='six';";
+            string query = "SELECT * FROM module WHERE courseId=" + courseID + " AND  level='five' OR   level='six' ;";
+            List<string> modulesList = new List<string>();
+
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+
+
+            try
+            {
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                try
+                {
+
+                    while (dataReader.Read())
+                    {
+
+                        modulesList.Add(
+                            dataReader["moduleId"] + "," +
+                            dataReader["moduleName"] + "," +
+                            dataReader["moduleCode"] + "," +
+                            dataReader["courseId"] + "," +
+                            dataReader["level"] + "," +
+                            dataReader["assessmentAmount"] + "," +
+                            //grades and weights for module
+                            dataReader["assess1"] + "," +
+                            dataReader["assess1Weight"] + "," +
+                            dataReader["assess2"] + "," +
+                            dataReader["assess2Weight"] + "," +
+                            dataReader["assess3"] + "," +
+                            dataReader["assess3Weight"] + "," +
+                            dataReader["assess4"] + "," +
+                            dataReader["assess4Weight"] + "," +
+                            dataReader["credit"]
+
+                            );
+                    }
+                    dataReader.Close();
+                    CloseConnection();
+                    return modulesList;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    CloseConnection();
+                    return null;
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+                CloseConnection();
+                return null;
+            }
+        }
+
+
+
+
+        public List<String> getAllFinalModules(string courseId, string  level)
+        {
+
+            String courseID = courseId;
+            string query = "SELECT * FROM module WHERE courseId=" + courseID + " AND level = '"+level+"' ";
             List<string> modulesList = new List<string>();
 
             MySqlCommand cmd = new MySqlCommand(query, connection);

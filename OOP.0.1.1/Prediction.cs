@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace OOP._0._1._1
@@ -16,6 +17,12 @@ namespace OOP._0._1._1
         private string _moduleName;
         private string _moduleCode;
         private string _courseId;
+        private int minimum;
+
+        public int Minimum
+        {
+            get { return minimum; }
+        }
 
         public float AvgOne
         {
@@ -220,46 +227,154 @@ namespace OOP._0._1._1
             return null;
         }
 
-
-        public void CalculateDegree(List<string> list)
+        public int CalculateLevelSix(List<int> list)
         {
-            List<int> fivesTotals = new List<int>();
-            List<int> sixesTotals = new List<int>();
-            
-            int count = 0;
-            foreach (var moduleData in list)
+
+            List<int> levelValues = list;
+            List<int> newList = new List<int>();
+            int i = 0;
+
+            int min = 0;
+            if (levelValues.Count > 7)
             {
-                String[] moduleArray = moduleData.Split(',');
-
-                if (moduleArray[4] == "five")
+                foreach (var values in levelValues)
                 {
-
-                    modulePrediction(moduleData);
-                    ResolveAllResults();
-                    fivesTotals.Add(getModuleTotal());
-
-                    count++;
-                } 
-                
-                if (moduleArray[4] == "six")
-                {
-
-                    modulePrediction(moduleData);
-                    ResolveAllResults();
-                    sixesTotals.Add(getModuleTotal());
-
-                    count++;
+                    min = levelValues.Min();
+                    minimum = min;
                 }
             }
-            foreach (var f in fivesTotals)
+
+            foreach (var values in levelValues)
             {
-                MessageBox.Show("five mod" + f);
-            } 
-            
-            foreach (var g in sixesTotals)
-            {
-                MessageBox.Show("six mod" + g);
+                if (values != min)
+                {
+                    newList.Add(values);
+                    i++;
+                }
             }
+            //MessageBox.Show(i + " sixessss");
+            int A = getAverageMark(newList);
+
+            //MessageBox.Show(A + " is the grade of the sixth year");
+            return A;
         }
+
+        public int CalculateLevelFive(List<int> list)
+        {
+
+            List<int> levelValues = list;
+            List<int> newList = new List<int>();
+            int gradeCount = 0;
+            int gradeCount2 = 0;
+            int j = 0;
+
+
+            foreach (var values in levelValues)
+            {
+                //MessageBox.Show(values + " five list");
+                newList.Add(values);
+                //min = newList.Min();
+                //MessageBox.Show(min + " low val");
+
+            }
+            newList.Add(this.Minimum);
+            //MessageBox.Show(minimum+" lowest value took from the six side");
+
+            newList.Sort();
+            //foreach (var i in newList)
+            //{
+            //    MessageBox.Show(i + "five");
+            //}
+            if (newList.Count == 8)
+            {
+                newList.RemoveAt(0);
+            }
+            if (newList.Count == 9)
+            {
+                newList.RemoveAt(0);
+                newList.RemoveAt(0);
+            }
+
+
+            //MessageBox.Show(newList.Count + " five before coutnt");
+            //foreach (var i in newList)
+            //{
+            //    //MessageBox.Show(i + " last list of fives");
+            //    j++;
+            //}
+            //MessageBox.Show(j + " number of of fives");
+
+
+            int B = getAverageMark(newList);
+            //MessageBox.Show(B + " is the grade of the fifth year");
+            return B;
+        }
+
+        private int getAverageMark(List<int> newList)
+        {
+            int tot = 0;
+            foreach (var list in newList)
+            {
+                tot += list;
+            }
+            tot = tot / 7;
+
+            return tot;
+        }
+
+
+        public string FinalDegreeResult(int A, int B)
+        {
+            if (A >= 70)
+            {
+                if (B >= 60)
+                {
+                    return "First Class Degree";
+                }
+                else if (B >= 50)
+                {
+                    return "Upper second Class Degree";
+                }
+                else if (B >= 40)
+                {
+                    return "Lower Second Class Degree";
+                }
+            }
+            else if (A >= 60)
+            {
+                if (B >= 50)
+                {
+                    return "Upper second Class Degree";
+                }
+                else if (B >= 40)
+                {
+                    return "Lower Second Class Degree";
+                }
+            }
+            else if (A >= 50)
+            {
+                if (B >= 40)
+                {
+                    return "Lower Second Class Degree";
+                }
+            }
+            else
+            {
+                return "Fail";
+            }
+
+            return null;
+        }
+
+        //public int FinalAvgResult(List<string> list)
+        //{
+        //    foreach (var arr in list)
+        //    {
+        //        string[] completeModuleArray = arr.Split(',');
+        //    int[] moduleGrades = GetAssessmentGrades(completeModuleArray);
+        //    int assessmentAmount = GetAmountOfAssessments(completeModuleArray);
+        //    }
+            
+        //}
     }
 }

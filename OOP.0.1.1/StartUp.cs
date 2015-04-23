@@ -12,7 +12,7 @@ namespace OOP._0._1._1
 {
     public partial class StartUp : Form
     {
-        
+
         private delegate void RunOnThreadPool(int threadId);
         private TabControl tabControlViews;
 
@@ -26,7 +26,7 @@ namespace OOP._0._1._1
         private CourseController cc = new CourseController();
         private AssessmentController assessController;
         private ModuleController moduleController;
-        private Prediction prediction = new Prediction();
+        //private Prediction prediction = new Prediction();
 
         public StartUp()
         {
@@ -134,7 +134,7 @@ namespace OOP._0._1._1
             availableModulesCbo.TabIndex = 1;
             availableModulesCbo.SelectedIndexChanged += availableModulesCbo_SelectedIndexChanged;
             availableModulesCbo.Cursor = Cursors.Hand;
-            
+
             moduleAssessmentAmountCbo.Cursor = Cursors.Hand;
             mainTabControl.Controls.Add(degreePredictionTabPage);
             degreePredictionTabPage.Text = "Degree Prediction";
@@ -171,13 +171,14 @@ namespace OOP._0._1._1
             // 
             // degreePredictionPnl
             // 
-            this.degreePredictionPnl.Controls.Add(this.dgSummaryTitle);
-            this.degreePredictionPnl.Controls.Add(this.dgPredictUsernamePnl);
-            this.degreePredictionPnl.Controls.Add(this.dgTotalOutComeLbl);
-            this.degreePredictionPnl.Location = new System.Drawing.Point(7, 9);
-            this.degreePredictionPnl.Name = "degreePredictionPnl";
-            this.degreePredictionPnl.Size = new System.Drawing.Size(1054, 644);
-            this.degreePredictionPnl.TabIndex = 0;
+            //this.degreePredictionPnl.Controls.Add(this.dgSummaryTitle);
+            //this.degreePredictionPnl.Controls.Add(this.dgPredictUsernamePnl);
+            //this.degreePredictionPnl.Controls.Add(this.dgTotalOutComeLbl);
+            //this.degreePredictionPnl.Location = new System.Drawing.Point(7, 9);
+            //this.degreePredictionPnl.Name = "degreePredictionPnl";
+            //this.degreePredictionPnl.Size = new System.Drawing.Size(1054, 644);
+            //this.degreePredictionPnl.TabIndex = 0;
+            //this.degreePredictionPnl.BackColor = Color.Yellow;
             // 
             // dgSummaryTitle
             // 
@@ -195,6 +196,7 @@ namespace OOP._0._1._1
             this.dgPredictUsernamePnl.Name = "dgPredictUsernamePnl";
             this.dgPredictUsernamePnl.Size = new System.Drawing.Size(766, 49);
             this.dgPredictUsernamePnl.TabIndex = 4;
+            this.dgPredictUsernamePnl.BackColor = Color.YellowGreen;
             // 
             // dgCourseNameLbl
             // 
@@ -207,22 +209,22 @@ namespace OOP._0._1._1
             // 
             // dgUsernameLbl
             // 
-            this.dgUsernameLbl.AutoSize = true;
-            this.dgUsernameLbl.Location = new System.Drawing.Point(183, 17);
-            this.dgUsernameLbl.Name = "dgUsernameLbl";
-            this.dgUsernameLbl.Size = new System.Drawing.Size(68, 16);
-            this.dgUsernameLbl.TabIndex = 0;
-            this.dgUsernameLbl.Text = "username";
+            dgUsernameLbl.AutoSize = true;
+            dgUsernameLbl.Location = new Point(183, 17);
+            dgUsernameLbl.Name = "dgUsernameLbl";
+            dgUsernameLbl.Size = new Size(68, 16);
+            dgUsernameLbl.TabIndex = 0;
+            dgUsernameLbl.Text = "username";
             // 
             // dgTotalOutComeLbl
             // 
-            this.dgTotalOutComeLbl.AutoSize = true;
-            this.dgTotalOutComeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 69.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgTotalOutComeLbl.Location = new System.Drawing.Point(452, 244);
-            this.dgTotalOutComeLbl.Name = "dgTotalOutComeLbl";
-            this.dgTotalOutComeLbl.Size = new System.Drawing.Size(175, 105);
-            this.dgTotalOutComeLbl.TabIndex = 2;
-            this.dgTotalOutComeLbl.Text = "res";
+            dgTotalOutComeLbl.AutoSize = true;
+            dgTotalOutComeLbl.Font = new Font("Microsoft Sans Serif", 40.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgTotalOutComeLbl.Location = new Point(452, 504);
+            dgTotalOutComeLbl.Name = "dgTotalOutComeLbl";
+            dgTotalOutComeLbl.Size = new Size(175, 105);
+            dgTotalOutComeLbl.TabIndex = 2;
+            dgTotalOutComeLbl.Text = "res";
         }
 
         private void AddCover(TabPage tb, Panel pnl, Label lbl)
@@ -426,7 +428,7 @@ namespace OOP._0._1._1
                                 fourLimit = moduleLevel == "Level Four" ? Convert.ToInt32(moduleCredit) : 0;
                                 fiveLimit = moduleLevel == "Level Five" ? Convert.ToInt32(moduleCredit) : 0;
                                 sixLimit = moduleLevel == "Level Six" ? Convert.ToInt32(moduleCredit) : 0;
-                                
+
                                 moduleController.setCourseId(cc);
                                 List<string> creditCheckList = moduleController.resolveAllModules();
                                 bool limitReached = false;
@@ -610,7 +612,196 @@ namespace OOP._0._1._1
         {
             if (mainTabControl.SelectedTab == degreePredictionTabPage)
             {
-                moduleController.resolveAllDegreeModules(prediction);
+                degreePredictionPnl.Controls.Clear();
+
+                //moduleController.resolveAllDegreeModules(new Prediction());
+                List<string> fourList = moduleController.resolveAllDegreeModules("four");
+                List<string> fiveList = moduleController.resolveAllDegreeModules("five");
+                List<string> sixList = moduleController.resolveAllDegreeModules("six");
+                var fr = CalculateLevelModules(fourList);
+                var fv = CalculateLevelModules(fiveList);
+                var sx = CalculateLevelModules(sixList);
+                List<int> fours = new List<int>();
+                List<int> fives = new List<int>();
+                List<int> sixes = new List<int>();
+                int i = 0;
+                foreach (var outlist in fv)
+                {
+                    string[] data = fiveList[i++].Split(',');
+                    if (Convert.ToInt32(data[6]) != 0)
+                    {
+                        fives.Add(outlist);
+
+                        if (Convert.ToInt32(data[14]) == 30)
+                        {
+                            fives.Add(outlist);
+                        }
+                        if (Convert.ToInt32(data[14]) == 45)
+                        {
+                            fives.Add(outlist);
+                            fives.Add(outlist);
+                        }
+                    }
+
+                }
+                int j = 0;
+                foreach (var outlist in sx)
+                {
+                    string[] data = sixList[j++].Split(',');
+                    if (Convert.ToInt32(data[6]) != 0)
+                    {
+                        sixes.Add(outlist);
+
+                        if (Convert.ToInt32(data[14]) == 30)
+                        {
+                            sixes.Add(outlist);
+                        }
+                        if (Convert.ToInt32(data[14]) == 45)
+                        {
+                            sixes.Add(outlist);
+                            sixes.Add(outlist);
+                        }
+                    }
+
+                }
+                int k = 0;
+                foreach (var li in fr)
+                {
+                    string[] data = fourList[k++].Split(',');
+                    if (Convert.ToInt32(data[6]) != 0)
+                    {
+                        fours.Add(li);
+
+                        if (Convert.ToInt32(data[14]) == 30)
+                        {
+                            fours.Add(li);
+                        }
+                        if (Convert.ToInt32(data[14]) == 45)
+                        {
+                            fours.Add(li);
+                            fours.Add(li);
+                        }
+                    }
+
+                }
+                Prediction pred = new Prediction();
+                int A = moduleController.Level6Outcome(pred, sixes);
+                int B = moduleController.Level5Outcome(pred, fives);
+                string degreeResult = moduleController.GetFinalDegree(A, B);
+                /*
+                 * Dynamically added content concerning the final degree result
+                 */
+                degreePredictionPnl.Controls.Add(dgSummaryTitle);
+                degreePredictionPnl.Controls.Add(dgPredictUsernamePnl);
+                degreePredictionPnl.Controls.Add(dgTotalOutComeLbl);
+                degreePredictionPnl.Location = new Point(7, 9);
+                degreePredictionPnl.Name = "degreePredictionPnl";
+                degreePredictionPnl.Size = new Size(1054, 644);
+                degreePredictionPnl.TabIndex = 0;
+                degreePredictionPnl.BackColor = Color.Yellow;
+
+                Panel allModuleAvgPnl = new Panel();
+                allModuleAvgPnl.Location = new Point(600, 150);
+                allModuleAvgPnl.AutoSize = true;
+                allModuleAvgPnl.BackColor = Color.Violet;
+
+
+                Panel bestOfPnl = new Panel();
+                bestOfPnl.AutoSize = true;
+                bestOfPnl.Location = new Point(0, 150);
+                bestOfPnl.BackColor = Color.Teal;
+                //bestOfPnl.BackColor = Color.BlueViolet;
+                degreePredictionPnl.Controls.Add(bestOfPnl);
+
+                Label levelFiveLbl = new Label();
+                levelFiveLbl.Text = "Best 105 Credits Level 6:";
+                levelFiveLbl.Location = new Point(79, 20);
+                levelFiveLbl.AutoSize = true;
+                levelFiveLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
+                bestOfPnl.Controls.Add(levelFiveLbl);
+
+                TextBox levelFiveOutputTxt = new TextBox();
+                levelFiveOutputTxt.Text = A + "";
+                levelFiveOutputTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
+                levelFiveOutputTxt.ForeColor = Color.FromArgb(30, 30, 30);
+                levelFiveOutputTxt.Location = new Point(383, 10);
+                levelFiveOutputTxt.BorderStyle = BorderStyle.FixedSingle;
+
+                Label levelSixLbl = new Label();
+                levelSixLbl.Text = "Best 105 Credits Level 5 and 6:";
+                levelSixLbl.Location = new Point(10, 80);
+                levelSixLbl.AutoSize = true;
+                levelSixLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
+                bestOfPnl.Controls.Add(levelSixLbl);
+
+                TextBox levelSixOutputTxt = new TextBox();
+                levelSixOutputTxt.Text = B + "";
+                levelSixOutputTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
+                levelSixOutputTxt.ForeColor = Color.FromArgb(30, 30, 30);
+                levelSixOutputTxt.Location = new Point(383, 70);
+                levelSixOutputTxt.BorderStyle = BorderStyle.FixedSingle;
+
+                Label levelFourAvgLbl = new Label();
+                levelFourAvgLbl.Location = new Point(0, 20);
+                levelFourAvgLbl.Text = "Level Four avg.";
+                levelFourAvgLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
+                levelFourAvgLbl.AutoSize = true;
+
+                TextBox levelFourAvgTxt = new TextBox();
+                levelFourAvgTxt.Location = new Point(183, 10);
+                levelFourAvgTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
+                levelFourAvgTxt.ForeColor = Color.FromArgb(30, 30, 30);
+                levelFourAvgTxt.BorderStyle = BorderStyle.FixedSingle;
+                int fourAvg = moduleController.getAvg(fours);
+                levelFourAvgTxt.Text = fourAvg + "";
+                levelFourAvgTxt.Enabled = false;
+
+                Label levelFiveAvgLbl = new Label();
+                levelFiveAvgLbl.Location = new Point(0, 80);
+                levelFiveAvgLbl.Text = "Level Five avg.";
+                levelFiveAvgLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
+                levelFiveAvgLbl.AutoSize = true;
+
+                TextBox levelFiveAvgTxt = new TextBox();
+                levelFiveAvgTxt.Location = new Point(183, 70);
+                levelFiveAvgTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
+                levelFiveAvgTxt.ForeColor = Color.FromArgb(30, 30, 30);
+                levelFiveAvgTxt.BorderStyle = BorderStyle.FixedSingle;
+                int fiveAvg = moduleController.getAvg(fives);
+                levelFiveAvgTxt.Text = fiveAvg + "";
+                levelFiveAvgTxt.Enabled = false;
+
+                Label levelSixAvgLbl = new Label();
+                levelSixAvgLbl.Location = new Point(0, 140);
+                levelSixAvgLbl.Text = "Level Six avg.";
+                levelSixAvgLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
+                levelSixAvgLbl.AutoSize = true;
+
+                TextBox levelSixAvgTxt = new TextBox();
+                levelSixAvgTxt.Location = new Point(183, 130);
+                levelSixAvgTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
+                levelSixAvgTxt.ForeColor = Color.FromArgb(30, 30, 30);
+                levelSixAvgTxt.BorderStyle = BorderStyle.FixedSingle;
+                levelSixAvgTxt.Enabled = false;
+                int sixAvg = moduleController.getAvg(sixes);
+                levelSixAvgTxt.Text = sixAvg + "";
+
+                allModuleAvgPnl.Controls.Add(levelFourAvgLbl);
+                allModuleAvgPnl.Controls.Add(levelFourAvgTxt);
+
+                allModuleAvgPnl.Controls.Add(levelFiveAvgLbl);
+                allModuleAvgPnl.Controls.Add(levelFiveAvgTxt);
+
+                allModuleAvgPnl.Controls.Add(levelSixAvgLbl);
+                allModuleAvgPnl.Controls.Add(levelSixAvgTxt);
+
+
+
+                
+                bestOfPnl.Controls.Add(levelFiveOutputTxt);
+                bestOfPnl.Controls.Add(levelSixOutputTxt);
+                
+                degreePredictionPnl.Controls.Add(allModuleAvgPnl);
                 /*
                  * set the calculation of the final degree here somewhere///////////////////
                 */
@@ -618,7 +809,25 @@ namespace OOP._0._1._1
                 dgUsernameLbl.Text = cc.UserName;
                 dgCourseNameLbl.Font = new Font("Verdana", 14, FontStyle.Regular);
                 dgUsernameLbl.Font = new Font("Verdana", 14, FontStyle.Regular);
+                dgTotalOutComeLbl.Text = degreeResult;
             }
+        }
+
+       
+
+        private static List<int> CalculateLevelModules(List<string> moduleList)
+        {
+            List<int> res = new List<int>();
+            foreach (var list in moduleList)
+            {
+                Prediction prediction = new Prediction();
+                prediction.modulePrediction(list);
+                prediction.ResolveAllResults();
+
+                int actual = prediction.getModuleTotal();
+                res.Add(actual);
+            }
+            return res;
         }
 
         private void modPredictChoiceBtn_Click(object sender, EventArgs e)
@@ -633,7 +842,7 @@ namespace OOP._0._1._1
 
                 string vals = hiddenPredictionChoiceCbo.Items[index].ToString();
 
-               
+                Prediction prediction = new Prediction();
                 prediction.modulePrediction(vals);
                 prediction.ResolveAllResults();
 
@@ -962,7 +1171,7 @@ namespace OOP._0._1._1
                 assessment4Lbl[i].Text = "Assessment Four:";
                 assessment4[i].Text = strArray[9];
                 creditLbl[i].Text = "Credits:";
-                credit[i].Text =  strArray[10];
+                credit[i].Text = strArray[10];
 
 
                 panel[i].Location = new Point(100, panelStart);
@@ -1008,18 +1217,18 @@ namespace OOP._0._1._1
                 assessmentNoLbl[i].AutoSize = true;
                 panel[i].Controls.Add(assessmentNoLbl[i]);
 
-                
+
                 creditLbl[i].Font = new Font("Verdana", 9.75F, FontStyle.Bold);
                 creditLbl[i].Location = new Point(40, MID_ROW_POS);
                 creditLbl[i].AutoSize = true;
-                
+
                 panel[i].Controls.Add(creditLbl[i]);
 
-                
+
                 credit[i].Font = new Font("Verdana", 9.75F, FontStyle.Regular);
                 credit[i].Location = new Point(100, MID_ROW_POS);
                 credit[i].AutoSize = true;
-                
+
                 panel[i].Controls.Add(credit[i]);
 
                 assessmentNo[i].Location = new Point(820, TOP_ROW_POS);
@@ -1342,7 +1551,7 @@ namespace OOP._0._1._1
                 string id = cc.getCourseDbId();
                 moduleController.CourseId = id;
                 bool result = cc.setExistingData(existingData);
-                
+
                 ConfigureTabs();
                 mainCoverPnl.Visible = true;
                 mainCoverPnl.BringToFront();
@@ -1375,10 +1584,10 @@ namespace OOP._0._1._1
 
         private void submitCourseNameBtn_Click(object sender, EventArgs e)
         {
-          
+
             availableModulesCbo.Items.Clear();
 
-         
+
             resetTabs();
             string chosenCourse = availableCoursesCbo.Text;
             string username = userNameTxt.Text;

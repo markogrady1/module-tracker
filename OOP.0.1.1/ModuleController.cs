@@ -13,17 +13,14 @@ namespace OOP._0._1._1
     {
         private StartUp startUp;
         private Database db;
-        private string _username;
-        private string _coursename;
-        private string _moduleName, _moduleCode, _moduleLevel, _moduleAssessmentAmount, _courseId;
-        private string _moduleCredit;
+        private string _courseId;
 
         public ModuleController(StartUp startup)
         {
             this.startUp = startup;
             db = new Database();
         }
-        
+
         public string CourseId
         {
             get { return _courseId; }
@@ -32,13 +29,6 @@ namespace OOP._0._1._1
 
         public void CreateNewModule(CourseController cc, string username, string coursename, string moduleName, string moduleCode, string moduleLevel, string moduleAssessmentAmount, string moduleCredit)
         {
-            _username = username;
-            _coursename = coursename;
-            _moduleName = moduleName;
-            _moduleCode = moduleCode;
-            _moduleLevel = moduleLevel;
-            _moduleAssessmentAmount = moduleAssessmentAmount;
-            _moduleCredit = moduleCredit;
             //string courseID = db.GetId(username, coursename, "course");
             this._courseId = cc.getCourseDbId();
             Module module = new Module();
@@ -73,7 +63,7 @@ namespace OOP._0._1._1
             List<string> levelSixModules = db.getModulesByLevel(this._courseId, "six");
             //foreach (string line in levelFourModules)
             //{
-                //MessageBox.Show(line);
+            //MessageBox.Show(line);
             if (levelFourModules.Count != 0)
             {
                 startUp.setLevel("four", levelFourModules);
@@ -88,7 +78,7 @@ namespace OOP._0._1._1
             {
                 startUp.setLevel("six", levelSixModules);
             }
-                
+
             //}
 
             //foreach (string line in levelFiveModules)
@@ -102,25 +92,72 @@ namespace OOP._0._1._1
             //    MessageBox.Show(line);
             //    //startUp.setLevel("four", levelFourModules);
             //}
-           
+
         }
 
         public List<string> resolveAllModules()
         {
-            
-           db.OpenConnection();
-           List<string>modList = db.getAllModules(_courseId);
-          
+
+            db.OpenConnection();
+            List<string> modList = db.getAllModules(_courseId);
+
             return modList;
         }
 
-        public List<string> resolveAllDegreeModules(Prediction prediction)
+        public List<string> resolveAllDegreeModules(string level)
         {
             db.OpenConnection();
-            List<string> courseList = db.getAllDegreeModules(_courseId);
-            prediction.CalculateDegree(courseList);
-            return null;
+            List<string> modList = db.getAllFinalModules(_courseId, level);
+            //prediction.CalculateDegree(courseList);
+            return modList;
 
+        }
+
+        public int Level6Outcome(Prediction prediction, List<int> list)
+        {
+            Prediction predict = prediction;
+            int A = predict.CalculateLevelSix(list);
+
+            return A;
+        }
+        public int Level5Outcome(Prediction prediction, List<int> list)
+        {
+            Prediction predict = prediction;
+            int B = predict.CalculateLevelFive(list);
+
+            return B;
+        }
+
+        public string GetFinalDegree(int a, int b)
+        {
+            Prediction pred = new Prediction();
+            string result = pred.FinalDegreeResult(a, b);
+
+            return result;
+        }
+
+        //public int getAverage(List<string> list)
+        //{
+        //    Prediction pred = new Prediction();
+        //    int result = pred.FinalAvgResult(list);
+
+        //    return result;
+        //}
+        public int getAvg(List<int> fours)
+        {
+            int tot = 0;
+            foreach (var list in fours)
+            {
+                tot += list;
+            }
+            if (fours.Count != 0)
+            {
+                tot = tot / fours.Count;
+                return tot;
+            }
+            
+
+            return 0;
         }
     }
 }
