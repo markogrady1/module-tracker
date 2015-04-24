@@ -40,8 +40,6 @@ namespace OOP._0._1._1
             this.covertab3Pnl = new System.Windows.Forms.Panel();
             this.labelg = new System.Windows.Forms.Label();
             this.mainAddGradePanel = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.addGradesBtn = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -71,38 +69,40 @@ namespace OOP._0._1._1
             this.label26 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.moduleCodeTxt = new System.Windows.Forms.TextBox();
-            this.AddModuleBtnBlue = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.moduleAssessmentAmountCbo = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.moduleLevelCbo = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.moduleNameTxt = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.addModCourseLbl = new System.Windows.Forms.Label();
             this.addModUserLbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.openExistingCoursePnl = new System.Windows.Forms.Panel();
-            this.openExistingPredictionBtn = new System.Windows.Forms.Label();
             this.existingCourseCbo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.selectCoursePnl = new System.Windows.Forms.Panel();
-            this.submitCourseNameBtn = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.userNameTxt = new System.Windows.Forms.TextBox();
             this.availableCoursesCbo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.mainCoverPnl = new System.Windows.Forms.Panel();
-            this.activeCreateNewCourseBtn = new System.Windows.Forms.Label();
-            this.buildCourseBtn = new System.Windows.Forms.Label();
             this.hiddenCombo = new System.Windows.Forms.ComboBox();
             this.mainCoverPnl2 = new System.Windows.Forms.Panel();
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.degreePredictionCoverPnl = new System.Windows.Forms.Panel();
             this.statLbl = new System.Windows.Forms.Label();
+            this.openExistingPredictionBtn = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.submitCourseNameBtn = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.activeCreateNewCourseBtn = new System.Windows.Forms.Label();
+            this.buildCourseBtn = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.addGradesBtn = new System.Windows.Forms.Label();
+            this.AddModuleBtnBlue = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.covertab3Pnl.SuspendLayout();
             this.mainAddGradePanel.SuspendLayout();
             this.addGradeTabPage.SuspendLayout();
@@ -213,24 +213,6 @@ namespace OOP._0._1._1
             this.mainAddGradePanel.Name = "mainAddGradePanel";
             this.mainAddGradePanel.Size = new System.Drawing.Size(1025, 515);
             this.mainAddGradePanel.TabIndex = 1;
-            // 
-            // label25
-            // 
-            this.label25.Image = global::OOP._0._1._1.Properties.Resources.addModules;
-            this.label25.Location = new System.Drawing.Point(338, 27);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(332, 36);
-            this.label25.TabIndex = 23;
-            // 
-            // addGradesBtn
-            // 
-            this.addGradesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addGradesBtn.Image = global::OOP._0._1._1.Properties.Resources.addGradesBtn;
-            this.addGradesBtn.Location = new System.Drawing.Point(357, 342);
-            this.addGradesBtn.Name = "addGradesBtn";
-            this.addGradesBtn.Size = new System.Drawing.Size(135, 42);
-            this.addGradesBtn.TabIndex = 22;
-            this.addGradesBtn.Click += new System.EventHandler(this.addGradesBtn_Click);
             // 
             // label24
             // 
@@ -420,7 +402,7 @@ namespace OOP._0._1._1
             // 
             this.availableModulesCbo.Location = new System.Drawing.Point(0, 0);
             this.availableModulesCbo.Name = "availableModulesCbo";
-            this.availableModulesCbo.Size = new System.Drawing.Size(121, 24);
+            this.availableModulesCbo.Size = new System.Drawing.Size(121, 21);
             this.availableModulesCbo.TabIndex = 24;
             // 
             // label12
@@ -519,16 +501,6 @@ namespace OOP._0._1._1
             this.moduleCodeTxt.Size = new System.Drawing.Size(254, 26);
             this.moduleCodeTxt.TabIndex = 11;
             // 
-            // AddModuleBtnBlue
-            // 
-            this.AddModuleBtnBlue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddModuleBtnBlue.Image = global::OOP._0._1._1.Properties.Resources.btn;
-            this.AddModuleBtnBlue.Location = new System.Drawing.Point(322, 345);
-            this.AddModuleBtnBlue.Name = "AddModuleBtnBlue";
-            this.AddModuleBtnBlue.Size = new System.Drawing.Size(130, 42);
-            this.AddModuleBtnBlue.TabIndex = 10;
-            this.AddModuleBtnBlue.Click += new System.EventHandler(this.AddModuleBtnBlue_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -595,15 +567,6 @@ namespace OOP._0._1._1
             this.moduleNameTxt.Size = new System.Drawing.Size(254, 26);
             this.moduleNameTxt.TabIndex = 3;
             // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Image = global::OOP._0._1._1.Properties.Resources.addModulesToCourse;
-            this.label7.Location = new System.Drawing.Point(300, 79);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(302, 27);
-            this.label7.TabIndex = 2;
-            // 
             // addModCourseLbl
             // 
             this.addModCourseLbl.AutoSize = true;
@@ -664,16 +627,6 @@ namespace OOP._0._1._1
             this.openExistingCoursePnl.TabIndex = 2;
             this.openExistingCoursePnl.Visible = false;
             // 
-            // openExistingPredictionBtn
-            // 
-            this.openExistingPredictionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.openExistingPredictionBtn.Image = global::OOP._0._1._1.Properties.Resources.openCourse;
-            this.openExistingPredictionBtn.Location = new System.Drawing.Point(306, 121);
-            this.openExistingPredictionBtn.Name = "openExistingPredictionBtn";
-            this.openExistingPredictionBtn.Size = new System.Drawing.Size(150, 41);
-            this.openExistingPredictionBtn.TabIndex = 12;
-            this.openExistingPredictionBtn.Click += new System.EventHandler(this.openExistingPredictionBtn_Click);
-            // 
             // existingCourseCbo
             // 
             this.existingCourseCbo.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -695,15 +648,6 @@ namespace OOP._0._1._1
             this.label6.TabIndex = 9;
             this.label6.Text = "Select Course";
             // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Courgette", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Image = global::OOP._0._1._1.Properties.Resources.existing;
-            this.label3.Location = new System.Drawing.Point(222, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(277, 24);
-            this.label3.TabIndex = 0;
-            // 
             // selectCoursePnl
             // 
             this.selectCoursePnl.Controls.Add(this.submitCourseNameBtn);
@@ -717,35 +661,6 @@ namespace OOP._0._1._1
             this.selectCoursePnl.Size = new System.Drawing.Size(792, 210);
             this.selectCoursePnl.TabIndex = 1;
             this.selectCoursePnl.Visible = false;
-            // 
-            // submitCourseNameBtn
-            // 
-            this.submitCourseNameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.submitCourseNameBtn.Image = global::OOP._0._1._1.Properties.Resources.create;
-            this.submitCourseNameBtn.Location = new System.Drawing.Point(408, 145);
-            this.submitCourseNameBtn.Name = "submitCourseNameBtn";
-            this.submitCourseNameBtn.Size = new System.Drawing.Size(152, 48);
-            this.submitCourseNameBtn.TabIndex = 8;
-            this.submitCourseNameBtn.Click += new System.EventHandler(this.submitCourseNameBtn_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(186, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 18);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Enter username";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Courgette", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Image = global::OOP._0._1._1.Properties.Resources.createCourse;
-            this.label2.Location = new System.Drawing.Point(322, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(278, 24);
-            this.label2.TabIndex = 6;
             // 
             // userNameTxt
             // 
@@ -785,26 +700,6 @@ namespace OOP._0._1._1
             this.mainCoverPnl.TabIndex = 12;
             this.mainCoverPnl.Visible = false;
             // 
-            // activeCreateNewCourseBtn
-            // 
-            this.activeCreateNewCourseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.activeCreateNewCourseBtn.Image = global::OOP._0._1._1.Properties.Resources.createNewCourse;
-            this.activeCreateNewCourseBtn.Location = new System.Drawing.Point(411, 103);
-            this.activeCreateNewCourseBtn.Name = "activeCreateNewCourseBtn";
-            this.activeCreateNewCourseBtn.Size = new System.Drawing.Size(151, 48);
-            this.activeCreateNewCourseBtn.TabIndex = 1;
-            this.activeCreateNewCourseBtn.Click += new System.EventHandler(this.activeCreateNewCourseBtn_Click);
-            // 
-            // buildCourseBtn
-            // 
-            this.buildCourseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buildCourseBtn.Image = global::OOP._0._1._1.Properties.Resources.buildCourse;
-            this.buildCourseBtn.Location = new System.Drawing.Point(38, 118);
-            this.buildCourseBtn.Name = "buildCourseBtn";
-            this.buildCourseBtn.Size = new System.Drawing.Size(146, 42);
-            this.buildCourseBtn.TabIndex = 2;
-            this.buildCourseBtn.Click += new System.EventHandler(this.buildCourseBtn_Click);
-            // 
             // hiddenCombo
             // 
             this.hiddenCombo.Location = new System.Drawing.Point(0, 0);
@@ -843,6 +738,111 @@ namespace OOP._0._1._1
             this.statLbl.Name = "statLbl";
             this.statLbl.Size = new System.Drawing.Size(100, 23);
             this.statLbl.TabIndex = 0;
+            // 
+            // openExistingPredictionBtn
+            // 
+            this.openExistingPredictionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.openExistingPredictionBtn.Image = global::OOP._0._1._1.Properties.Resources.openCourse;
+            this.openExistingPredictionBtn.Location = new System.Drawing.Point(306, 121);
+            this.openExistingPredictionBtn.Name = "openExistingPredictionBtn";
+            this.openExistingPredictionBtn.Size = new System.Drawing.Size(150, 41);
+            this.openExistingPredictionBtn.TabIndex = 12;
+            this.openExistingPredictionBtn.Click += new System.EventHandler(this.openExistingPredictionBtn_Click);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Courgette", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Image = global::OOP._0._1._1.Properties.Resources.existing;
+            this.label3.Location = new System.Drawing.Point(222, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(277, 24);
+            this.label3.TabIndex = 0;
+            // 
+            // submitCourseNameBtn
+            // 
+            this.submitCourseNameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.submitCourseNameBtn.Image = global::OOP._0._1._1.Properties.Resources.create;
+            this.submitCourseNameBtn.Location = new System.Drawing.Point(408, 145);
+            this.submitCourseNameBtn.Name = "submitCourseNameBtn";
+            this.submitCourseNameBtn.Size = new System.Drawing.Size(152, 48);
+            this.submitCourseNameBtn.TabIndex = 8;
+            this.submitCourseNameBtn.Click += new System.EventHandler(this.submitCourseNameBtn_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(186, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(126, 18);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Enter username";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Courgette", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Image = global::OOP._0._1._1.Properties.Resources.createCourse;
+            this.label2.Location = new System.Drawing.Point(322, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(278, 24);
+            this.label2.TabIndex = 6;
+            // 
+            // activeCreateNewCourseBtn
+            // 
+            this.activeCreateNewCourseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.activeCreateNewCourseBtn.Image = global::OOP._0._1._1.Properties.Resources.createNewCourse;
+            this.activeCreateNewCourseBtn.Location = new System.Drawing.Point(411, 103);
+            this.activeCreateNewCourseBtn.Name = "activeCreateNewCourseBtn";
+            this.activeCreateNewCourseBtn.Size = new System.Drawing.Size(151, 48);
+            this.activeCreateNewCourseBtn.TabIndex = 1;
+            this.activeCreateNewCourseBtn.Click += new System.EventHandler(this.activeCreateNewCourseBtn_Click);
+            // 
+            // buildCourseBtn
+            // 
+            this.buildCourseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buildCourseBtn.Image = global::OOP._0._1._1.Properties.Resources.buildCourse;
+            this.buildCourseBtn.Location = new System.Drawing.Point(38, 118);
+            this.buildCourseBtn.Name = "buildCourseBtn";
+            this.buildCourseBtn.Size = new System.Drawing.Size(146, 42);
+            this.buildCourseBtn.TabIndex = 2;
+            this.buildCourseBtn.Click += new System.EventHandler(this.buildCourseBtn_Click);
+            // 
+            // label25
+            // 
+            this.label25.Image = global::OOP._0._1._1.Properties.Resources.addModules;
+            this.label25.Location = new System.Drawing.Point(338, 27);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(332, 36);
+            this.label25.TabIndex = 23;
+            // 
+            // addGradesBtn
+            // 
+            this.addGradesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addGradesBtn.Image = global::OOP._0._1._1.Properties.Resources.addGradesBtn;
+            this.addGradesBtn.Location = new System.Drawing.Point(357, 342);
+            this.addGradesBtn.Name = "addGradesBtn";
+            this.addGradesBtn.Size = new System.Drawing.Size(135, 42);
+            this.addGradesBtn.TabIndex = 22;
+            this.addGradesBtn.Click += new System.EventHandler(this.addGradesBtn_Click);
+            // 
+            // AddModuleBtnBlue
+            // 
+            this.AddModuleBtnBlue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddModuleBtnBlue.Image = global::OOP._0._1._1.Properties.Resources.btn;
+            this.AddModuleBtnBlue.Location = new System.Drawing.Point(322, 345);
+            this.AddModuleBtnBlue.Name = "AddModuleBtnBlue";
+            this.AddModuleBtnBlue.Size = new System.Drawing.Size(130, 42);
+            this.AddModuleBtnBlue.TabIndex = 10;
+            this.AddModuleBtnBlue.Click += new System.EventHandler(this.AddModuleBtnBlue_Click);
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Image = global::OOP._0._1._1.Properties.Resources.addModulesToCourse;
+            this.label7.Location = new System.Drawing.Point(300, 79);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(302, 27);
+            this.label7.TabIndex = 2;
             // 
             // StartUp
             // 
@@ -980,6 +980,7 @@ namespace OOP._0._1._1
         private Label dgUsernameLbl;
         private Panel dgPredictUsernamePnl;
         private Label dgSummaryTitle;
+        private Label[] removeBtn;
     }
 }
 

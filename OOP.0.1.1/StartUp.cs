@@ -1127,6 +1127,7 @@ namespace OOP._0._1._1
             assessment4 = new Label[moduleList.Count];
             Label[] creditLbl = new Label[moduleList.Count];
             Label[] credit = new Label[moduleList.Count];
+            removeBtn = new Label[moduleList.Count];
             DateTime now = DateTime.Now;
 
             for (var i = 0; i < moduleList.Count; i++)
@@ -1153,6 +1154,8 @@ namespace OOP._0._1._1
                 assessment1Lbl[i].Text = null;
                 creditLbl[i] = new Label();
                 credit[i] = new Label();
+                removeBtn[i] = new Label();
+                
 
                 modNameLbl[i].Text = "Module Name:";
                 modName[i].Text = GetCapitalValue(strArray[1]);
@@ -1174,7 +1177,7 @@ namespace OOP._0._1._1
                 credit[i].Text = strArray[10];
 
 
-                panel[i].Location = new Point(100, panelStart);
+                panel[i].Location = new Point(60, panelStart);
                 panel[i].Padding = new Padding(0, 0, 25, 0);
 
                 panel[i].AutoSize = true;
@@ -1234,6 +1237,20 @@ namespace OOP._0._1._1
                 assessmentNo[i].Location = new Point(820, TOP_ROW_POS);
                 assessmentNo[i].AutoSize = true;
                 panel[i].Controls.Add(assessmentNo[i]);
+
+                removeBtn[i].Location = new Point(859, TOP_ROW_POS + 15);
+                removeBtn[i].AutoSize = false;
+                removeBtn[i].Cursor = Cursors.Hand;
+                removeBtn[i].Size = new Size(98, 26);
+                removeBtn[i].Name = strArray[0];
+                removeBtn[i].Click += removeElement_Click;
+                removeBtn[i].Image = Properties.Resources.remove1;
+
+
+
+
+                panel[i].Controls.Add(removeBtn[i]);
+
                 if (i % 2 == 0)
                 {
                     panel[i].BackColor = Color.FromArgb(200, 211, 250);
@@ -1263,6 +1280,15 @@ namespace OOP._0._1._1
             }
 
         }
+
+        public void removeElement_Click(object sender, EventArgs e)
+        {
+            string moduleID = ((Label)sender).Name;
+            moduleController.removeModule(moduleID);
+            moduleController.getAllModulesByLevel();
+        }
+
+
 
         private void setThreeAssessments(Label[] assessment1Lbl, int i, int SECOND_ROW_POS, Panel[] panel, Label[] assessment1, Label[] assessment2Lbl, Label[] assessment2, Label[] assessment3Lbl, Label[] assessment3)
         {
@@ -1632,6 +1658,42 @@ namespace OOP._0._1._1
         {
             selectCoursePnl.Visible = true;
             openExistingCoursePnl.Visible = true;
+        }
+
+        public void LevelFourCleanUp()
+        {
+             tabPageLvl4.Controls.Clear();
+            mainCoverLvl4Pnl.Visible = true;
+            levFourStatusLbl.Visible = true;
+    
+             AddCover(tabPageLvl4, mainCoverLvl4Pnl, levFourStatusLbl);
+
+            //showCoverPanel(mainCoverLvl4Pnl);
+        }
+        public void LevelFiveCleanUp()
+        {
+            tabPageLvl5.Controls.Clear();
+ 
+            AddCover(tabPageLvl5, mainCoverLvl5Pnl, levFiveStatusLbl); 
+            mainCoverLvl5Pnl.Visible = true;
+            levFiveStatusLbl.Visible = true;
+        }
+        public void LevelSixCleanUp()
+        {
+            tabPageLvl6.Controls.Clear();
+            mainCoverLvl6Pnl.Visible = true;
+            levSixStatusLbl.Visible = true;
+            //Label lbl = new Label();
+            //setStatusLabel(lbl);
+            AddCover(tabPageLvl6, mainCoverLvl6Pnl, levSixStatusLbl);
+        }
+
+        private void showCoverPanel(Panel pnl)
+        {
+           
+            pnl.Visible = true;
+            //pnl.Controls.Add(levFourStatusLbl);
+            pnl.BringToFront();
         }
     }
 }

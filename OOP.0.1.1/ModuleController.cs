@@ -68,15 +68,27 @@ namespace OOP._0._1._1
             {
                 startUp.setLevel("four", levelFourModules);
             }
+            else
+            {
+                startUp.LevelFourCleanUp();
+            }
 
             if (levelFiveModules.Count != 0)
             {
                 startUp.setLevel("five", levelFiveModules);
             }
+            else
+            {
+                startUp.LevelFiveCleanUp();
+            }
 
             if (levelSixModules.Count != 0)
             {
                 startUp.setLevel("six", levelSixModules);
+            }
+            else
+            {
+                startUp.LevelSixCleanUp();
             }
 
             //}
@@ -158,6 +170,14 @@ namespace OOP._0._1._1
             
 
             return 0;
+        }
+
+        public void removeModule(string moduleId)
+        {
+            string moduleID = moduleId;
+            db.OpenConnection();
+            db.DeleteModule( moduleID);
+
         }
     }
 }

@@ -95,8 +95,25 @@ namespace OOP._0._1._1
         }
 
         //Delete statement
-        public void Delete()
+        public void DeleteModule( string id)
         {
+            string moduleID = id.Trim();
+            string query = "DELETE FROM module WHERE moduleId =" + moduleID + ";";
+
+            //create command and assign the query and connection from the constructor
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            try
+            {
+                //Execute command
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+                CloseConnection();
+            }
+
         }
 
         //Select statement
