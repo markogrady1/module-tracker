@@ -339,6 +339,10 @@ namespace OOP._0._1._1
                 {
                     return "Lower Second Class Degree";
                 }
+                else if (B < 40)
+                {
+                    return "Third Class Degree";
+                }
             }
             else if (A >= 60)
             {
@@ -350,12 +354,20 @@ namespace OOP._0._1._1
                 {
                     return "Lower Second Class Degree";
                 }
+                else if (B < 40)
+                {
+                    return "Third Class Degree";
+                }
             }
             else if (A >= 50)
             {
                 if (B >= 40)
                 {
                     return "Lower Second Class Degree";
+                }
+                else if (B < 40)
+                {
+                    return "Third Class Degree";
                 }
             }
             else

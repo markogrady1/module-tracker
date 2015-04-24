@@ -748,6 +748,8 @@ namespace OOP._0._1._1
             this.openExistingPredictionBtn.Size = new System.Drawing.Size(150, 41);
             this.openExistingPredictionBtn.TabIndex = 12;
             this.openExistingPredictionBtn.Click += new System.EventHandler(this.openExistingPredictionBtn_Click);
+            this.openExistingPredictionBtn.MouseEnter += new System.EventHandler(this.openExistingPredictionBtn_Enter);
+            this.openExistingPredictionBtn.MouseLeave += new System.EventHandler(this.openExistingPredictionBtn_Leave);
             // 
             // label3
             // 
@@ -767,6 +769,8 @@ namespace OOP._0._1._1
             this.submitCourseNameBtn.Size = new System.Drawing.Size(152, 48);
             this.submitCourseNameBtn.TabIndex = 8;
             this.submitCourseNameBtn.Click += new System.EventHandler(this.submitCourseNameBtn_Click);
+            this.submitCourseNameBtn.MouseEnter += new System.EventHandler(this.submitCourseNameBtn_Enter);
+            this.submitCourseNameBtn.MouseLeave += new System.EventHandler(this.submitCourseNameBtn_Leave);
             // 
             // label4
             // 
@@ -796,6 +800,8 @@ namespace OOP._0._1._1
             this.activeCreateNewCourseBtn.Size = new System.Drawing.Size(151, 48);
             this.activeCreateNewCourseBtn.TabIndex = 1;
             this.activeCreateNewCourseBtn.Click += new System.EventHandler(this.activeCreateNewCourseBtn_Click);
+            this.activeCreateNewCourseBtn.MouseEnter += new System.EventHandler(this.activeCreateNewCourseBtn_Enter);
+            this.activeCreateNewCourseBtn.MouseLeave += new System.EventHandler(this.activeCreateNewCourseBtn_Leave);
             // 
             // buildCourseBtn
             // 
@@ -806,6 +812,8 @@ namespace OOP._0._1._1
             this.buildCourseBtn.Size = new System.Drawing.Size(146, 42);
             this.buildCourseBtn.TabIndex = 2;
             this.buildCourseBtn.Click += new System.EventHandler(this.buildCourseBtn_Click);
+            this.buildCourseBtn.MouseEnter += new System.EventHandler(this.buildCourseBtn_Enter);
+            this.buildCourseBtn.MouseLeave += new System.EventHandler(this.buildCourseBtn_Leave);
             // 
             // label25
             // 
@@ -824,6 +832,8 @@ namespace OOP._0._1._1
             this.addGradesBtn.Size = new System.Drawing.Size(135, 42);
             this.addGradesBtn.TabIndex = 22;
             this.addGradesBtn.Click += new System.EventHandler(this.addGradesBtn_Click);
+            this.addGradesBtn.MouseEnter += new System.EventHandler(this.addGradesBtn_Enter);
+            this.addGradesBtn.MouseLeave += new System.EventHandler(this.addGradesBtn_Leave);
             // 
             // AddModuleBtnBlue
             // 
@@ -834,6 +844,8 @@ namespace OOP._0._1._1
             this.AddModuleBtnBlue.Size = new System.Drawing.Size(130, 42);
             this.AddModuleBtnBlue.TabIndex = 10;
             this.AddModuleBtnBlue.Click += new System.EventHandler(this.AddModuleBtnBlue_Click);
+            this.AddModuleBtnBlue.MouseEnter += new System.EventHandler(this.AddModuleBtnBlue_Enter);
+            this.AddModuleBtnBlue.MouseLeave += new System.EventHandler(this.AddModuleBtnBlue_Leave);
             // 
             // label7
             // 

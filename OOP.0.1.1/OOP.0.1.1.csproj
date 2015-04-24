@@ -143,6 +143,36 @@
   <ItemGroup>
     <None Include="Resources\remove1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\degreeOutcomeInstruction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\submitNewValues.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\submitNewValuesHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\createNewCourseHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buildCourseHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\createCourseHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openCourseHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addGradesBtnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\submitHover.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
