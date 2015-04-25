@@ -11,6 +11,10 @@ using MySql.Data.MySqlClient.Properties;
 
 namespace OOP._0._1._1
 {
+/*
+ *  This program was created by Mark O Grady 2015
+ *  Object Oriented Programming CW2
+ */
     public partial class StartUp : Form
     {
 
@@ -28,7 +32,6 @@ namespace OOP._0._1._1
         private CourseController cc = new CourseController();
         private AssessmentController assessController;
         private ModuleController moduleController;
-        //private Prediction prediction = new Prediction();
 
         public StartUp()
         {
@@ -60,12 +63,7 @@ namespace OOP._0._1._1
                         s = Regex.Replace(s, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
                         existingCourseCbo.Items.Add(s);
                     }
-
                 }
-
-
-
-
 
                 db.CloseConnection();
                 db.OpenConnection();
@@ -83,7 +81,6 @@ namespace OOP._0._1._1
             {
                 db.CloseConnection();
             }
-
         }
 
         public void ConfigureTabs()
@@ -156,77 +153,52 @@ namespace OOP._0._1._1
             degreePredictionCoverPnl.ResumeLayout(false);
             degreePredictionCoverPnl.PerformLayout();
 
-            // 
-            // statLbl
-            // 
-            this.statLbl.AutoSize = true;
-            this.statLbl.Font = new System.Drawing.Font("Courgette", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.statLbl.Location = new System.Drawing.Point(271, 99);
-            this.statLbl.Name = "statLbl";
-            this.statLbl.Size = new System.Drawing.Size(476, 81);
-            this.statLbl.TabIndex = 0;
-            this.statLbl.Text = "No Modules Exist";
-            // 
-            // degreePredictionTabPage
-            // 
-            this.degreePredictionTabPage.Controls.Add(this.degreePredictionPnl);
-            this.degreePredictionTabPage.Location = new System.Drawing.Point(4, 25);
-            this.degreePredictionTabPage.Name = "degreePredictionTabPage";
-            this.degreePredictionTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.degreePredictionTabPage.Size = new System.Drawing.Size(1070, 711);
-            this.degreePredictionTabPage.TabIndex = 1;
-            this.degreePredictionTabPage.UseVisualStyleBackColor = true;
-            // 
-            // degreePredictionPnl
-            // 
-            //this.degreePredictionPnl.Controls.Add(this.dgSummaryTitle);
-            //this.degreePredictionPnl.Controls.Add(this.dgPredictUsernamePnl);
-            //this.degreePredictionPnl.Controls.Add(this.dgTotalOutComeLbl);
-            //this.degreePredictionPnl.Location = new System.Drawing.Point(7, 9);
-            //this.degreePredictionPnl.Name = "degreePredictionPnl";
-            //this.degreePredictionPnl.Size = new System.Drawing.Size(1054, 644);
-            //this.degreePredictionPnl.TabIndex = 0;
-            //this.degreePredictionPnl.BackColor = Color.Yellow;
-            // 
-            // dgSummaryTitle
-            // 
-            this.dgSummaryTitle.Image = global::OOP._0._1._1.Properties.Resources.degreeSummary;
-            this.dgSummaryTitle.Location = new System.Drawing.Point(354, 14);
-            this.dgSummaryTitle.Name = "dgSummaryTitle";
-            this.dgSummaryTitle.Size = new System.Drawing.Size(290, 28);
-            this.dgSummaryTitle.TabIndex = 5;
-            // 
-            // dgPredictUsernamePnl
-            // 
-            this.dgPredictUsernamePnl.Controls.Add(this.dgCourseNameLbl);
-            this.dgPredictUsernamePnl.Controls.Add(this.dgUsernameLbl);
-            this.dgPredictUsernamePnl.Location = new System.Drawing.Point(117, 77);
-            this.dgPredictUsernamePnl.Name = "dgPredictUsernamePnl";
-            this.dgPredictUsernamePnl.Size = new System.Drawing.Size(766, 49);
-            this.dgPredictUsernamePnl.TabIndex = 4;
-            this.dgPredictUsernamePnl.BackColor = Color.FromArgb(177, 192, 243);
-            // 
-            // dgCourseNameLbl
-            // 
-            this.dgCourseNameLbl.AutoSize = true;
-            this.dgCourseNameLbl.Location = new System.Drawing.Point(421, 17);
-            this.dgCourseNameLbl.Name = "dgCourseNameLbl";
-            this.dgCourseNameLbl.Size = new System.Drawing.Size(83, 16);
-            this.dgCourseNameLbl.TabIndex = 1;
-            this.dgCourseNameLbl.Text = "coursename";
-            // 
-            // dgUsernameLbl
-            // 
+            statLbl.AutoSize = true;
+            statLbl.Font = new Font("Courgette", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            statLbl.ForeColor = Color.FromArgb(255, 128, 128);
+            statLbl.Location = new Point(271, 99);
+            statLbl.Name = "statLbl";
+            statLbl.Size = new Size(476, 81);
+            statLbl.TabIndex = 0;
+            statLbl.Text = "No Modules Exist";
+
+            degreePredictionTabPage.Controls.Add(degreePredictionPnl);
+            degreePredictionTabPage.Location = new Point(4, 25);
+            degreePredictionTabPage.Name = "degreePredictionTabPage";
+            degreePredictionTabPage.Padding = new Padding(3);
+            degreePredictionTabPage.Size = new Size(1070, 711);
+            degreePredictionTabPage.TabIndex = 1;
+            degreePredictionTabPage.UseVisualStyleBackColor = true;
+
+
+            dgSummaryTitle.Image = Properties.Resources.degreeSummary;
+            dgSummaryTitle.Location = new Point(354, 14);
+            dgSummaryTitle.Name = "dgSummaryTitle";
+            dgSummaryTitle.Size = new Size(290, 28);
+            dgSummaryTitle.TabIndex = 5;
+
+            dgPredictUsernamePnl.Controls.Add(dgCourseNameLbl);
+            dgPredictUsernamePnl.Controls.Add(dgUsernameLbl);
+            dgPredictUsernamePnl.Location = new Point(117, 77);
+            dgPredictUsernamePnl.Name = "dgPredictUsernamePnl";
+            dgPredictUsernamePnl.Size = new Size(766, 49);
+            dgPredictUsernamePnl.TabIndex = 4;
+            dgPredictUsernamePnl.BackColor = Color.FromArgb(177, 192, 243);
+
+            dgCourseNameLbl.AutoSize = true;
+            dgCourseNameLbl.Location = new Point(421, 17);
+            dgCourseNameLbl.Name = "dgCourseNameLbl";
+            dgCourseNameLbl.Size = new Size(83, 16);
+            dgCourseNameLbl.TabIndex = 1;
+            dgCourseNameLbl.Text = "coursename";
+
             dgUsernameLbl.AutoSize = true;
             dgUsernameLbl.Location = new Point(183, 17);
             dgUsernameLbl.Name = "dgUsernameLbl";
             dgUsernameLbl.Size = new Size(68, 16);
             dgUsernameLbl.TabIndex = 0;
             dgUsernameLbl.Text = "username";
-            // 
-            // dgTotalOutComeLbl
-            // 
+
             dgTotalOutComeLbl.AutoSize = true;
             dgTotalOutComeLbl.Font = new Font("Microsoft Sans Serif", 40.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dgTotalOutComeLbl.Location = new Point(452, 504);
@@ -234,6 +206,36 @@ namespace OOP._0._1._1
             dgTotalOutComeLbl.Size = new Size(175, 105);
             dgTotalOutComeLbl.TabIndex = 2;
             dgTotalOutComeLbl.Text = "res";
+
+          
+            mainAddGradePanel.Controls.Add(label25);
+            mainAddGradePanel.Controls.Add(addGradesBtn);
+            mainAddGradePanel.Controls.Add(label24);
+            mainAddGradePanel.Controls.Add(label23);
+            mainAddGradePanel.Controls.Add(label22);
+            mainAddGradePanel.Controls.Add(label21);
+            mainAddGradePanel.Controls.Add(assessment4WeightTxt);
+            mainAddGradePanel.Controls.Add(label19);
+            mainAddGradePanel.Controls.Add(assessment4GradeTxt);
+            mainAddGradePanel.Controls.Add(label20);
+            mainAddGradePanel.Controls.Add(assessment3WeightTxt);
+            mainAddGradePanel.Controls.Add(label17);
+            mainAddGradePanel.Controls.Add(assessment3GradeTxt);
+            mainAddGradePanel.Controls.Add(label18);
+            mainAddGradePanel.Controls.Add(assessment2WeightTxt);
+            mainAddGradePanel.Controls.Add(label16);
+            mainAddGradePanel.Controls.Add(assessment2GradeTxt);
+            mainAddGradePanel.Controls.Add(label15);
+            mainAddGradePanel.Controls.Add(assessment1WeightTxt);
+            mainAddGradePanel.Controls.Add(label14);
+            mainAddGradePanel.Controls.Add(assessment1GradeTxt);
+            mainAddGradePanel.Controls.Add(label13);
+            mainAddGradePanel.Controls.Add(availableModulesCbo);
+            mainAddGradePanel.Controls.Add(label12);
+            mainAddGradePanel.Location = new Point(36, 12);
+            mainAddGradePanel.Name = "mainAddGradePanel";
+            mainAddGradePanel.Size = new Size(1025, 515);
+            mainAddGradePanel.TabIndex = 1;
         }
 
         private void AddCover(TabPage tb, Panel pnl, Label lbl)
@@ -276,123 +278,22 @@ namespace OOP._0._1._1
         {
             lbl.AutoSize = true;
             lbl.Font = new Font("Courgette", 48F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            lbl.ForeColor = Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(131)))), ((int)(((byte)(187)))));
+            lbl.ForeColor = Color.FromArgb(90, 131, 187);
             lbl.Location = new Point(220, 57);
             lbl.Name = "labelg";
-            //lbl.Size = new Size(477, 81);
             lbl.TabIndex = 0;
             lbl.Text = "No Modules to predict";
         }
 
-        //private void buildCourseBtn_Click(object sender, System.EventArgs e)
-        //{
-        //    selectCoursePnl.Visible = true;
-        //    openExistingCoursePnl.Visible = true;
-        //}
-
-        //private void SubmitCourseNameBtn_Click(object sender, EventArgs e)
-        //{
-        //    if (existingState)
-        //    {
-        //        availableModulesCbo.Items.Clear();
-        //        existingState = false;
-        //    }
-
-        //    resetTabs();
-        //    string chosenCourse = availableCoursesCbo.Text;
-        //    string username = userNameTxt.Text;
-
-        //    if (chosenCourse == "")
-        //    {
-        //        MessageBox.Show("Please select a course");
-        //    }
-        //    else
-        //    {
-        //        if (username == "")
-        //        {
-        //            MessageBox.Show("Please enter your name");
-        //        }
-        //        else
-        //        {
-        //            username = username.Substring(0, 1).ToUpper() + username.Substring(1).ToLower();
-        //            cc.setDependencies(new Course(), new User());
-        //            bool result = cc.setData(username, chosenCourse);
-        //            if (result)
-        //            {
-        //                resetTextFields(userNameTxt);
-        //                resetComboBox(availableCoursesCbo);
-        //                MessageBox.Show("A new course has been created.\n" +
-        //                                                       "You may now add modules to it.");
-        //                ConfigureTabs();
-        //                mainCoverPnl.Visible = true;
-        //                mainCoverPnl.BringToFront();
-        //                mainTabControl.SelectedTab = tabPage2;
-        //                addModUserLbl.Text = username;
-        //                addModCourseLbl.Text = chosenCourse;
-        //                covertab2Pnl.Visible = true;
-        //                covertab2Pnl.BringToFront();
-        //                moduleNameTxt.Focus();
-
-        //            }
-        //        }
-        //    }
-        //}
-
         public void resetTabs()
         {
 
-            this.mainTabControl.Controls.Remove(this.tabPageLvl4);
-            this.mainTabControl.Controls.Remove(this.tabPageLvl5);
-            this.mainTabControl.Controls.Remove(this.tabPageLvl6);
-            this.mainTabControl.Controls.Remove(this.tabPageModulePrediction);
-            this.mainTabControl.Controls.Remove(this.degreePredictionTabPage);
+            mainTabControl.Controls.Remove(tabPageLvl4);
+            mainTabControl.Controls.Remove(tabPageLvl5);
+            mainTabControl.Controls.Remove(tabPageLvl6);
+            mainTabControl.Controls.Remove(tabPageModulePrediction);
+            mainTabControl.Controls.Remove(degreePredictionTabPage);
         }
-
-        //private void openExistingPredictionBtn_Click(object sender, EventArgs e)
-        //{
-        //    resetTabs();
-        //    string existingData = existingCourseCbo.Text;
-        //    if (existingData == "")
-        //    {
-        //        MessageBox.Show("You did not select an existing course");
-        //    }
-        //    else
-        //    {
-        //        cc.setDependencies(new Course(), new User());
-        //        cc.MatchCourseData(existingData);
-        //        string id = cc.getCourseDbId();
-        //        moduleController.CourseId = id;
-        //        bool result = cc.setExistingData(existingData);
-
-        //        mainCoverPnl.Visible = true;
-        //        mainCoverPnl.BringToFront();
-        //        mainTabControl.SelectedTab = tabPage2;
-
-        //        string queryParameters = existingData;
-        //        string[] strArray = queryParameters.Split(',');
-        //        string user = strArray[0].Substring(0, 1).ToUpper() + strArray[0].Substring(1).ToLower();
-        //        user = Regex.Replace(user, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
-
-        //        string course = strArray[1].Substring(0, 1).ToUpper() + strArray[1].Substring(1).ToLower();
-        //        course = Regex.Replace(course, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
-
-        //        addModUserLbl.Text = user;
-        //        addModCourseLbl.Text = course;
-        //        covertab2Pnl.Visible = true;
-        //        covertab2Pnl.BringToFront();
-        //        moduleNameTxt.Focus();
-        //        ConfigureTabs();
-        //        moduleController.resetAllModules();
-        //        covertab3Pnl.Visible = false;
-        //        addGradeTabPage.Text = "Add Module Grade";
-        //        existingCourseCbo.SelectedIndex = -1;
-        //        existingState = true;
-
-        //    }
-
-        //}
-
-
 
         private void AddModuleBtnBlue_Enter(object sender, EventArgs e)
         {
@@ -516,17 +417,12 @@ namespace OOP._0._1._1
                                     MessageBox.Show("The " + moduleName + " module has been created.\n" +
                                                                        "You may now grade the assessments.");
 
-
-
+                                    mainTabControl.SelectedTab = addGradeTabPage;
 
                                 }
-
                             }
-
                         }
-
                     }
-
                 }
             }
         }
@@ -571,11 +467,9 @@ namespace OOP._0._1._1
             List<string> moduleList = moduleController.resolveAllModules();
             currentPage.Controls.Clear();
 
-
             predictionTopControlsPnl = new Panel();
             predictionTopControlsPnl.AutoSize = true;
-            predictionTopControlsPnl.Location = new Point(230, 20);
-
+            predictionTopControlsPnl.Location = new Point(170, 20);
 
             Label selectLbl = new Label();
             selectLbl.Text = "Select a module";
@@ -584,7 +478,6 @@ namespace OOP._0._1._1
             selectLbl.Font = new Font("Verdana", 13, FontStyle.Regular);
 
             hiddenPredictionChoiceCbo = new ComboBox();
-
 
             modulePredictionChoiceCbo = new ComboBox();
             modulePredictionChoiceCbo.AutoSize = true;
@@ -597,10 +490,9 @@ namespace OOP._0._1._1
             modPredictChoiceBtn = new Label();
             modPredictChoiceBtn.Cursor = Cursors.Hand;
             modPredictChoiceBtn.Image = Properties.Resources.submit;
-            modPredictChoiceBtn.Location = new Point(260, 80);
+            modPredictChoiceBtn.Location = new Point(320, 80);
             modPredictChoiceBtn.Name = "modPredictChoiceBtn";
             modPredictChoiceBtn.Size = new Size(135, 42);
-
 
             for (var i = 0; i < moduleList.Count; i++)
             {
@@ -612,7 +504,6 @@ namespace OOP._0._1._1
                 string comboStr = modName + " - " + modCode + " - Level: " + level;
                 modulePredictionChoiceCbo.Items.Add(comboStr);
                 hiddenPredictionChoiceCbo.Items.Add(moduleList[i]);
-
             }
         
             predictionTopControlsPnl.Controls.Add(selectLbl);
@@ -623,7 +514,6 @@ namespace OOP._0._1._1
             modPredictChoiceBtn.Click += modPredictChoiceBtn_Click;
             modPredictChoiceBtn.MouseEnter += modPredictChoiceBtn_Enter;
             modPredictChoiceBtn.MouseLeave += modPredictChoiceBtn_Leave;
-
         }
 
         public void modPredictChoiceBtn_Enter(object sender, EventArgs e)
@@ -641,16 +531,18 @@ namespace OOP._0._1._1
             {
                 degreePredictionPnl.Controls.Clear();
                 degreePredictionTabPage.BackColor = Color.FromArgb(200, 211, 250);
-                //moduleController.resolveAllDegreeModules(new Prediction());
                 List<string> fourList = moduleController.resolveAllDegreeModules("four");
                 List<string> fiveList = moduleController.resolveAllDegreeModules("five");
                 List<string> sixList = moduleController.resolveAllDegreeModules("six");
+
                 var fr = CalculateLevelModules(fourList);
                 var fv = CalculateLevelModules(fiveList);
                 var sx = CalculateLevelModules(sixList);
+
                 List<int> fours = new List<int>();
                 List<int> fives = new List<int>();
                 List<int> sixes = new List<int>();
+
                 int i = 0;
                 foreach (var outlist in fv)
                 {
@@ -671,6 +563,7 @@ namespace OOP._0._1._1
                     }
 
                 }
+
                 int j = 0;
                 foreach (var outlist in sx)
                 {
@@ -691,6 +584,7 @@ namespace OOP._0._1._1
                     }
 
                 }
+
                 int k = 0;
                 foreach (var li in fr)
                 {
@@ -709,8 +603,8 @@ namespace OOP._0._1._1
                             fours.Add(li);
                         }
                     }
-
                 }
+
                 Prediction pred = new Prediction();
                 int A = moduleController.Level6Outcome(pred, sixes);
                 int B = moduleController.Level5Outcome(pred, fives);
@@ -720,24 +614,18 @@ namespace OOP._0._1._1
                  */
                 degreePredictionPnl.Controls.Add(dgSummaryTitle);
                 degreePredictionPnl.Controls.Add(dgPredictUsernamePnl);
-                //degreePredictionPnl.Controls.Add(dgTotalOutComeLbl);
                 degreePredictionPnl.Location = new Point(7, 9);
                 degreePredictionPnl.Name = "degreePredictionPnl";
                 degreePredictionPnl.Size = new Size(1054, 644);
                 degreePredictionPnl.TabIndex = 0;
-                //degreePredictionPnl.BackColor = Color.Yellow;
 
                 Panel allModuleAvgPnl = new Panel();
                 allModuleAvgPnl.Location = new Point(600, 150);
                 allModuleAvgPnl.AutoSize = true;
-                //allModuleAvgPnl.BackColor = Color.Violet;
-
 
                 Panel bestOfPnl = new Panel();
                 bestOfPnl.AutoSize = true;
                 bestOfPnl.Location = new Point(0, 150);
-                //bestOfPnl.BackColor = Color.Teal;
-                //bestOfPnl.BackColor = Color.BlueViolet;
                 degreePredictionPnl.Controls.Add(bestOfPnl);
 
                 Label levelFiveLbl = new Label();
@@ -746,7 +634,6 @@ namespace OOP._0._1._1
                 levelFiveLbl.AutoSize = true;
                 levelFiveLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
                 bestOfPnl.Controls.Add(levelFiveLbl);
-
 
                 levelFiveOutputTxt.Text = A + "";
                 levelFiveOutputTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
@@ -765,16 +652,11 @@ namespace OOP._0._1._1
                 instructLbl.Size = new Size(439, 51);
                 instructLbl.Image = Properties.Resources.degreeOutcomeInstruction;
                 instructLbl.Location = new Point(10, 190);
-                //bestOfPnl.Controls.Add(instructLbl);
 
                 outcomePnl = new Panel();
-
                 outcomePnl.AutoSize = true;
-                //outcomePnl.BackColor = Color.Gray;
-
 
                 Label achieveLbl = new Label();
-
                 achieveLbl.AutoSize = true;
                 achieveLbl.Font = new Font("Verdana", 28, FontStyle.Regular);
                 achieveLbl.Text = "You are expected to achieve a ";
@@ -788,6 +670,7 @@ namespace OOP._0._1._1
                     dgTotalOutComeLbl.Location = new Point(65, 50);
                     dgTotalOutComeLbl.ForeColor = Color.FromArgb(24, 240, 13);
                 }
+
                 if (degreeResult == "Upper second Class Degree")
                 {
                     outcomePnl.Location = new Point(180, 410);
@@ -795,6 +678,7 @@ namespace OOP._0._1._1
                     dgTotalOutComeLbl.Location = new Point(0, 50);
                     dgTotalOutComeLbl.ForeColor = Color.FromArgb(0, 0, 255);
                 }
+
                 if (degreeResult == "Lower Second Class Degree")
                 {
                     outcomePnl.Location = new Point(180, 410);
@@ -802,6 +686,7 @@ namespace OOP._0._1._1
                     dgTotalOutComeLbl.Location = new Point(0, 50);
                     dgTotalOutComeLbl.ForeColor = Color.FromArgb(0, 0, 255);
                 }
+
                 if (degreeResult == "Third Class Degree")
                 {
                     outcomePnl.Location = new Point(180, 410);
@@ -810,6 +695,7 @@ namespace OOP._0._1._1
                     dgTotalOutComeLbl.ForeColor = Color.FromArgb(240, 128, 53);
                     dgTotalOutComeLbl.Text = "Third Class Degree";
                 } 
+
                 if (degreeResult == "Fail")
                 {
                     outcomePnl.Location = new Point(220, 410);
@@ -821,7 +707,6 @@ namespace OOP._0._1._1
                 outcomePnl.Controls.Add(achieveLbl);
                 outcomePnl.Controls.Add(dgTotalOutComeLbl);
                 degreePredictionPnl.Controls.Add(outcomePnl);
-
                 
                 newValBtn.Size = new Size(159, 42);
                 newValBtn.Location = new Point(320, 135);
@@ -830,9 +715,7 @@ namespace OOP._0._1._1
                 newValBtn.Click += newValBtn_Click;
                 newValBtn.MouseEnter += newValBtn_Enter;
                 newValBtn.MouseLeave += newValBtn_Leave;
-
                 bestOfPnl.Controls.Add(newValBtn);
-
 
                 levelSixOutputTxt.Text = B + "";
                 levelSixOutputTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
@@ -845,7 +728,6 @@ namespace OOP._0._1._1
                 levelFourAvgLbl.Text = "Level Four avg.";
                 levelFourAvgLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
                 levelFourAvgLbl.AutoSize = true;
-
                 
                 levelFourAvgTxt.Location = new Point(183, 10);
                 levelFourAvgTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
@@ -860,7 +742,6 @@ namespace OOP._0._1._1
                 levelFiveAvgLbl.Text = "Level Five avg.";
                 levelFiveAvgLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
                 levelFiveAvgLbl.AutoSize = true;
-
                 
                 levelFiveAvgTxt.Location = new Point(183, 70);
                 levelFiveAvgTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
@@ -875,7 +756,6 @@ namespace OOP._0._1._1
                 levelSixAvgLbl.Text = "Level Six avg.";
                 levelSixAvgLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
                 levelSixAvgLbl.AutoSize = true;
-
                 
                 levelSixAvgTxt.Location = new Point(183, 130);
                 levelSixAvgTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
@@ -887,15 +767,10 @@ namespace OOP._0._1._1
 
                 allModuleAvgPnl.Controls.Add(levelFourAvgLbl);
                 allModuleAvgPnl.Controls.Add(levelFourAvgTxt);
-
                 allModuleAvgPnl.Controls.Add(levelFiveAvgLbl);
                 allModuleAvgPnl.Controls.Add(levelFiveAvgTxt);
-
                 allModuleAvgPnl.Controls.Add(levelSixAvgLbl);
                 allModuleAvgPnl.Controls.Add(levelSixAvgTxt);
-
-
-
 
                 bestOfPnl.Controls.Add(levelFiveOutputTxt);
                 bestOfPnl.Controls.Add(levelSixOutputTxt);
@@ -925,6 +800,7 @@ namespace OOP._0._1._1
         {
             submitCourseNameBtn.Image = Properties.Resources.createCourseHover;
         }
+
         public void submitCourseNameBtn_Leave(object sender, EventArgs e)
         {
             submitCourseNameBtn.Image = Properties.Resources.create;
@@ -934,13 +810,14 @@ namespace OOP._0._1._1
         {
             newValBtn.Image = Properties.Resources.submitNewValues; 
         }
+
         public void newValBtn_Enter(object sender, EventArgs e)
         {
             newValBtn.Image = Properties.Resources.submitNewValuesHover; 
         }
+
         public void newValBtn_Click(object sender, EventArgs e)
         {
-
             string aVal = levelFiveOutputTxt.Text;
             string bVal = levelSixOutputTxt.Text;
             Prediction pred = new Prediction();
@@ -971,6 +848,7 @@ namespace OOP._0._1._1
                         dgTotalOutComeLbl.ForeColor = Color.FromArgb(24, 240, 13);
                         dgTotalOutComeLbl.Text = "First Class Degree";
                     }
+
                     if (degreeResult == "Upper second Class Degree")
                     {
                         outcomePnl.Location = new Point(180, 410);
@@ -979,6 +857,7 @@ namespace OOP._0._1._1
                         dgTotalOutComeLbl.ForeColor = Color.FromArgb(0, 0, 255);
                         dgTotalOutComeLbl.Text = "Upper second Class Degree";
                     }
+
                     if (degreeResult == "Lower Second Class Degree")
                     {
                         outcomePnl.Location = new Point(180, 410);
@@ -986,7 +865,9 @@ namespace OOP._0._1._1
                         dgTotalOutComeLbl.Location = new Point(0, 50);
                         dgTotalOutComeLbl.ForeColor = Color.FromArgb(0, 0, 255);
                         dgTotalOutComeLbl.Text = "Lower Second Class Degree";
-                    } if (degreeResult == "Third Class Degree")
+                    } 
+                    
+                    if (degreeResult == "Third Class Degree")
                     {
                         outcomePnl.Location = new Point(180, 410);
                         achieveLbl.Location = new Point(50, 0);
@@ -994,6 +875,7 @@ namespace OOP._0._1._1
                         dgTotalOutComeLbl.ForeColor = Color.FromArgb(240, 128, 53);
                         dgTotalOutComeLbl.Text = "Third Class Degree";
                     }
+
                     if (degreeResult == "Fail")
                     {
                         outcomePnl.Location = new Point(220, 410);
@@ -1011,7 +893,6 @@ namespace OOP._0._1._1
                 else
                 {
                     MessageBox.Show("The value you have entered must not exceed 100");
-
                 }
 
             }
@@ -1019,9 +900,6 @@ namespace OOP._0._1._1
             {
                 MessageBox.Show("The value you have entered is not a number");
             }
-
-
-
         }
 
         private static List<int> CalculateLevelModules(List<string> moduleList)
@@ -1073,12 +951,10 @@ namespace OOP._0._1._1
                 instructionPnl.Controls.Add(instructionLbl);
                 instructionPnl.Controls.Add(legendLbl);
                 instructionPnl.Size = new Size(726, 102);
-                //instructionPnl.BackColor = Color.CadetBlue;
                 detailsPnl = new Panel();
 
                 List<string> data = cc.getCourseData(prediction.CourseId);
                 string[] courseDat = data[0].Split(',');
-
 
                 detailsPnl.Location = new Point(60, 250);
                 detailsPnl.BackColor = Color.FromArgb(177, 192, 243);
@@ -1086,26 +962,20 @@ namespace OOP._0._1._1
 
                 Label courseDetailsLbl = new Label();
                 courseDetailsLbl.Location = new Point(200, 0);
-
                 courseDetailsLbl.Font = new Font("Verdana", 11.25F, FontStyle.Bold);
-                //courseDetailsLbl.BackColor = Color.BlueViolet;
                 courseDetailsLbl.AutoSize = true;
                 courseDetailsLbl.ForeColor = Color.FromArgb(88, 89, 90);
                 courseDetailsLbl.Text = GetCapitalValue(courseDat[0]) + "      " + GetCapitalValue(courseDat[1]);
 
-
                 moduleResultLbl = new Label();
-                moduleResultLbl.Location = new Point(600, 0);
+                moduleResultLbl.Location = new Point(660, 0);
                 moduleResultLbl.AutoSize = true;
                 moduleResultLbl.Text = actual.ToString();
-                //moduleResultLbl.BackColor = Color.BlueViolet;
                 moduleResultLbl.Font = new Font("Courgette", 100.25F, FontStyle.Regular);
-
                 moduleDetailsLbl = new Label();
                 moduleDetailsLbl.Location = new Point(200, 30);
                 moduleDetailsLbl.AutoSize = true;
                 moduleDetailsLbl.ForeColor = Color.FromArgb(88,89,90);
-                //moduleDetailsLbl.BackColor = Color.BlueViolet;
                 moduleDetailsLbl.Font = new Font("Verdana", 11.25F, FontStyle.Bold);
                 moduleDetailsLbl.Text = modulePredictionChoiceCbo.Text; ;
 
@@ -1128,10 +998,7 @@ namespace OOP._0._1._1
                     layoutFour(prediction, vals);
                 }
 
-
                 string[] allData = vals.Split(',');
-
-
 
                 if (actual < 40)
                 {
@@ -1145,7 +1012,6 @@ namespace OOP._0._1._1
                         (parseData(allData[12]) < 30 && parseData(allData[13]) > 0))
                     {
                         moduleResultLbl.ForeColor = Color.FromArgb(246, 132, 11);
-                        //246,132,11 = referral - 246, 11, 11 = fail - 24, 240, 13 = pass
                     }
                     else
                     {
@@ -1153,30 +1019,24 @@ namespace OOP._0._1._1
                     }
                 }
 
-
-
-                //resultsPnl.Controls.Add(moduleResultLbl);
                 detailsPnl.Controls.Add(courseDetailsLbl);
                 detailsPnl.Controls.Add(moduleDetailsLbl);
                 detailsPnl.Controls.Add(moduleResultLbl);
-                //detailsPnl.BackColor = Color.Chartreuse;
+
                 tabPageModulePrediction.BackColor = Color.FromArgb(177, 192, 243);
                 tabPageModulePrediction.Controls.Add(instructionPnl);
                 tabPageModulePrediction.Controls.Add(detailsPnl);
-                //tabPageModulePrediction.Controls.Add(resultsPnl);
             }
             else
             {
                 MessageBox.Show("You have not chosen a module");
             }
-
         }
 
         private int parseData(string s)
         {
             return Convert.ToInt32(s);
         }
-
 
         private void layoutOne(Prediction prediction, string vals)
         {
@@ -1282,7 +1142,6 @@ namespace OOP._0._1._1
             detailsPnl.Controls.Add(assessThreeWeight);
         }
 
-
         private void layoutFour(Prediction prediction, string vals)
         {
             //first assessment
@@ -1381,14 +1240,11 @@ namespace OOP._0._1._1
             Label[] creditLbl = new Label[moduleList.Count];
             Label[] credit = new Label[moduleList.Count];
             removeBtn = new Label[moduleList.Count];
-            DateTime now = DateTime.Now;
 
             for (var i = 0; i < moduleList.Count; i++)
             {
 
                 string[] strArray = moduleList[i].Split(',');
-                //MessageBox.Show("Module " + moduleList[i] + " contains " + strArray[0] + "," + strArray[1] + "," + strArray[2] + "," + strArray[3] + "," + strArray[4] + "," + strArray[5]);
-                //MessageBox.Show("    indexOf     " + i + "Module " + moduleList[i] + " contains " + strArray[0] + "," + strArray[1] + "," + strArray[2] + "," + strArray[3] + "," + strArray[4] + "," + strArray[5] + "," + strArray[6] + "," + strArray[7] + "," + strArray[8] + "," + strArray[9]);
                 panel[i] = new Panel();
                 modNameLbl[i] = new Label();
                 modName[i] = new Label();
@@ -1432,20 +1288,10 @@ namespace OOP._0._1._1
 
                 panel[i].Location = new Point(60, panelStart);
                 panel[i].Padding = new Padding(0, 0, 25, 0);
-
                 panel[i].AutoSize = true;
                 panel[i].BackColor = Color.DarkBlue;
                 panel[i].Height = 70;
                 panel[i].BringToFront();
-
-
-
-
-
-
-
-
-
 
                 currentPage.Controls.Add(panel[i]);
                 currentPage.BringToFront();
@@ -1472,18 +1318,14 @@ namespace OOP._0._1._1
                 assessmentNoLbl[i].AutoSize = true;
                 panel[i].Controls.Add(assessmentNoLbl[i]);
 
-
                 creditLbl[i].Font = new Font("Verdana", 9.75F, FontStyle.Bold);
                 creditLbl[i].Location = new Point(40, MID_ROW_POS);
                 creditLbl[i].AutoSize = true;
-
                 panel[i].Controls.Add(creditLbl[i]);
 
-
                 credit[i].Font = new Font("Verdana", 9.75F, FontStyle.Regular);
-                credit[i].Location = new Point(100, MID_ROW_POS);
+                credit[i].Location = new Point(104, MID_ROW_POS);
                 credit[i].AutoSize = true;
-
                 panel[i].Controls.Add(credit[i]);
 
                 assessmentNo[i].Location = new Point(820, TOP_ROW_POS);
@@ -1497,10 +1339,6 @@ namespace OOP._0._1._1
                 removeBtn[i].Name = strArray[0];
                 removeBtn[i].Click += removeElement_Click;
                 removeBtn[i].Image = Properties.Resources.remove1;
-
-
-
-
                 panel[i].Controls.Add(removeBtn[i]);
 
                 if (i % 2 == 0)
@@ -1539,8 +1377,6 @@ namespace OOP._0._1._1
             moduleController.removeModule(moduleID);
             moduleController.getAllModulesByLevel();
         }
-
-
 
         private void setThreeAssessments(Label[] assessment1Lbl, int i, int SECOND_ROW_POS, Panel[] panel, Label[] assessment1, Label[] assessment2Lbl, Label[] assessment2, Label[] assessment3Lbl, Label[] assessment3)
         {
@@ -1800,12 +1636,9 @@ namespace OOP._0._1._1
                 string modname = Regex.Replace(modArr[1], @"(^\w)|(\s\w)", m => m.Value.ToUpper());
                 string modCode = modArr[2].ToUpper();
                 string modLevel = modArr[4].Substring(0, 1).ToUpper() + modArr[4].Substring(1).ToLower();
-
-                //string modname = Regex.Replace(modArr[1], @"(^\w)|(\s\w)", m => m.Value.ToUpper());
                 string moduleDetail = modname + "- " + modCode + " - Level: " + modLevel;
 
                 availableModulesCbo.Items.Add(moduleDetail);
-
 
                 string grades = modArr[6] + "," + modArr[7] + "," + modArr[8] + "," + modArr[9] + "," + modArr[10] + "," +
                                 modArr[11] + "," + modArr[12] + "," + modArr[13];
@@ -1819,6 +1652,7 @@ namespace OOP._0._1._1
         {
             buildCourseBtn.Image = Properties.Resources.buildCourseHover;
         }
+
         public void buildCourseBtn_Leave(object sender, EventArgs e)
         {
             buildCourseBtn.Image = Properties.Resources.buildCourse;
@@ -1828,15 +1662,16 @@ namespace OOP._0._1._1
         {
             activeCreateNewCourseBtn.Image = Properties.Resources.createNewCourseHover;
         }
+
         public void activeCreateNewCourseBtn_Leave(object sender, EventArgs e)
         {
             activeCreateNewCourseBtn.Image = Properties.Resources.createNewCourse;
         }
+
         private void activeCreateNewCourseBtn_Click(object sender, EventArgs e)
         {
             mainCoverPnl.Visible = false;
             mainCoverPnl.SendToBack();
-            //degreePredictionCoverPnl.Visible = true;
         }
 
         private void openExistingPredictionBtn_Click(object sender, EventArgs e)
@@ -1942,28 +1777,23 @@ namespace OOP._0._1._1
             tabPageLvl4.Controls.Clear();
             mainCoverLvl4Pnl.Visible = true;
             levFourStatusLbl.Visible = true;
-
             AddCover(tabPageLvl4, mainCoverLvl4Pnl, levFourStatusLbl);
-
-            //showCoverPanel(mainCoverLvl4Pnl);
         }
+
         public void LevelFiveCleanUp()
         {
             tabPageLvl5.Controls.Clear();
-
             AddCover(tabPageLvl5, mainCoverLvl5Pnl, levFiveStatusLbl);
             mainCoverLvl5Pnl.Visible = true;
             levFiveStatusLbl.Visible = true;
         }
+
         public void LevelSixCleanUp()
         {
             tabPageLvl6.Controls.Clear();
             mainCoverLvl6Pnl.Visible = true;
             levSixStatusLbl.Visible = true;
-            //Label lbl = new Label();
-            //setStatusLabel(lbl);
             AddCover(tabPageLvl6, mainCoverLvl6Pnl, levSixStatusLbl);
         }
-
     }
 }

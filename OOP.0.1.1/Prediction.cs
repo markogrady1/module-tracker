@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace OOP._0._1._1
 {
@@ -252,10 +251,8 @@ namespace OOP._0._1._1
                     i++;
                 }
             }
-            //MessageBox.Show(i + " sixessss");
             int A = getAverageMark(newList);
 
-            //MessageBox.Show(A + " is the grade of the sixth year");
             return A;
         }
 
@@ -264,49 +261,26 @@ namespace OOP._0._1._1
 
             List<int> levelValues = list;
             List<int> newList = new List<int>();
-            int gradeCount = 0;
-            int gradeCount2 = 0;
-            int j = 0;
-
 
             foreach (var values in levelValues)
             {
-                //MessageBox.Show(values + " five list");
                 newList.Add(values);
-                //min = newList.Min();
-                //MessageBox.Show(min + " low val");
-
             }
             newList.Add(this.Minimum);
-            //MessageBox.Show(minimum+" lowest value took from the six side");
-
             newList.Sort();
-            //foreach (var i in newList)
-            //{
-            //    MessageBox.Show(i + "five");
-            //}
+
             if (newList.Count == 8)
             {
                 newList.RemoveAt(0);
             }
+
             if (newList.Count == 9)
             {
                 newList.RemoveAt(0);
                 newList.RemoveAt(0);
             }
-
-
-            //MessageBox.Show(newList.Count + " five before coutnt");
-            //foreach (var i in newList)
-            //{
-            //    //MessageBox.Show(i + " last list of fives");
-            //    j++;
-            //}
-            //MessageBox.Show(j + " number of of fives");
-
-
             int B = getAverageMark(newList);
-            //MessageBox.Show(B + " is the grade of the fifth year");
+
             return B;
         }
 
@@ -370,6 +344,17 @@ namespace OOP._0._1._1
                     return "Third Class Degree";
                 }
             }
+            else if (A >= 40)
+            {
+                if (B >= 40)
+                {
+                    return "Lower Second Class Degree";
+                }
+                else if (B < 40)
+                {
+                    return "Third Class Degree";
+                }
+            }
             else
             {
                 return "Fail";
@@ -377,16 +362,5 @@ namespace OOP._0._1._1
 
             return null;
         }
-
-        //public int FinalAvgResult(List<string> list)
-        //{
-        //    foreach (var arr in list)
-        //    {
-        //        string[] completeModuleArray = arr.Split(',');
-        //    int[] moduleGrades = GetAssessmentGrades(completeModuleArray);
-        //    int assessmentAmount = GetAmountOfAssessments(completeModuleArray);
-        //    }
-            
-        //}
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
-using System.Windows.Forms;
 
 namespace OOP._0._1._1
 {
@@ -52,7 +51,6 @@ namespace OOP._0._1._1
             var stat = db.OpenConnection();
             if (stat)
             {
-                int threadId = 0;
                 RunOnThreadPool poolDelegate = InsertData;
                 var t = new Thread(() => InsertData(username, coursename));
                 poolDelegate.Invoke(username, coursename);
@@ -93,7 +91,6 @@ namespace OOP._0._1._1
             string id =  db.GetId(strArray[0], strArray[1], "course");
             course.CourseDatabaseId = id;
             
-            //id has been resolved from the database but we have not implemented it yet
         }
 
        

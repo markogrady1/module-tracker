@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Threading;
 
 namespace OOP._0._1._1
 {
     class ModuleController
     {
+        private delegate void RunOnThreadPool(string moduleName, string moduleCode, string moduleLevel, string moduleAssessmentAmount, string moduleCredit, string courseId);
         private StartUp startUp;
         private Database db;
         private string _courseId;
 
         public ModuleController(StartUp startup)
         {
-            this.startUp = startup;
+            startUp = startup;
             db = new Database();
         }
 
@@ -29,10 +25,9 @@ namespace OOP._0._1._1
 
         public void CreateNewModule(CourseController cc, string username, string coursename, string moduleName, string moduleCode, string moduleLevel, string moduleAssessmentAmount, string moduleCredit)
         {
-            //string courseID = db.GetId(username, coursename, "course");
-            this._courseId = cc.getCourseDbId();
+            _courseId = cc.getCourseDbId();
             Module module = new Module();
-            module.CourseDatabaseId = this._courseId;
+            module.CourseDatabaseId = _courseId;
             module.ModuleCode = moduleCode;
             string pattern = "Level ";
             Regex rgx = new Regex(pattern);
@@ -40,30 +35,33 @@ namespace OOP._0._1._1
             module.ModuleLevel = newLevelStr;
             module.ModuleAssessmentAmount = moduleAssessmentAmount;
             db.OpenConnection();
-            db.InsertNewModule(moduleName, moduleCode, moduleLevel, moduleAssessmentAmount, moduleCredit, _courseId);
+            RunOnThreadPool poolDelegate = db.InsertNewModule;
+            /*Thread used to write to the database when a new module is created*/
+            Thread thread = new Thread(() => db.InsertNewModule(moduleName, moduleCode, moduleLevel, moduleAssessmentAmount, moduleCredit, _courseId));
+            thread.Start();
+            poolDelegate.Invoke(moduleName, moduleCode, moduleLevel, moduleAssessmentAmount, moduleCredit, _courseId);
             getAllModulesByLevel();
         }
 
         public void setCourseId(CourseController cc)
         {
-            this._courseId = cc.getCourseDbId();
+            _courseId = cc.getCourseDbId();
         }
 
         public void resetAllModules()
         {
             getAllModulesByLevel();
         }
+
         public void getAllModulesByLevel()
         {
             db.OpenConnection();
-            List<string> levelFourModules = db.getModulesByLevel(this._courseId, "four");
+            List<string> levelFourModules = db.getModulesByLevel(_courseId, "four");
             db.OpenConnection();
-            List<string> levelFiveModules = db.getModulesByLevel(this._courseId, "five");
+            List<string> levelFiveModules = db.getModulesByLevel(_courseId, "five");
             db.OpenConnection();
-            List<string> levelSixModules = db.getModulesByLevel(this._courseId, "six");
-            //foreach (string line in levelFourModules)
-            //{
-            //MessageBox.Show(line);
+            List<string> levelSixModules = db.getModulesByLevel(_courseId, "six");
+
             if (levelFourModules.Count != 0)
             {
                 startUp.setLevel("four", levelFourModules);
@@ -90,21 +88,6 @@ namespace OOP._0._1._1
             {
                 startUp.LevelSixCleanUp();
             }
-
-            //}
-
-            //foreach (string line in levelFiveModules)
-            //{
-            //    MessageBox.Show(line);
-            //    //startUp.setLevel("four", levelFourModules);
-            //}
-
-            //foreach (string line in levelSixModules)
-            //{
-            //    MessageBox.Show(line);
-            //    //startUp.setLevel("four", levelFourModules);
-            //}
-
         }
 
         public List<string> resolveAllModules()
@@ -120,7 +103,7 @@ namespace OOP._0._1._1
         {
             db.OpenConnection();
             List<string> modList = db.getAllFinalModules(_courseId, level);
-            //prediction.CalculateDegree(courseList);
+
             return modList;
 
         }
@@ -132,6 +115,7 @@ namespace OOP._0._1._1
 
             return A;
         }
+
         public int Level5Outcome(Prediction prediction, List<int> list)
         {
             Prediction predict = prediction;
@@ -148,13 +132,6 @@ namespace OOP._0._1._1
             return result;
         }
 
-        //public int getAverage(List<string> list)
-        //{
-        //    Prediction pred = new Prediction();
-        //    int result = pred.FinalAvgResult(list);
-
-        //    return result;
-        //}
         public int getAvg(List<int> fours)
         {
             int tot = 0;
@@ -162,12 +139,12 @@ namespace OOP._0._1._1
             {
                 tot += list;
             }
+
             if (fours.Count != 0)
             {
                 tot = tot / fours.Count;
                 return tot;
             }
-            
 
             return 0;
         }

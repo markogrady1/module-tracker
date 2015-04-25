@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -16,8 +13,7 @@ namespace OOP._0._1._1
         private string database;
         private string uid;
         private string password;
-
-        //Constructor
+ 
         public Database()
         {
             Initialize();
@@ -89,10 +85,7 @@ namespace OOP._0._1._1
 
         }
 
-        //Update statement
-        public void Update()
-        {
-        }
+        
 
         //Delete statement
         public void DeleteModule( string id)
@@ -116,12 +109,11 @@ namespace OOP._0._1._1
 
         }
 
-        //Select statement
+        //Select method
         public List<string> SelectExistingCourses()
         {
             string query = "SELECT * FROM course";
 
-            //Create a list to store the result
             List<string> list = new List<string>();
 
 
@@ -166,25 +158,13 @@ namespace OOP._0._1._1
             return 0;
         }
 
-        //Backup
-        public void Backup()
-        {
-        }
-
-        //Restore
-        public void Restore()
-        {
-        }
-
         public List<string> GetAvailableCourses()
         {
             string query = "SELECT * FROM available_course";
 
-            //Create a list to store the result
             List<string> availableCourses = new List<string>();
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
-            //Create a data reader and Execute the command 
             try
             {
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -231,7 +211,6 @@ namespace OOP._0._1._1
                 {
                     while (dataReader.Read())
                     {
-                        //MessageBox.Show(dataReader["courseId"] + "");
                         resultString = dataReader["courseId"] + "";
                     }
                     dataReader.Close();
@@ -253,6 +232,7 @@ namespace OOP._0._1._1
 
         public void InsertNewModule(string moduleName, string moduleCode, string moduleLevel, string moduleAssessmentAmount,string moduleCredit, string courseDBId)
         {
+
             string modName = moduleName.ToLower().Trim();
             string modCode = moduleCode.ToLower().Trim();
             string pattern = "Level ";
@@ -265,7 +245,6 @@ namespace OOP._0._1._1
 
             string query = "INSERT INTO module(moduleName, moduleCode, courseId,  level, assessmentAmount, credit)" +
                            " values('" + modName + "','" + modCode + "'," + courseId + ",'" + modLevel + "'," + modAssessAmount + ","+modCredit+");";
-            //create command and assign the query and connection from the constructor
             MySqlCommand cmd = new MySqlCommand(query, connection);
             try
             {
@@ -275,7 +254,6 @@ namespace OOP._0._1._1
             }
             catch (MySqlException e)
             {
-                MessageBox.Show(e.Message);
                 CloseConnection();
             }
         }
@@ -289,7 +267,6 @@ namespace OOP._0._1._1
             List<string> modulesList = new List<string>();
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
-
 
             try
             {
@@ -340,7 +317,6 @@ namespace OOP._0._1._1
             List<string> modulesList = new List<string>();
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
-
 
             try
             {
@@ -399,7 +375,6 @@ namespace OOP._0._1._1
             string newLevelStr = rgx.Replace(modData[2], "");
             string modLevel = newLevelStr.ToLower().Trim();
             string courseID = courseId;
-            //MessageBox.Show(courseID);
             string[] assessmentArr = assessArray;
 
             string query = "UPDATE module " +
@@ -412,11 +387,9 @@ namespace OOP._0._1._1
                            "assess4=" + assessmentArr[6] + ", " +
                            "assess4Weight=" + assessmentArr[7] + " " +
                            "WHERE moduleName='" + modulename+"' AND courseId=" + courseID + " AND level='" + modLevel + "';";
-            //create command and assign the query and connection from the constructor
             MySqlCommand cmd = new MySqlCommand(query, connection);
             try
             {
-                //Execute command
                 cmd.ExecuteNonQuery();
                 CloseConnection();
             }
@@ -436,18 +409,15 @@ namespace OOP._0._1._1
         {
             string query = "SELECT * FROM course WHERE  courseId="+id+";";
 
-            //Create a list to store the result
             List<string> list = new List<string>();
 
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
-            //Create a data reader and Execute the command 
             try
             {
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 try
                 {
-                    //Read the data and store them in the list
                     while (dataReader.Read())
                     {
                         String resultString = dataReader["username"] + ", " + dataReader["coursename"];
@@ -456,10 +426,8 @@ namespace OOP._0._1._1
 
                     dataReader.Close();
 
-                    //close Connection
                     this.CloseConnection();
 
-                    //return list to be displayed
                     return list;
                 }
                 catch (MySqlException ex)
@@ -482,7 +450,6 @@ namespace OOP._0._1._1
             List<string> modulesList = new List<string>();
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
-
 
             try
             {
@@ -532,9 +499,6 @@ namespace OOP._0._1._1
             }
         }
 
-
-
-
         public List<String> getAllFinalModules(string courseId, string  level)
         {
 
@@ -543,7 +507,6 @@ namespace OOP._0._1._1
             List<string> modulesList = new List<string>();
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
-
 
             try
             {

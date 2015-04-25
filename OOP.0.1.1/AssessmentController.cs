@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace OOP._0._1._1
 {
@@ -19,7 +15,6 @@ namespace OOP._0._1._1
 
         private Course course;
         private Module module;
-        private string _moduleDbIdValue;
         private string[] _moduleData;
         private ModuleController modController;
         private Database db;
@@ -46,8 +41,7 @@ namespace OOP._0._1._1
 
         public void setSpecificModule(string[] modData, string moduleDbId)
         {
-            this._moduleData = modData;
-            this._moduleDbIdValue = moduleDbId;
+            _moduleData = modData;
         }
 
         public void updateSystem()

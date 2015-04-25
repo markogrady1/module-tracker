@@ -103,66 +103,67 @@ namespace OOP._0._1._1
             this.addGradesBtn = new System.Windows.Forms.Label();
             this.AddModuleBtnBlue = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.covertab3Pnl.SuspendLayout();
-            this.mainAddGradePanel.SuspendLayout();
-            this.addGradeTabPage.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.covertab2Pnl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.openExistingCoursePnl.SuspendLayout();
-            this.selectCoursePnl.SuspendLayout();
-            this.mainCoverPnl.SuspendLayout();
-            this.mainTabControl.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // degreePredictionTabPage
-            // 
-            this.degreePredictionTabPage.Location = new System.Drawing.Point(0, 0);
-            this.degreePredictionTabPage.Name = "degreePredictionTabPage";
-            this.degreePredictionTabPage.Size = new System.Drawing.Size(200, 100);
-            this.degreePredictionTabPage.TabIndex = 0;
-            // 
-            // degreePredictionPnl
-            // 
-            this.degreePredictionPnl.Location = new System.Drawing.Point(0, 0);
-            this.degreePredictionPnl.Name = "degreePredictionPnl";
-            this.degreePredictionPnl.Size = new System.Drawing.Size(200, 100);
-            this.degreePredictionPnl.TabIndex = 0;
-            // 
-            // dgSummaryTitle
-            // 
-            this.dgSummaryTitle.Location = new System.Drawing.Point(0, 0);
-            this.dgSummaryTitle.Name = "dgSummaryTitle";
-            this.dgSummaryTitle.Size = new System.Drawing.Size(100, 23);
-            this.dgSummaryTitle.TabIndex = 0;
-            // 
-            // dgPredictUsernamePnl
-            // 
-            this.dgPredictUsernamePnl.Location = new System.Drawing.Point(0, 0);
-            this.dgPredictUsernamePnl.Name = "dgPredictUsernamePnl";
-            this.dgPredictUsernamePnl.Size = new System.Drawing.Size(200, 100);
-            this.dgPredictUsernamePnl.TabIndex = 0;
-            // 
-            // dgCourseNameLbl
-            // 
-            this.dgCourseNameLbl.Location = new System.Drawing.Point(0, 0);
-            this.dgCourseNameLbl.Name = "dgCourseNameLbl";
-            this.dgCourseNameLbl.Size = new System.Drawing.Size(100, 23);
-            this.dgCourseNameLbl.TabIndex = 0;
-            // 
-            // dgUsernameLbl
-            // 
-            this.dgUsernameLbl.Location = new System.Drawing.Point(0, 0);
-            this.dgUsernameLbl.Name = "dgUsernameLbl";
-            this.dgUsernameLbl.Size = new System.Drawing.Size(100, 23);
-            this.dgUsernameLbl.TabIndex = 0;
-            // 
-            // dgTotalOutComeLbl
-            // 
-            this.dgTotalOutComeLbl.Location = new System.Drawing.Point(0, 0);
-            this.dgTotalOutComeLbl.Name = "dgTotalOutComeLbl";
-            this.dgTotalOutComeLbl.Size = new System.Drawing.Size(100, 23);
-            this.dgTotalOutComeLbl.TabIndex = 0;
+            //this.covertab3Pnl.SuspendLayout();
+            //this.mainAddGradePanel.SuspendLayout();
+            //this.addGradeTabPage.SuspendLayout();
+            //this.tabPage2.SuspendLayout();
+            //this.covertab2Pnl.SuspendLayout();
+            //this.tabPage1.SuspendLayout();
+            //this.openExistingCoursePnl.SuspendLayout();
+            //this.selectCoursePnl.SuspendLayout();
+            //this.mainCoverPnl.SuspendLayout();
+            //this.mainTabControl.SuspendLayout();
+            //this.SuspendLayout();
+
+            //// 
+            //// degreePredictionTabPage
+            //// 
+            //this.degreePredictionTabPage.Location = new System.Drawing.Point(0, 0);
+            //this.degreePredictionTabPage.Name = "degreePredictionTabPage";
+            //this.degreePredictionTabPage.Size = new System.Drawing.Size(200, 100);
+            //this.degreePredictionTabPage.TabIndex = 0;
+            //// 
+            //// degreePredictionPnl
+            //// 
+            //this.degreePredictionPnl.Location = new System.Drawing.Point(0, 0);
+            //this.degreePredictionPnl.Name = "degreePredictionPnl";
+            //this.degreePredictionPnl.Size = new System.Drawing.Size(200, 100);
+            //this.degreePredictionPnl.TabIndex = 0;
+            //// 
+            //// dgSummaryTitle
+            //// 
+            //this.dgSummaryTitle.Location = new System.Drawing.Point(0, 0);
+            //this.dgSummaryTitle.Name = "dgSummaryTitle";
+            //this.dgSummaryTitle.Size = new System.Drawing.Size(100, 23);
+            //this.dgSummaryTitle.TabIndex = 0;
+            //// 
+            //// dgPredictUsernamePnl
+            //// 
+            //this.dgPredictUsernamePnl.Location = new System.Drawing.Point(0, 0);
+            //this.dgPredictUsernamePnl.Name = "dgPredictUsernamePnl";
+            //this.dgPredictUsernamePnl.Size = new System.Drawing.Size(200, 100);
+            //this.dgPredictUsernamePnl.TabIndex = 0;
+            //// 
+            //// dgCourseNameLbl
+            //// 
+            //this.dgCourseNameLbl.Location = new System.Drawing.Point(0, 0);
+            //this.dgCourseNameLbl.Name = "dgCourseNameLbl";
+            //this.dgCourseNameLbl.Size = new System.Drawing.Size(100, 23);
+            //this.dgCourseNameLbl.TabIndex = 0;
+            //// 
+            //// dgUsernameLbl
+            //// 
+            //this.dgUsernameLbl.Location = new System.Drawing.Point(0, 0);
+            //this.dgUsernameLbl.Name = "dgUsernameLbl";
+            //this.dgUsernameLbl.Size = new System.Drawing.Size(100, 23);
+            //this.dgUsernameLbl.TabIndex = 0;
+            //// 
+            //// dgTotalOutComeLbl
+            //// 
+            //this.dgTotalOutComeLbl.Location = new System.Drawing.Point(0, 0);
+            //this.dgTotalOutComeLbl.Name = "dgTotalOutComeLbl";
+            //this.dgTotalOutComeLbl.Size = new System.Drawing.Size(100, 23);
+            //this.dgTotalOutComeLbl.TabIndex = 0;
             // 
             // covertab3Pnl
             // 
@@ -182,37 +183,37 @@ namespace OOP._0._1._1
             this.labelg.Size = new System.Drawing.Size(477, 81);
             this.labelg.TabIndex = 0;
             this.labelg.Text = "Grade Predictor";
-            // 
-            // mainAddGradePanel
-            // 
-            this.mainAddGradePanel.Controls.Add(this.label25);
-            this.mainAddGradePanel.Controls.Add(this.addGradesBtn);
-            this.mainAddGradePanel.Controls.Add(this.label24);
-            this.mainAddGradePanel.Controls.Add(this.label23);
-            this.mainAddGradePanel.Controls.Add(this.label22);
-            this.mainAddGradePanel.Controls.Add(this.label21);
-            this.mainAddGradePanel.Controls.Add(this.assessment4WeightTxt);
-            this.mainAddGradePanel.Controls.Add(this.label19);
-            this.mainAddGradePanel.Controls.Add(this.assessment4GradeTxt);
-            this.mainAddGradePanel.Controls.Add(this.label20);
-            this.mainAddGradePanel.Controls.Add(this.assessment3WeightTxt);
-            this.mainAddGradePanel.Controls.Add(this.label17);
-            this.mainAddGradePanel.Controls.Add(this.assessment3GradeTxt);
-            this.mainAddGradePanel.Controls.Add(this.label18);
-            this.mainAddGradePanel.Controls.Add(this.assessment2WeightTxt);
-            this.mainAddGradePanel.Controls.Add(this.label16);
-            this.mainAddGradePanel.Controls.Add(this.assessment2GradeTxt);
-            this.mainAddGradePanel.Controls.Add(this.label15);
-            this.mainAddGradePanel.Controls.Add(this.assessment1WeightTxt);
-            this.mainAddGradePanel.Controls.Add(this.label14);
-            this.mainAddGradePanel.Controls.Add(this.assessment1GradeTxt);
-            this.mainAddGradePanel.Controls.Add(this.label13);
-            this.mainAddGradePanel.Controls.Add(this.availableModulesCbo);
-            this.mainAddGradePanel.Controls.Add(this.label12);
-            this.mainAddGradePanel.Location = new System.Drawing.Point(36, 12);
-            this.mainAddGradePanel.Name = "mainAddGradePanel";
-            this.mainAddGradePanel.Size = new System.Drawing.Size(1025, 515);
-            this.mainAddGradePanel.TabIndex = 1;
+            //// 
+            //// mainAddGradePanel
+            //// 
+            //this.mainAddGradePanel.Controls.Add(this.label25);
+            //this.mainAddGradePanel.Controls.Add(this.addGradesBtn);
+            //this.mainAddGradePanel.Controls.Add(this.label24);
+            //this.mainAddGradePanel.Controls.Add(this.label23);
+            //this.mainAddGradePanel.Controls.Add(this.label22);
+            //this.mainAddGradePanel.Controls.Add(this.label21);
+            //this.mainAddGradePanel.Controls.Add(this.assessment4WeightTxt);
+            //this.mainAddGradePanel.Controls.Add(this.label19);
+            //this.mainAddGradePanel.Controls.Add(this.assessment4GradeTxt);
+            //this.mainAddGradePanel.Controls.Add(this.label20);
+            //this.mainAddGradePanel.Controls.Add(this.assessment3WeightTxt);
+            //this.mainAddGradePanel.Controls.Add(this.label17);
+            //this.mainAddGradePanel.Controls.Add(this.assessment3GradeTxt);
+            //this.mainAddGradePanel.Controls.Add(this.label18);
+            //this.mainAddGradePanel.Controls.Add(this.assessment2WeightTxt);
+            //this.mainAddGradePanel.Controls.Add(this.label16);
+            //this.mainAddGradePanel.Controls.Add(this.assessment2GradeTxt);
+            //this.mainAddGradePanel.Controls.Add(this.label15);
+            //this.mainAddGradePanel.Controls.Add(this.assessment1WeightTxt);
+            //this.mainAddGradePanel.Controls.Add(this.label14);
+            //this.mainAddGradePanel.Controls.Add(this.assessment1GradeTxt);
+            //this.mainAddGradePanel.Controls.Add(this.label13);
+            //this.mainAddGradePanel.Controls.Add(this.availableModulesCbo);
+            //this.mainAddGradePanel.Controls.Add(this.label12);
+            //this.mainAddGradePanel.Location = new System.Drawing.Point(36, 12);
+            //this.mainAddGradePanel.Name = "mainAddGradePanel";
+            //this.mainAddGradePanel.Size = new System.Drawing.Size(1025, 515);
+            //this.mainAddGradePanel.TabIndex = 1;
             // 
             // label24
             // 
