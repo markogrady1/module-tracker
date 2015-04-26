@@ -15,14 +15,14 @@ namespace OOP._0._1._1
             db = new Database();
         }
       
+        /*inject the dependencies of this class to loosen the coupling*/
         public void setDependencies(Course course, User user)
         {
             this.course = course;
             this.user = user;
         }
 
-       
-
+        /*set the given username and name of course to this instance and database*/
         public bool setData(string username, string courseName)
         {
             this.courseName = courseName;
@@ -36,6 +36,7 @@ namespace OOP._0._1._1
                 return false;
         }
 
+        /*reset values of properties with existing data from previous course*/
         public bool setExistingData(string existingData)
         {
             string queryParameters = existingData;
@@ -45,6 +46,8 @@ namespace OOP._0._1._1
             course.CourseName = strArray[1];
             return true;
         }
+
+        /*add a new course to database*/
         public bool addToDatabase(string username, string coursename)
         {
             
@@ -65,6 +68,7 @@ namespace OOP._0._1._1
             }
         }
 
+        /*insert new course data into the database and add course id to course instance*/
         public void InsertData(string username, string coursename)
         {
             
@@ -74,6 +78,7 @@ namespace OOP._0._1._1
             
         }
 
+        /*set new values to dependencies*/
         public void assignNewUser(string username, string coursename)
         {
             courseName = coursename;
@@ -82,6 +87,7 @@ namespace OOP._0._1._1
             user.Name = userName;
         }
 
+        /*find specific course id and set it to course instance*/
         public void MatchCourseData(string existingData)
         {
             string queryParameters = existingData;
@@ -93,12 +99,13 @@ namespace OOP._0._1._1
             
         }
 
-       
+        /*return course id*/
         public string getCourseDbId()
         {
             return course.CourseDatabaseId;
         }
 
+        /*return all the course data in the form of a list */
         public List<string> getCourseData(string courseDat)
         {
             db.OpenConnection();

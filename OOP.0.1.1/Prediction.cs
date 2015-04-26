@@ -59,12 +59,13 @@ namespace OOP._0._1._1
             get { return _courseId; }
         }
 
-
+        /*get the number of assessments for the current module instance*/
         public int AssessmentAmount
         {
             get { return _assessmentAmount; }
         }
 
+        /*start the process of aquiring the prediction for a given module*/
         public void modulePrediction(string moduleValues)
         {
             _completeModuleArray = moduleValues.Split(',');
@@ -81,13 +82,13 @@ namespace OOP._0._1._1
             return moduleData[1];
         }
 
+        /*convert amount from string to int*/
         public int GetAmountOfAssessments(string[] moduleData)
         {
             return Convert.ToInt32(moduleData[5]);
         }
 
-
-
+        /*get the grades for all assessments of a given module*/
         public int[] GetAssessmentGrades(string[] moduleData)
         {
             int[] assessmentGrades = new int[8];
@@ -103,6 +104,7 @@ namespace OOP._0._1._1
             return assessmentGrades;
         }
 
+        /*get all the average results for the current module instance*/
         public void ResolveAllResults()
         {
 
@@ -143,6 +145,7 @@ namespace OOP._0._1._1
             }
         }
 
+        /*get the rounded total of the module outcome*/
         public int getModuleTotal()
         {
             if (_assessmentAmount == 1)
@@ -168,6 +171,7 @@ namespace OOP._0._1._1
             return 0;
         }
 
+        /*calculate the grades against the weight of the assessment*/
         public float calculateGrade(int[] grade)
         {
             float actualGrade = grade[0];
@@ -177,6 +181,7 @@ namespace OOP._0._1._1
             return averageGrade;
         }
 
+        /*return the assessment details from a given array*/
         public int[] GetAssessmentDetails(int val, int[] assessValues)
         {
 
@@ -226,6 +231,7 @@ namespace OOP._0._1._1
             return null;
         }
 
+        /*calculate the level six modules*/
         public int CalculateLevelSix(List<int> list)
         {
 
@@ -256,6 +262,7 @@ namespace OOP._0._1._1
             return A;
         }
 
+        /*calculate the level five modules*/
         public int CalculateLevelFive(List<int> list)
         {
 
@@ -284,6 +291,7 @@ namespace OOP._0._1._1
             return B;
         }
 
+        /*calculate the average of all the modules*/
         private int getAverageMark(List<int> newList)
         {
             int tot = 0;
@@ -296,7 +304,7 @@ namespace OOP._0._1._1
             return tot;
         }
 
-
+        /*calculate the degree outcome */
         public string FinalDegreeResult(int A, int B)
         {
             if (A >= 70)

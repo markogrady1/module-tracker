@@ -3,7 +3,10 @@
     class Module
     {
         private string _moduleName,_moduleCode, _moduleLevel, _moduleAssessmentAmount, _courseDatabaseId;
-      
+        /*
+         * the following getters and setters aquire and set all 
+         * the data concerning the current module instance
+         */
         public string ModuleName
         {
             get { return _moduleName; }

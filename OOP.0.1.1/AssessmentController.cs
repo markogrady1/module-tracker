@@ -24,6 +24,7 @@ namespace OOP._0._1._1
             this.modController = modController;
         }
 
+        /*set the grades for each of the assessments to this instance*/
         public void setAssessmentGrades(string assessment1, string assessment1Weight,
             string assessment2, string assessment2Weight, string assessment3,
             string assessment3Weight, string assessment4, string assessment4Weight)
@@ -39,11 +40,16 @@ namespace OOP._0._1._1
 
         }
 
+        /*set the data concerning a given module to this instance*/
         public void setSpecificModule(string[] modData, string moduleDbId)
         {
             _moduleData = modData;
         }
 
+        /*
+         * update the system with the new assessment details
+         * also update the database records
+         */
         public void updateSystem()
         {
             string courseId = modController.CourseId;
@@ -56,13 +62,12 @@ namespace OOP._0._1._1
             assessmentArray[5] = _assess3Weight; 
             assessmentArray[6] = _assess4;
             assessmentArray[7] = _assess4Weight; 
-            
-            
 
             db.OpenConnection();
             db.UpdateModuleAssessments(_moduleData,courseId , assessmentArray);
         }
 
+        /*acquire the course id and use it to get all module details */
         public List<string> resolveAllModules()
         {
             string courseId = modController.CourseId;

@@ -11,6 +11,7 @@ namespace OOP._0._1._1
         private Database db;
         private string _courseId;
 
+        /*set the startup course instance via constructor injection*/
         public ModuleController(StartUp startup)
         {
             startUp = startup;
@@ -23,6 +24,10 @@ namespace OOP._0._1._1
             set { _courseId = value; }
         }
 
+        /*
+         * create a new module by setting the module model data 
+         * and setting the database details via a new thread
+         */
         public void CreateNewModule(CourseController cc, string username, string coursename, string moduleName, string moduleCode, string moduleLevel, string moduleAssessmentAmount, string moduleCredit)
         {
             _courseId = cc.getCourseDbId();
@@ -48,11 +53,13 @@ namespace OOP._0._1._1
             _courseId = cc.getCourseDbId();
         }
 
+        /*reset all the module data by getting the new details from the DB*/
         public void resetAllModules()
         {
             getAllModulesByLevel();
         }
 
+        /*get all the modules by way of the different levels and set the views*/
         public void getAllModulesByLevel()
         {
             db.OpenConnection();
@@ -90,6 +97,7 @@ namespace OOP._0._1._1
             }
         }
 
+        /*get all modules regardless of level*/
         public List<string> resolveAllModules()
         {
 
@@ -99,6 +107,7 @@ namespace OOP._0._1._1
             return modList;
         }
 
+        /*get all modules in levels five and six*/
         public List<string> resolveAllDegreeModules(string level)
         {
             db.OpenConnection();
@@ -108,6 +117,7 @@ namespace OOP._0._1._1
 
         }
 
+        /*get the final outcome for the level six modules*/
         public int Level6Outcome(Prediction prediction, List<int> list)
         {
             Prediction predict = prediction;
@@ -116,6 +126,7 @@ namespace OOP._0._1._1
             return A;
         }
 
+        /*get the final outcome for the level five modules*/
         public int Level5Outcome(Prediction prediction, List<int> list)
         {
             Prediction predict = prediction;
@@ -123,7 +134,7 @@ namespace OOP._0._1._1
 
             return B;
         }
-
+        /*get the final outcome for the level five and six modules*/
         public string GetFinalDegree(int a, int b)
         {
             Prediction pred = new Prediction();
@@ -132,6 +143,7 @@ namespace OOP._0._1._1
             return result;
         }
 
+        /*get the average values*/
         public int getAvg(List<int> fours)
         {
             int tot = 0;
@@ -149,6 +161,7 @@ namespace OOP._0._1._1
             return 0;
         }
 
+        /*remove a module from the course*/
         public void removeModule(string moduleId)
         {
             string moduleID = moduleId;
