@@ -32,7 +32,7 @@ namespace OOP._0._1._1
         private CourseController cc = new CourseController();
         private AssessmentController assessController;
         private ModuleController moduleController;
-
+/*this is the constructor for this class and sets up all the configuration for the opening sequence*/
         public StartUp()
         {
             InitializeComponent();
@@ -82,7 +82,7 @@ namespace OOP._0._1._1
                 db.CloseConnection();
             }
         }
-
+        /*dynamically create the tabs for creating a module and adding grades*/
         public void ConfigureTabs()
         {
 
@@ -238,6 +238,7 @@ namespace OOP._0._1._1
             mainAddGradePanel.TabIndex = 1;
         }
 
+        /*add covers to tabs if no module exists*/
         private void AddCover(TabPage tb, Panel pnl, Label lbl)
         {
             tb.Controls.Add(pnl);
@@ -248,6 +249,7 @@ namespace OOP._0._1._1
             pnl.Visible = true;
         }
 
+        /*add covers to tabs if no module prediction exists*/
         private void AddModulePredictionCover(TabPage tb, Panel pnl, Label lbl)
         {
             tb.Controls.Add(pnl);
@@ -260,7 +262,6 @@ namespace OOP._0._1._1
 
         public void hidePanel(Panel pnl)
         {
-
             pnl.Visible = false;
         }
 
@@ -294,15 +295,18 @@ namespace OOP._0._1._1
             mainTabControl.Controls.Remove(tabPageModulePrediction);
             mainTabControl.Controls.Remove(degreePredictionTabPage);
         }
-
+        
         private void AddModuleBtnBlue_Enter(object sender, EventArgs e)
         {
             AddModuleBtnBlue.Image = Properties.Resources.btnHover;
         }
+
         private void AddModuleBtnBlue_Leave(object sender, EventArgs e)
         {
             AddModuleBtnBlue.Image = Properties.Resources.btn;
         }
+
+        /*click event for adding a new module*/
         private void AddModuleBtnBlue_Click(object sender, EventArgs e)
         {
             string moduleName = moduleNameTxt.Text;
@@ -461,6 +465,8 @@ namespace OOP._0._1._1
             configModulePredictionTab(tabPageModulePrediction);
         }
 
+/*when a new module is added the system retrieves all the neccessary info concerning existing modules 
+ as well as the new one. It gets this data from the relevant controller. It then configures the tabs to contain the relevant data*/
         public void configModulePredictionTab(TabPage currentPage)
         {
 
@@ -525,6 +531,9 @@ namespace OOP._0._1._1
         {
             modPredictChoiceBtn.Image = Properties.Resources.submit;
         }
+
+/*this method listens out for the degreePrediction tab to be selected. It will then populate the tab
+ with the outcome for the entire degree. This data is obtained from the moduleController*/
         public void tabControl_Selecting(object sender, EventArgs e)
         {
             if (mainTabControl.SelectedTab == degreePredictionTabPage)
@@ -816,6 +825,8 @@ namespace OOP._0._1._1
             newValBtn.Image = Properties.Resources.submitNewValuesHover; 
         }
 
+/*This button retrieves the users new value for a degree prediction and sends it to 
+ the Prediction class. It then populates the page with the new outcome*/
         public void newValBtn_Click(object sender, EventArgs e)
         {
             string aVal = levelFiveOutputTxt.Text;
@@ -902,6 +913,7 @@ namespace OOP._0._1._1
             }
         }
 
+/*This method requests a prediction for a given module. */
         private static List<int> CalculateLevelModules(List<string> moduleList)
         {
             List<int> res = new List<int>();
@@ -1484,12 +1496,13 @@ namespace OOP._0._1._1
             string[] modGrades = moduleDBId.Split(',');
             assessment1GradeTxt.Text = modGrades[0];
             assessment1WeightTxt.Text = modGrades[1];
-            assessment2GradeTxt.Text = modGrades[2];
-            assessment2WeightTxt.Text = modGrades[3];
-            assessment3GradeTxt.Text = modGrades[4];
-            assessment3WeightTxt.Text = modGrades[5];
-            assessment4GradeTxt.Text = modGrades[6];
-            assessment4WeightTxt.Text = modGrades[7];
+            assessment2GradeTxt.Text = Convert.ToInt32(modGrades[8]) < 2 ? "-":modGrades[2];
+           
+            assessment2WeightTxt.Text = Convert.ToInt32(modGrades[8]) < 2 ? "-" : modGrades[3];
+            assessment3GradeTxt.Text = Convert.ToInt32(modGrades[8]) < 3 ? "-" : modGrades[4];
+            assessment3WeightTxt.Text = Convert.ToInt32(modGrades[8]) < 3 ? "-" : modGrades[5];
+            assessment4GradeTxt.Text = Convert.ToInt32(modGrades[8]) < 4 ? "-" : modGrades[6];
+            assessment4WeightTxt.Text = Convert.ToInt32(modGrades[8]) < 4 ? "-":modGrades[7];
         }
 
         private void addGradesBtn_Enter(object sender, EventArgs e)
@@ -1520,19 +1533,19 @@ namespace OOP._0._1._1
                 assessment1Weight = assessment1Weight == "" ? "0" : assessment1Weight;
 
                 string assessment2 = assessment2GradeTxt.Text;
-                assessment2 = assessment2 == "" ? "0" : assessment2;
+                assessment2 = assessment2 == "" || assessment2 == "-" ? "0" : assessment2;
                 string assessment2Weight = assessment2WeightTxt.Text;
-                assessment2Weight = assessment2Weight == "" ? "0" : assessment2Weight;
+                assessment2Weight = assessment2Weight == "" || assessment2Weight == "-" ? "0" : assessment2Weight;
 
                 string assessment3 = assessment3GradeTxt.Text;
-                assessment3 = assessment3 == "" ? "0" : assessment3;
+                assessment3 = assessment3 == "" || assessment3 == "-" ? "0" : assessment3;
                 string assessment3Weight = assessment3WeightTxt.Text;
-                assessment3Weight = assessment3Weight == "" ? "0" : assessment3Weight;
+                assessment3Weight = assessment3Weight == "" || assessment3Weight == "-" ? "0" : assessment3Weight;
 
                 string assessment4 = assessment4GradeTxt.Text;
-                assessment4 = assessment4 == "" ? "0" : assessment4;
+                assessment4 = assessment4 == "" || assessment4 == "-" ? "0" : assessment4;
                 string assessment4Weight = assessment4WeightTxt.Text;
-                assessment4Weight = assessment4Weight == "" ? "0" : assessment4Weight;
+                assessment4Weight = assessment4Weight == "" || assessment4Weight == "-" ? "0" : assessment4Weight;
 
                 try
                 {
@@ -1641,7 +1654,7 @@ namespace OOP._0._1._1
                 availableModulesCbo.Items.Add(moduleDetail);
 
                 string grades = modArr[6] + "," + modArr[7] + "," + modArr[8] + "," + modArr[9] + "," + modArr[10] + "," +
-                                modArr[11] + "," + modArr[12] + "," + modArr[13];
+                                modArr[11] + "," + modArr[12] + "," + modArr[13]+ ","+ modArr[5];
                 hiddenCombo.Items.Add(modArr[0]);
                 hiddenModuleGradesCbo.Items.Add(grades);
             }
@@ -1716,7 +1729,14 @@ namespace OOP._0._1._1
                 existingCourseCbo.SelectedIndex = -1;
                 availableModulesCbo.Items.Clear();
                 populateAvailableModuleCombo();
-
+                resetTextFields(assessment1GradeTxt);
+                resetTextFields(assessment1WeightTxt);
+                resetTextFields(assessment2GradeTxt);
+                resetTextFields(assessment2WeightTxt);
+                resetTextFields(assessment3GradeTxt);
+                resetTextFields(assessment3WeightTxt);
+                resetTextFields(assessment4GradeTxt);
+                resetTextFields(assessment4WeightTxt);
             }
         }
 
