@@ -6,7 +6,7 @@ namespace OOP._0._1._1
 {
     class ModuleController
     {
-        private delegate void RunOnThreadPool(string moduleName, string moduleCode, string moduleLevel, string moduleAssessmentAmount, string moduleCredit, string courseId);
+        //private delegate void RunOnThreadPool(string moduleName, string moduleCode, string moduleLevel, string moduleAssessmentAmount, string moduleCredit, string courseId);
         private StartUp startUp;
         private Database db;
         private string _courseId;
@@ -40,11 +40,11 @@ namespace OOP._0._1._1
             module.ModuleLevel = newLevelStr;
             module.ModuleAssessmentAmount = moduleAssessmentAmount;
             db.OpenConnection();
-            RunOnThreadPool poolDelegate = db.InsertNewModule;
-            /*Thread used to write to the database when a new module is created*/
+
             Thread thread = new Thread(() => db.InsertNewModule(moduleName, moduleCode, moduleLevel, moduleAssessmentAmount, moduleCredit, _courseId));
             thread.Start();
-            poolDelegate.Invoke(moduleName, moduleCode, moduleLevel, moduleAssessmentAmount, moduleCredit, _courseId);
+            thread.Join();
+
             getAllModulesByLevel();
         }
 

@@ -54,11 +54,9 @@ namespace OOP._0._1._1
             var stat = db.OpenConnection();
             if (stat)
             {
-                RunOnThreadPool poolDelegate = InsertData;
                 var t = new Thread(() => InsertData(username, coursename));
-                poolDelegate.Invoke(username, coursename);
-
-
+                t.Start();
+                t.Join();
                 db.CloseConnection();
                 return true;
             }

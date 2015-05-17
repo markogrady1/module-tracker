@@ -11,10 +11,10 @@ using MySql.Data.MySqlClient.Properties;
 
 namespace OOP._0._1._1
 {
-/*
- *  This program was created by Mark O Grady 2015
- *  Object Oriented Programming CW2
- */
+    /*
+     *  This program was created by Mark O Grady 2015
+     *  Object Oriented Programming CW2
+     */
     public partial class StartUp : Form
     {
 
@@ -32,7 +32,10 @@ namespace OOP._0._1._1
         private CourseController cc = new CourseController();
         private AssessmentController assessController;
         private ModuleController moduleController;
-/*this is the constructor for this class and sets up all the configuration for the opening sequence*/
+        private bool gradeAssessment = true;
+        private Label hiddenLbl = new Label();
+        private Label modTotalLbl = new Label();
+        /*this is the constructor for this class and sets up all the configuration for the opening sequence*/
         public StartUp()
         {
             InitializeComponent();
@@ -85,6 +88,136 @@ namespace OOP._0._1._1
         /*dynamically create the tabs for creating a module and adding grades*/
         public void ConfigureTabs()
         {
+            modTotalLbl.Location = new Point(680, 150);
+            modTotalLbl.AutoSize = true;
+            modTotalLbl.Font = new Font("Courgette", 41.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+  
+            assessment4WeightTxt.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assessment4WeightTxt.Location = new Point(546, 275);
+            assessment4WeightTxt.Size = new Size(100, 24);
+            assessment4WeightTxt.TabIndex = 17;
+          
+            assGrade4WeightLbl.AutoSize = true;
+            assGrade4WeightLbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assGrade4WeightLbl.Location = new Point(479, 275);
+            assGrade4WeightLbl.Size = new Size(58, 18);
+            assGrade4WeightLbl.TabIndex = 16;
+            assGrade4WeightLbl.Text = "Weight:";
+         
+            assessment4GradeTxt.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assessment4GradeTxt.Location = new Point(376, 275);
+            assessment4GradeTxt.Size = new Size(85, 24);
+            assessment4GradeTxt.TabIndex = 15;
+            
+            assGrade4Lbl.AutoSize = true;
+            assGrade4Lbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assGrade4Lbl.Location = new Point(222, 278);
+            assGrade4Lbl.Size = new Size(151, 18);
+            assGrade4Lbl.TabIndex = 14;
+            assGrade4Lbl.Text = "Assessment 4 Grade:";
+           
+            assessment3WeightTxt.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assessment3WeightTxt.Location = new Point(546, 231);
+            assessment3WeightTxt.Size = new Size(100, 24);
+            assessment3WeightTxt.TabIndex = 13;
+           
+            assGrade3WeightLbl.AutoSize = true;
+            assGrade3WeightLbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assGrade3WeightLbl.Location = new Point(479, 231);
+            assGrade3WeightLbl.Size = new Size(58, 18);
+            assGrade3WeightLbl.TabIndex = 12;
+            assGrade3WeightLbl.Text = "Weight:";
+           
+            assessment3GradeTxt.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assessment3GradeTxt.Location = new Point(376, 231);
+            assessment3GradeTxt.Size = new Size(85, 24);
+            assessment3GradeTxt.TabIndex = 11;
+        
+            assGrade3Lbl.AutoSize = true;
+            assGrade3Lbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assGrade3Lbl.Location = new Point(222, 234);
+            assGrade3Lbl.Size = new Size(151, 18);
+            assGrade3Lbl.TabIndex = 10;
+            assGrade3Lbl.Text = "Assessment 3 Grade:";
+          
+            assessment2WeightTxt.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assessment2WeightTxt.Location = new Point(546, 187);
+            assessment2WeightTxt.Size = new Size(100, 24);
+            assessment2WeightTxt.TabIndex = 9;
+            
+            assGrade2WeightLbl.AutoSize = true;
+            assGrade2WeightLbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assGrade2WeightLbl.Location = new Point(479, 187);
+            assGrade2WeightLbl.Size = new Size(58, 18);
+            assGrade2WeightLbl.TabIndex = 8;
+            assGrade2WeightLbl.Text = "Weight:";
+          
+            assessment2GradeTxt.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assessment2GradeTxt.Location = new Point(376, 187);
+            assessment2GradeTxt.Size = new Size(85, 24);
+            assessment2GradeTxt.TabIndex = 7;
+           
+            assGrade2Lbl.AutoSize = true;
+            assGrade2Lbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assGrade2Lbl.Location = new Point(222, 190);
+            assGrade2Lbl.Size = new Size(151, 18);
+            assGrade2Lbl.TabIndex = 6;
+            assGrade2Lbl.Text = "Assessment 2 Grade:";
+          
+            assessment1WeightTxt.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assessment1WeightTxt.Location = new Point(546, 143);
+            assessment1WeightTxt.Size = new Size(100, 24);
+            assessment1WeightTxt.TabIndex = 5;
+           
+            assGrade1WeightLbl.AutoSize = true;
+            assGrade1WeightLbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assGrade1WeightLbl.Location = new Point(479, 146);
+            assGrade1WeightLbl.Size = new Size(58, 18);
+            assGrade1WeightLbl.TabIndex = 4;
+            assGrade1WeightLbl.Text = "Weight:";
+        
+            assessment1GradeTxt.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assessment1GradeTxt.Location = new Point(376, 143);
+            assessment1GradeTxt.Size = new Size(85, 24);
+            assessment1GradeTxt.TabIndex = 3;
+          
+            assGrade1Lbl.AutoSize = true;
+            assGrade1Lbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assGrade1Lbl.Location = new Point(222, 146);
+            assGrade1Lbl.Size = new Size(151, 18);
+            assGrade1Lbl.TabIndex = 2;
+            assGrade1Lbl.Text = "Assessment 1 Grade:";
+          
+            availableModulesCbo.Location = new Point(0, 0);
+            availableModulesCbo.Size = new Size(121, 21);
+            availableModulesCbo.TabIndex = 24;
+            percent4Lbl.AutoSize = true;
+            percent4Lbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            percent4Lbl.Location = new Point(649, 278);
+            percent4Lbl.Size = new Size(21, 18);
+            percent4Lbl.TabIndex = 21;
+            percent4Lbl.Text = "%";
+         
+            percent3Lbl.AutoSize = true;
+            percent3Lbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            percent3Lbl.Location = new Point(649, 234);
+            percent3Lbl.Size = new Size(21, 18);
+            percent3Lbl.TabIndex = 20;
+            percent3Lbl.Text = "%";
+         
+            percent2Lbl.AutoSize = true;
+            percent2Lbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            percent2Lbl.Location = new Point(649, 190);
+            percent2Lbl.Size = new Size(21, 18);
+            percent2Lbl.TabIndex = 19;
+            percent2Lbl.Text = "%";
+            
+            percent1Lbl.AutoSize = true;
+            percent1Lbl.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            percent1Lbl.Location = new Point(649, 148);
+            percent1Lbl.Size = new Size(21, 18);
+            percent1Lbl.TabIndex = 18;
+            percent1Lbl.Text = "%";
 
             mainTabControl.Controls.Remove(tabPage2);
             mainTabControl.Controls.Remove(addGradeTabPage);
@@ -135,7 +268,6 @@ namespace OOP._0._1._1
             availableModulesCbo.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             availableModulesCbo.FormattingEnabled = true;
             availableModulesCbo.Location = new Point(376, 94);
-            availableModulesCbo.Name = "availableModulesCbo";
             availableModulesCbo.Size = new Size(396, 26);
             availableModulesCbo.TabIndex = 1;
             availableModulesCbo.SelectedIndexChanged += availableModulesCbo_SelectedIndexChanged;
@@ -147,7 +279,6 @@ namespace OOP._0._1._1
             degreePredictionTabPage.Controls.Add(degreePredictionCoverPnl);
             degreePredictionCoverPnl.Controls.Add(statLbl);
             degreePredictionCoverPnl.Location = new Point(7, 9);
-            degreePredictionCoverPnl.Name = "degreePredictionCoverPnl";
             degreePredictionCoverPnl.Size = new Size(1060, 611);
             degreePredictionCoverPnl.TabIndex = 0;
             degreePredictionCoverPnl.ResumeLayout(false);
@@ -157,14 +288,13 @@ namespace OOP._0._1._1
             statLbl.Font = new Font("Courgette", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
             statLbl.ForeColor = Color.FromArgb(255, 128, 128);
             statLbl.Location = new Point(271, 99);
-            statLbl.Name = "statLbl";
             statLbl.Size = new Size(476, 81);
             statLbl.TabIndex = 0;
             statLbl.Text = "No Modules Exist";
 
             degreePredictionTabPage.Controls.Add(degreePredictionPnl);
             degreePredictionTabPage.Location = new Point(4, 25);
-            degreePredictionTabPage.Name = "degreePredictionTabPage";
+ 
             degreePredictionTabPage.Padding = new Padding(3);
             degreePredictionTabPage.Size = new Size(1070, 711);
             degreePredictionTabPage.TabIndex = 1;
@@ -173,28 +303,24 @@ namespace OOP._0._1._1
 
             dgSummaryTitle.Image = Properties.Resources.degreeSummary;
             dgSummaryTitle.Location = new Point(354, 14);
-            dgSummaryTitle.Name = "dgSummaryTitle";
             dgSummaryTitle.Size = new Size(290, 28);
             dgSummaryTitle.TabIndex = 5;
 
             dgPredictUsernamePnl.Controls.Add(dgCourseNameLbl);
             dgPredictUsernamePnl.Controls.Add(dgUsernameLbl);
             dgPredictUsernamePnl.Location = new Point(117, 77);
-            dgPredictUsernamePnl.Name = "dgPredictUsernamePnl";
             dgPredictUsernamePnl.Size = new Size(766, 49);
             dgPredictUsernamePnl.TabIndex = 4;
             dgPredictUsernamePnl.BackColor = Color.FromArgb(177, 192, 243);
 
             dgCourseNameLbl.AutoSize = true;
             dgCourseNameLbl.Location = new Point(421, 17);
-            dgCourseNameLbl.Name = "dgCourseNameLbl";
             dgCourseNameLbl.Size = new Size(83, 16);
             dgCourseNameLbl.TabIndex = 1;
             dgCourseNameLbl.Text = "coursename";
 
             dgUsernameLbl.AutoSize = true;
             dgUsernameLbl.Location = new Point(183, 17);
-            dgUsernameLbl.Name = "dgUsernameLbl";
             dgUsernameLbl.Size = new Size(68, 16);
             dgUsernameLbl.TabIndex = 0;
             dgUsernameLbl.Text = "username";
@@ -202,38 +328,37 @@ namespace OOP._0._1._1
             dgTotalOutComeLbl.AutoSize = true;
             dgTotalOutComeLbl.Font = new Font("Microsoft Sans Serif", 40.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dgTotalOutComeLbl.Location = new Point(452, 504);
-            dgTotalOutComeLbl.Name = "dgTotalOutComeLbl";
             dgTotalOutComeLbl.Size = new Size(175, 105);
             dgTotalOutComeLbl.TabIndex = 2;
             dgTotalOutComeLbl.Text = "res";
 
-          
+            mainAddGradePanel.Controls.Add(modTotalLbl);
+            mainAddGradePanel.BackColor = Color.FromArgb(235, 235, 235);
             mainAddGradePanel.Controls.Add(label25);
             mainAddGradePanel.Controls.Add(addGradesBtn);
-            mainAddGradePanel.Controls.Add(label24);
-            mainAddGradePanel.Controls.Add(label23);
-            mainAddGradePanel.Controls.Add(label22);
-            mainAddGradePanel.Controls.Add(label21);
+            mainAddGradePanel.Controls.Add(percent4Lbl);
+            mainAddGradePanel.Controls.Add(percent3Lbl);
+            mainAddGradePanel.Controls.Add(percent2Lbl);
+            mainAddGradePanel.Controls.Add(percent1Lbl);
             mainAddGradePanel.Controls.Add(assessment4WeightTxt);
-            mainAddGradePanel.Controls.Add(label19);
+            mainAddGradePanel.Controls.Add(assGrade4WeightLbl);
             mainAddGradePanel.Controls.Add(assessment4GradeTxt);
-            mainAddGradePanel.Controls.Add(label20);
+            mainAddGradePanel.Controls.Add(assGrade4Lbl);
             mainAddGradePanel.Controls.Add(assessment3WeightTxt);
-            mainAddGradePanel.Controls.Add(label17);
+            mainAddGradePanel.Controls.Add(assGrade3WeightLbl);
             mainAddGradePanel.Controls.Add(assessment3GradeTxt);
-            mainAddGradePanel.Controls.Add(label18);
+            mainAddGradePanel.Controls.Add(assGrade3Lbl);
             mainAddGradePanel.Controls.Add(assessment2WeightTxt);
-            mainAddGradePanel.Controls.Add(label16);
+            mainAddGradePanel.Controls.Add(assGrade2WeightLbl);
             mainAddGradePanel.Controls.Add(assessment2GradeTxt);
-            mainAddGradePanel.Controls.Add(label15);
+            mainAddGradePanel.Controls.Add(assGrade2Lbl);
             mainAddGradePanel.Controls.Add(assessment1WeightTxt);
-            mainAddGradePanel.Controls.Add(label14);
+            mainAddGradePanel.Controls.Add(assGrade1WeightLbl);
             mainAddGradePanel.Controls.Add(assessment1GradeTxt);
-            mainAddGradePanel.Controls.Add(label13);
+            mainAddGradePanel.Controls.Add(assGrade1Lbl);
             mainAddGradePanel.Controls.Add(availableModulesCbo);
             mainAddGradePanel.Controls.Add(label12);
             mainAddGradePanel.Location = new Point(36, 12);
-            mainAddGradePanel.Name = "mainAddGradePanel";
             mainAddGradePanel.Size = new Size(1025, 515);
             mainAddGradePanel.TabIndex = 1;
         }
@@ -244,7 +369,6 @@ namespace OOP._0._1._1
             tb.Controls.Add(pnl);
             pnl.Controls.Add(lbl);
             pnl.Location = new Point(3, 0);
-            pnl.Name = "mainCoverPnl";
             pnl.Size = new Size(690, 216);
             pnl.Visible = true;
         }
@@ -255,7 +379,6 @@ namespace OOP._0._1._1
             tb.Controls.Add(pnl);
             pnl.Controls.Add(lbl);
             pnl.Location = new Point(3, 0);
-            pnl.Name = "mainCoverPnl";
             pnl.AutoSize = true;
             pnl.Visible = true;
         }
@@ -270,9 +393,54 @@ namespace OOP._0._1._1
             lbl.AutoSize = true;
             lbl.Font = new Font("Courgette", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             lbl.Location = new Point(222, 15);
-            lbl.Name = "moduleStatus";
             lbl.Size = new Size(185, 24);
             lbl.Text = "There are no modules set for this level";
+        }
+
+        public void addGradesWeights(List<string> moduleList )
+        {
+            Panel[] pn = new Panel[moduleList.Count];
+            Label[] s_modNameLbl = new Label[moduleList.Count];
+            TextBox[] s_modName = new TextBox[moduleList.Count];
+            Label[] s_modCodeLbl = new Label[moduleList.Count];
+            TextBox[] s_modCode = new TextBox[moduleList.Count];
+            Label[] s_assessmentNoLbl = new Label[moduleList.Count];
+            TextBox[] s_assessmentNo = new TextBox[moduleList.Count];
+            Label[] s_assessment1Lbl = new Label[moduleList.Count];
+
+            for (var i = 0; i < moduleList.Count; i++)
+            {
+                pn[i] = new Panel();
+                s_modNameLbl[i] = new Label();
+                s_modName[i] = new TextBox();
+                s_modCodeLbl[i] = new Label();
+                s_modCode[i] = new TextBox();
+                s_assessmentNoLbl[i] = new Label();
+                s_assessmentNo[i] = new TextBox();
+                s_assessment1Lbl[i] = new Label();
+                s_assessmentNo[i] = new TextBox();
+                s_assessment1Lbl[i] = new Label();
+                
+
+
+                s_assessmentNo[i].Font = new Font("Verdana", 9.75F, FontStyle.Bold);
+                s_assessmentNo[i].AutoSize = true;
+                s_assessmentNo[i].Location = new Point(40, 45);
+                pn[i].Controls.Add(s_assessmentNo[i]);
+
+                s_assessment1Lbl[i].Location = new Point(150, 34);
+                s_assessment1Lbl[i].AutoSize = true;
+                pn[i].Controls.Add(s_assessment1Lbl[i]);
+
+                s_assessmentNoLbl[i].Font = new Font("Verdana", 9.75F, FontStyle.Bold);
+                s_assessmentNo[i].AutoSize = true;
+                s_assessmentNo[i].Location = new Point(360, 45);
+                pn[i].Controls.Add(s_assessment1Lbl[i]);
+
+                s_assessmentNo[i].Location = new Point(470, 56);
+                s_assessmentNo[i].AutoSize = true;
+                pn[i].Controls.Add(s_assessmentNo[i]);
+            }
         }
 
         private void setPredictionStatusLabel(Label lbl)
@@ -281,7 +449,6 @@ namespace OOP._0._1._1
             lbl.Font = new Font("Courgette", 48F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             lbl.ForeColor = Color.FromArgb(90, 131, 187);
             lbl.Location = new Point(220, 57);
-            lbl.Name = "labelg";
             lbl.TabIndex = 0;
             lbl.Text = "No Modules to predict";
         }
@@ -295,7 +462,7 @@ namespace OOP._0._1._1
             mainTabControl.Controls.Remove(tabPageModulePrediction);
             mainTabControl.Controls.Remove(degreePredictionTabPage);
         }
-        
+
         private void AddModuleBtnBlue_Enter(object sender, EventArgs e)
         {
             AddModuleBtnBlue.Image = Properties.Resources.btnHover;
@@ -465,8 +632,8 @@ namespace OOP._0._1._1
             configModulePredictionTab(tabPageModulePrediction);
         }
 
-/*when a new module is added the system retrieves all the neccessary info concerning existing modules 
- as well as the new one. It gets this data from the relevant controller. It then configures the tabs to contain the relevant data*/
+        /*when a new module is added the system retrieves all the neccessary info concerning existing modules 
+         as well as the new one. It gets this data from the relevant controller. It then configures the tabs to contain the relevant data*/
         public void configModulePredictionTab(TabPage currentPage)
         {
 
@@ -497,7 +664,6 @@ namespace OOP._0._1._1
             modPredictChoiceBtn.Cursor = Cursors.Hand;
             modPredictChoiceBtn.Image = Properties.Resources.submit;
             modPredictChoiceBtn.Location = new Point(320, 80);
-            modPredictChoiceBtn.Name = "modPredictChoiceBtn";
             modPredictChoiceBtn.Size = new Size(135, 42);
 
             for (var i = 0; i < moduleList.Count; i++)
@@ -511,7 +677,7 @@ namespace OOP._0._1._1
                 modulePredictionChoiceCbo.Items.Add(comboStr);
                 hiddenPredictionChoiceCbo.Items.Add(moduleList[i]);
             }
-        
+
             predictionTopControlsPnl.Controls.Add(selectLbl);
             predictionTopControlsPnl.Controls.Add(modulePredictionChoiceCbo);
             predictionTopControlsPnl.Controls.Add(modPredictChoiceBtn);
@@ -532,10 +698,15 @@ namespace OOP._0._1._1
             modPredictChoiceBtn.Image = Properties.Resources.submit;
         }
 
-/*this method listens out for the degreePrediction tab to be selected. It will then populate the tab
- with the outcome for the entire degree. This data is obtained from the moduleController*/
+        /*this method listens out for the degreePrediction tab to be selected. It will then populate the tab
+         with the outcome for the entire degree. This data is obtained from the moduleController*/
         public void tabControl_Selecting(object sender, EventArgs e)
         {
+            if (!gradeAssessment)
+            {
+                setVisibility();
+            }
+
             if (mainTabControl.SelectedTab == degreePredictionTabPage)
             {
                 degreePredictionPnl.Controls.Clear();
@@ -624,7 +795,6 @@ namespace OOP._0._1._1
                 degreePredictionPnl.Controls.Add(dgSummaryTitle);
                 degreePredictionPnl.Controls.Add(dgPredictUsernamePnl);
                 degreePredictionPnl.Location = new Point(7, 9);
-                degreePredictionPnl.Name = "degreePredictionPnl";
                 degreePredictionPnl.Size = new Size(1054, 644);
                 degreePredictionPnl.TabIndex = 0;
 
@@ -703,7 +873,7 @@ namespace OOP._0._1._1
                     dgTotalOutComeLbl.Location = new Point(90, 50);
                     dgTotalOutComeLbl.ForeColor = Color.FromArgb(240, 128, 53);
                     dgTotalOutComeLbl.Text = "Third Class Degree";
-                } 
+                }
 
                 if (degreeResult == "Fail")
                 {
@@ -716,7 +886,7 @@ namespace OOP._0._1._1
                 outcomePnl.Controls.Add(achieveLbl);
                 outcomePnl.Controls.Add(dgTotalOutComeLbl);
                 degreePredictionPnl.Controls.Add(outcomePnl);
-                
+
                 newValBtn.Size = new Size(159, 42);
                 newValBtn.Location = new Point(320, 135);
                 newValBtn.Image = Properties.Resources.submitNewValues;
@@ -737,7 +907,7 @@ namespace OOP._0._1._1
                 levelFourAvgLbl.Text = "Level Four avg.";
                 levelFourAvgLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
                 levelFourAvgLbl.AutoSize = true;
-                
+
                 levelFourAvgTxt.Location = new Point(183, 10);
                 levelFourAvgTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
                 levelFourAvgTxt.ForeColor = Color.FromArgb(30, 30, 30);
@@ -751,7 +921,7 @@ namespace OOP._0._1._1
                 levelFiveAvgLbl.Text = "Level Five avg.";
                 levelFiveAvgLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
                 levelFiveAvgLbl.AutoSize = true;
-                
+
                 levelFiveAvgTxt.Location = new Point(183, 70);
                 levelFiveAvgTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
                 levelFiveAvgTxt.ForeColor = Color.FromArgb(30, 30, 30);
@@ -765,7 +935,7 @@ namespace OOP._0._1._1
                 levelSixAvgLbl.Text = "Level Six avg.";
                 levelSixAvgLbl.Font = new Font("Verdana", 16, FontStyle.Regular);
                 levelSixAvgLbl.AutoSize = true;
-                
+
                 levelSixAvgTxt.Location = new Point(183, 130);
                 levelSixAvgTxt.Font = new Font("Verdana", 28, FontStyle.Regular);
                 levelSixAvgTxt.ForeColor = Color.FromArgb(30, 30, 30);
@@ -817,16 +987,16 @@ namespace OOP._0._1._1
 
         public void newValBtn_Leave(object sender, EventArgs e)
         {
-            newValBtn.Image = Properties.Resources.submitNewValues; 
+            newValBtn.Image = Properties.Resources.submitNewValues;
         }
 
         public void newValBtn_Enter(object sender, EventArgs e)
         {
-            newValBtn.Image = Properties.Resources.submitNewValuesHover; 
+            newValBtn.Image = Properties.Resources.submitNewValuesHover;
         }
 
-/*This button retrieves the users new value for a degree prediction and sends it to 
- the Prediction class. It then populates the page with the new outcome*/
+        /*This button retrieves the users new value for a degree prediction and sends it to 
+         the Prediction class. It then populates the page with the new outcome*/
         public void newValBtn_Click(object sender, EventArgs e)
         {
             string aVal = levelFiveOutputTxt.Text;
@@ -876,8 +1046,8 @@ namespace OOP._0._1._1
                         dgTotalOutComeLbl.Location = new Point(0, 50);
                         dgTotalOutComeLbl.ForeColor = Color.FromArgb(0, 0, 255);
                         dgTotalOutComeLbl.Text = "Lower Second Class Degree";
-                    } 
-                    
+                    }
+
                     if (degreeResult == "Third Class Degree")
                     {
                         outcomePnl.Location = new Point(180, 410);
@@ -913,7 +1083,7 @@ namespace OOP._0._1._1
             }
         }
 
-/*This method requests a prediction for a given module. */
+        /*This method requests a prediction for a given module. */
         private static List<int> CalculateLevelModules(List<string> moduleList)
         {
             List<int> res = new List<int>();
@@ -987,7 +1157,7 @@ namespace OOP._0._1._1
                 moduleDetailsLbl = new Label();
                 moduleDetailsLbl.Location = new Point(200, 30);
                 moduleDetailsLbl.AutoSize = true;
-                moduleDetailsLbl.ForeColor = Color.FromArgb(88,89,90);
+                moduleDetailsLbl.ForeColor = Color.FromArgb(88, 89, 90);
                 moduleDetailsLbl.Font = new Font("Verdana", 11.25F, FontStyle.Bold);
                 moduleDetailsLbl.Text = modulePredictionChoiceCbo.Text; ;
 
@@ -1047,7 +1217,15 @@ namespace OOP._0._1._1
 
         private int parseData(string s)
         {
-            return Convert.ToInt32(s);
+            try
+            {
+                return Convert.ToInt32(s);
+            }
+            catch (OverflowException e)
+            {
+                
+            }
+            return -1;
         }
 
         private void layoutOne(Prediction prediction, string vals)
@@ -1055,7 +1233,7 @@ namespace OOP._0._1._1
             string[] allData = vals.Split(',');
             Label assessOneTitle = new Label();
             assessOneTitle.AutoSize = true;
-            assessOneTitle.ForeColor = Color.FromArgb(50,50,51);
+            assessOneTitle.ForeColor = Color.FromArgb(50, 50, 51);
             assessOneTitle.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
             assessOneTitle.Text = "Assessment One: " + allData[6] + "/100";
             Label assessOneWeight = new Label();
@@ -1092,7 +1270,7 @@ namespace OOP._0._1._1
             assessTwoTitle.AutoSize = true;
             assessTwoTitle.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
             assessTwoTitle.ForeColor = Color.FromArgb(50, 50, 51);
-            assessTwoTitle.Text = "Assessment One: " + allData[8] + "/100";
+            assessTwoTitle.Text = "Assessment Two: " + allData[8] + "/100";
             Label assessTwoWeight = new Label();
             assessTwoWeight.AutoSize = true;
             assessTwoWeight.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
@@ -1127,7 +1305,7 @@ namespace OOP._0._1._1
             assessTwoTitle.AutoSize = true;
             assessTwoTitle.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
             assessTwoTitle.ForeColor = Color.FromArgb(50, 50, 51);
-            assessTwoTitle.Text = "Assessment One: " + allData[8] + "/100";
+            assessTwoTitle.Text = "Assessment Two: " + allData[8] + "/100";
             Label assessTwoWeight = new Label();
             assessTwoWeight.AutoSize = true;
             assessTwoWeight.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
@@ -1142,7 +1320,7 @@ namespace OOP._0._1._1
             assessThreeTitle.AutoSize = true;
             assessThreeTitle.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
             assessThreeTitle.ForeColor = Color.FromArgb(50, 50, 51);
-            assessThreeTitle.Text = "Assessment One: " + allData[10] + "/100";
+            assessThreeTitle.Text = "Assessment Three: " + allData[10] + "/100";
             Label assessThreeWeight = new Label();
             assessThreeWeight.AutoSize = true;
             assessThreeWeight.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
@@ -1168,7 +1346,7 @@ namespace OOP._0._1._1
             assessOneWeight.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
             assessOneWeight.ForeColor = Color.FromArgb(50, 50, 51);
             assessOneWeight.Text = "Weight: " + allData[7];
-            assessOneWeight.Location = new Point(200, 55);
+            assessOneTitle.Location = new Point(200, 55);
             assessOneWeight.Location = new Point(200, 75);
             detailsPnl.Controls.Add(assessOneTitle);
             detailsPnl.Controls.Add(assessOneWeight);
@@ -1177,7 +1355,7 @@ namespace OOP._0._1._1
             assessTwoTitle.AutoSize = true;
             assessTwoTitle.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
             assessTwoTitle.ForeColor = Color.FromArgb(50, 50, 51);
-            assessTwoTitle.Text = "Assessment One: " + allData[8] + "/100";
+            assessTwoTitle.Text = "Assessment Two: " + allData[8] + "/100";
             Label assessTwoWeight = new Label();
             assessTwoWeight.AutoSize = true;
             assessTwoWeight.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
@@ -1192,12 +1370,12 @@ namespace OOP._0._1._1
             assessThreeTitle.AutoSize = true;
             assessThreeTitle.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
             assessThreeTitle.ForeColor = Color.FromArgb(50, 50, 51);
-            assessThreeTitle.Text = "Assessment One: " + allData[8] + "/100";
+            assessThreeTitle.Text = "Assessment Three: " + allData[10] + "/100";
             Label assessThreeWeight = new Label();
             assessThreeWeight.AutoSize = true;
             assessThreeWeight.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
             assessThreeWeight.ForeColor = Color.FromArgb(50, 50, 51);
-            assessThreeWeight.Text = "Weight: " + allData[9];
+            assessThreeWeight.Text = "Weight: " + allData[11];
             assessThreeTitle.Location = new Point(200, 135);
             assessThreeWeight.Location = new Point(200, 155);
             detailsPnl.Controls.Add(assessThreeTitle);
@@ -1207,12 +1385,12 @@ namespace OOP._0._1._1
             assessFourTitle.AutoSize = true;
             assessFourTitle.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
             assessFourTitle.ForeColor = Color.FromArgb(50, 50, 51);
-            assessFourTitle.Text = "Assessment One: " + allData[8] + "/100";
+            assessFourTitle.Text = "Assessment Four: " + allData[12] + "/100";
             Label assessFourWeight = new Label();
             assessFourWeight.AutoSize = true;
             assessFourWeight.Font = new Font("Verdana", 12.25F, FontStyle.Bold);
             assessFourWeight.ForeColor = Color.FromArgb(50, 50, 51);
-            assessFourWeight.Text = "Weight: " + allData[9];
+            assessFourWeight.Text = "Weight: " + allData[13];
             assessFourTitle.Location = new Point(200, 175);
             assessFourWeight.Location = new Point(200, 195);
             detailsPnl.Controls.Add(assessFourTitle);
@@ -1388,6 +1566,21 @@ namespace OOP._0._1._1
             string moduleID = ((Label)sender).Name;
             moduleController.removeModule(moduleID);
             moduleController.getAllModulesByLevel();
+           List <string> list = moduleController.resolveAllModules();
+            populateAvailableModuleCombo();
+            modulePredictionChoiceCbo.Items.Clear();
+            hiddenPredictionChoiceCbo.Items.Clear();
+            for (var i = 0; i < list.Count; i++)
+            {
+                string[] strArray = list[i].Split(',');
+                string modName = strArray[1].Substring(0, 1).ToUpper() + strArray[1].Substring(1).ToLower();
+                modName = Regex.Replace(modName, @"(^\w)|(\s\w)", m => m.Value.ToUpper());
+                string modCode = strArray[2].ToUpper();
+                string level = strArray[4].Substring(0, 1).ToUpper() + strArray[4].Substring(1).ToLower();
+                string comboStr = modName + " - " + modCode + " - Level: " + level;
+                modulePredictionChoiceCbo.Items.Add(comboStr);
+                hiddenPredictionChoiceCbo.Items.Add(list[i]);
+            }
         }
 
         private void setThreeAssessments(Label[] assessment1Lbl, int i, int SECOND_ROW_POS, Panel[] panel, Label[] assessment1, Label[] assessment2Lbl, Label[] assessment2, Label[] assessment3Lbl, Label[] assessment3)
@@ -1491,19 +1684,64 @@ namespace OOP._0._1._1
 
         public void availableModulesCbo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            gradeAssessment = true;
+            setVisibility();
             int index = availableModulesCbo.SelectedIndex;
             string moduleDBId = hiddenModuleGradesCbo.Items[index].ToString();
             string[] modGrades = moduleDBId.Split(',');
             assessment1GradeTxt.Text = modGrades[0];
             assessment1WeightTxt.Text = modGrades[1];
-            assessment2GradeTxt.Text = Convert.ToInt32(modGrades[8]) < 2 ? "-":modGrades[2];
+            assessment2GradeTxt.Text = modGrades[2];
+            assessment2WeightTxt.Text = modGrades[3];
+            assessment3GradeTxt.Text = modGrades[4];
+            assessment3WeightTxt.Text = modGrades[5];
+            assessment4GradeTxt.Text = modGrades[6];
+            assessment4WeightTxt.Text = modGrades[7];
+            hiddenLbl.Text = modGrades[8];
+            getModAvg();
+            assessment1GradeTxt.TextChanged += assessment1GradeText_TextChanged;
+            assessment1WeightTxt.TextChanged += assessment1GradeText_TextChanged;
+            assessment2GradeTxt.TextChanged += assessment1GradeText_TextChanged;
+            assessment2WeightTxt.TextChanged += assessment1GradeText_TextChanged;
+            assessment3GradeTxt.TextChanged += assessment1GradeText_TextChanged;
+            assessment3WeightTxt.TextChanged += assessment1GradeText_TextChanged;
+            assessment4GradeTxt.TextChanged += assessment1GradeText_TextChanged;
+            assessment4WeightTxt.TextChanged += assessment1GradeText_TextChanged;
+            if (Convert.ToInt32(modGrades[8]) < 2)
+            {
+                percent2Lbl.Visible = false;
+                assessment2GradeTxt.Visible = false;
+                assessment2WeightTxt.Visible = false;
+                assGrade2WeightLbl.Visible = false;
+                assGrade2Lbl.Visible = false;
+            }
+
+            if (Convert.ToInt32(modGrades[8]) < 3)
+            {
+                percent3Lbl.Visible = false;
+                assessment3GradeTxt.Visible = false;
+                assessment3WeightTxt.Visible = false;
+                assGrade3WeightLbl.Visible = false;
+                assGrade3Lbl.Visible = false;
+            }
+
+            if (Convert.ToInt32(modGrades[8]) < 4)
+            {
+                percent4Lbl.Visible = false;
+                assessment4GradeTxt.Visible = false;
+                assessment4WeightTxt.Visible = false;
+                assGrade4WeightLbl.Visible = false;
+                assGrade4Lbl.Visible = false;
+            }
            
-            assessment2WeightTxt.Text = Convert.ToInt32(modGrades[8]) < 2 ? "-" : modGrades[3];
-            assessment3GradeTxt.Text = Convert.ToInt32(modGrades[8]) < 3 ? "-" : modGrades[4];
-            assessment3WeightTxt.Text = Convert.ToInt32(modGrades[8]) < 3 ? "-" : modGrades[5];
-            assessment4GradeTxt.Text = Convert.ToInt32(modGrades[8]) < 4 ? "-" : modGrades[6];
-            assessment4WeightTxt.Text = Convert.ToInt32(modGrades[8]) < 4 ? "-":modGrades[7];
         }
+
+        private void assessment1GradeText_TextChanged(object sender, EventArgs e)
+        {
+            getModAvg();
+        }
+
+
 
         private void addGradesBtn_Enter(object sender, EventArgs e)
         {
@@ -1515,6 +1753,7 @@ namespace OOP._0._1._1
         }
         private void addGradesBtn_Click(object sender, EventArgs e)
         {
+
             if (availableModulesCbo.Text == "")
             {
                 MessageBox.Show("You must select a module");
@@ -1615,6 +1854,7 @@ namespace OOP._0._1._1
                             resetTextFields(assessment4WeightTxt);
                             MessageBox.Show("New grades have been added to the " + modulename + " module");
                             assessment1GradeTxt.Focus();
+                            gradeAssessment = false;
 
                         }
                     }
@@ -1626,7 +1866,102 @@ namespace OOP._0._1._1
             }
         }
 
+        private void getModAvg()
+        {
+            string tempstr = assessment1GradeTxt.Text == "" ? "0" : assessment1GradeTxt.Text;
+            string tempstr2 = assessment1WeightTxt.Text == "" ? "0" : assessment1WeightTxt.Text;
+            string tempstr3 = assessment2GradeTxt.Text == "" ? "0" : assessment2GradeTxt.Text;
+            string tempstr4 = assessment2WeightTxt.Text == "" ? "0" : assessment2WeightTxt.Text;
+            string tempstr5 = assessment3GradeTxt.Text == "" ? "0" : assessment3GradeTxt.Text;
+            string tempstr6 = assessment3WeightTxt.Text == "" ? "0" : assessment3WeightTxt.Text;
+            string tempstr7 = assessment4GradeTxt.Text == "" ? "0" : assessment4GradeTxt.Text;
+            string tempstr8 = assessment4WeightTxt.Text == "" ? "0" : assessment4WeightTxt.Text;
+            try
+            {
+                int[] tmpInt = new int[8];
+                tmpInt[0] = parseData(tempstr);
+                tmpInt[1] = parseData(tempstr2);
+                tmpInt[2] = parseData(tempstr3);
+                tmpInt[3] = parseData(tempstr4);
+                tmpInt[4] = parseData(tempstr5);
+                tmpInt[5] = parseData(tempstr6);
+                tmpInt[6] = parseData(tempstr7);
+                tmpInt[7] = parseData(tempstr8);
+                if ((tmpInt[0] <= 100 && tmpInt[0] >= 0) && (tmpInt[1] <= 100 && tmpInt[1] >= 0) &&
+                    (tmpInt[2] <= 100 && tmpInt[2] >= 0) &&
+                    (tmpInt[3] <= 100 && tmpInt[3] >= 0) && (tmpInt[4] <= 100 && tmpInt[4] >= 0) &&
+                    (tmpInt[5] <= 100 && tmpInt[5] >= 0) &&
+                    (tmpInt[6] <= 100 && tmpInt[6] >= 0) && (tmpInt[7] <= 100 && tmpInt[7] >= 0))
+                {
+                    string assessmentVals = ",,,,," + hiddenLbl.Text + "," +
+                                            tempstr + "," +
+                                            tempstr2 + "," +
+                                            tempstr3 + "," +
+                                            tempstr4 + "," +
+                                            tempstr5 + "," +
+                                            tempstr6 + "," +
+                                            tempstr7 + "," +
+                                            tempstr8;
 
+                    Prediction prediction = new Prediction();
+                    prediction.modulePrediction(assessmentVals);
+                    prediction.ResolveAllResults();
+
+                    int actual = prediction.getModuleTotal();
+                    modTotalLbl.Text = actual.ToString();
+     
+                    if (actual < 40)
+                    {
+                        modTotalLbl.ForeColor = Color.FromArgb(246, 11, 11);
+                    }
+                    else
+                    {
+                        if ((actual > 40) && (tmpInt[0] < 30) && (tmpInt[1] > 0) ||
+                            (tmpInt[2] < 30) && (tmpInt[3] > 0) ||
+                            (tmpInt[4] < 30) && (tmpInt[5] > 0) ||
+                            (tmpInt[6] < 30) && (tmpInt[7] > 0))
+                        {
+                            modTotalLbl.ForeColor = Color.FromArgb(246, 132, 11);
+                        }
+                        else
+                        {
+                            modTotalLbl.ForeColor = Color.FromArgb(24, 240, 13);
+                        }
+                    }
+                }
+                else
+                {
+                    modTotalLbl.Text = "Not valid";
+                    modTotalLbl.ForeColor = Color.FromArgb(15, 11, 11);
+                }
+            }
+            catch (FormatException ex)
+            {
+                modTotalLbl.Text = "Not valid";
+                modTotalLbl.ForeColor = Color.FromArgb(15, 11, 11);
+            }
+        }
+
+        private void setVisibility()
+        {
+            assessment2GradeTxt.Visible = true;
+            assessment2WeightTxt.Visible = true;
+            assessment3GradeTxt.Visible = true;
+            assessment3WeightTxt.Visible = true;
+            assessment4GradeTxt.Visible = true;
+            assessment4WeightTxt.Visible = true;
+            percent2Lbl.Visible = true;
+            percent3Lbl.Visible = true;
+            percent4Lbl.Visible = true;
+
+
+            assGrade2Lbl.Visible = true;
+            assGrade2WeightLbl.Visible = true;
+            assGrade3Lbl.Visible = true;
+            assGrade3WeightLbl.Visible = true;
+            assGrade4Lbl.Visible = true;
+            assGrade4WeightLbl.Visible = true;
+        }
         private string returnToString(int grade)
         {
             return grade.ToString();
@@ -1654,7 +1989,7 @@ namespace OOP._0._1._1
                 availableModulesCbo.Items.Add(moduleDetail);
 
                 string grades = modArr[6] + "," + modArr[7] + "," + modArr[8] + "," + modArr[9] + "," + modArr[10] + "," +
-                                modArr[11] + "," + modArr[12] + "," + modArr[13]+ ","+ modArr[5];
+                                modArr[11] + "," + modArr[12] + "," + modArr[13] + "," + modArr[5];
                 hiddenCombo.Items.Add(modArr[0]);
                 hiddenModuleGradesCbo.Items.Add(grades);
             }
@@ -1737,9 +2072,10 @@ namespace OOP._0._1._1
                 resetTextFields(assessment3WeightTxt);
                 resetTextFields(assessment4GradeTxt);
                 resetTextFields(assessment4WeightTxt);
+                gradeAssessment = false;
             }
         }
-
+            /*this method retrieves and sends the given course name to relevant controller*/
         private void submitCourseNameBtn_Click(object sender, EventArgs e)
         {
 
@@ -1780,12 +2116,13 @@ namespace OOP._0._1._1
                         covertab2Pnl.Visible = true;
                         covertab2Pnl.BringToFront();
                         moduleNameTxt.Focus();
-
+                        gradeAssessment = false;
                     }
                 }
             }
         }
 
+        /*This button starts the process of building a course*/
         private void buildCourseBtn_Click(object sender, EventArgs e)
         {
             selectCoursePnl.Visible = true;

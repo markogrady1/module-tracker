@@ -66,9 +66,13 @@ namespace OOP._0._1._1
         //Insert statement
         public void InsertNewCourse(string username, string coursename)
         {
+            DateTime time = DateTime.Now;
+                string mysqlDateFormat = time.ToString("yyyy-MM-dd HH:mm");
+            
+
             username = username.ToLower();
             coursename = coursename.ToLower();
-            string query = "INSERT INTO course (coursename, coursecode,username) VALUES('" + coursename + "','ECSC3454', '" + username + "')";
+            string query = "INSERT INTO course (coursename, created_at,username) VALUES('" + coursename + "','" + mysqlDateFormat + "', '" + username + "')";
 
             //create command and assign the query and connection from the constructor
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -118,7 +122,7 @@ namespace OOP._0._1._1
 
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
-            //Create a data reader and Execute the command 
+            //Create a data reader and Execute the c ommand 
             try
             {
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -160,7 +164,7 @@ namespace OOP._0._1._1
 
         public List<string> GetAvailableCourses()
         {
-            string query = "SELECT * FROM available_course";
+            string query = "SELECT * FROM available_courses";
 
             List<string> availableCourses = new List<string>();
 

@@ -91,7 +91,9 @@ namespace OOP._0._1._1
         /*get the grades for all assessments of a given module*/
         public int[] GetAssessmentGrades(string[] moduleData)
         {
-            int[] assessmentGrades = new int[8];
+            try
+            {
+int[] assessmentGrades = new int[8];
             assessmentGrades[0] = Convert.ToInt32(moduleData[6]);
             assessmentGrades[1] = Convert.ToInt32(moduleData[7]);
             assessmentGrades[2] = Convert.ToInt32(moduleData[8]);
@@ -102,6 +104,12 @@ namespace OOP._0._1._1
             assessmentGrades[7] = Convert.ToInt32(moduleData[13]);
 
             return assessmentGrades;
+            }
+            catch (OverflowException e)
+            {
+                
+            }
+            return null;
         }
 
         /*get all the average results for the current module instance*/

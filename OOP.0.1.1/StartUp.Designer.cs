@@ -26,6 +26,9 @@ namespace OOP._0._1._1
 
         /// <summary>
         /// Required method for Designer support - do not modify
+        /// 
+        /// I added some of these values to ensure the variable was a global value
+        /// 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -40,26 +43,26 @@ namespace OOP._0._1._1
             this.covertab3Pnl = new System.Windows.Forms.Panel();
             this.labelg = new System.Windows.Forms.Label();
             this.mainAddGradePanel = new System.Windows.Forms.Panel();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.percent4Lbl = new System.Windows.Forms.Label();
+            this.percent3Lbl = new System.Windows.Forms.Label();
+            this.percent2Lbl = new System.Windows.Forms.Label();
+            this.percent1Lbl = new System.Windows.Forms.Label();
             this.assessment4WeightTxt = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.assGrade4WeightLbl = new System.Windows.Forms.Label();
             this.assessment4GradeTxt = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.assGrade4Lbl = new System.Windows.Forms.Label();
             this.assessment3WeightTxt = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.assGrade3WeightLbl = new System.Windows.Forms.Label();
             this.assessment3GradeTxt = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.assGrade3Lbl = new System.Windows.Forms.Label();
             this.assessment2WeightTxt = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.assGrade2WeightLbl = new System.Windows.Forms.Label();
             this.assessment2GradeTxt = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.assGrade2Lbl = new System.Windows.Forms.Label();
             this.assessment1WeightTxt = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.assGrade1WeightLbl = new System.Windows.Forms.Label();
             this.assessment1GradeTxt = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.assGrade1Lbl = new System.Windows.Forms.Label();
             this.availableModulesCbo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.addGradeTabPage = new System.Windows.Forms.TabPage();
@@ -103,70 +106,7 @@ namespace OOP._0._1._1
             this.addGradesBtn = new System.Windows.Forms.Label();
             this.AddModuleBtnBlue = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            //this.covertab3Pnl.SuspendLayout();
-            //this.mainAddGradePanel.SuspendLayout();
-            //this.addGradeTabPage.SuspendLayout();
-            //this.tabPage2.SuspendLayout();
-            //this.covertab2Pnl.SuspendLayout();
-            //this.tabPage1.SuspendLayout();
-            //this.openExistingCoursePnl.SuspendLayout();
-            //this.selectCoursePnl.SuspendLayout();
-            //this.mainCoverPnl.SuspendLayout();
-            //this.mainTabControl.SuspendLayout();
-            //this.SuspendLayout();
-
-            //// 
-            //// degreePredictionTabPage
-            //// 
-            //this.degreePredictionTabPage.Location = new System.Drawing.Point(0, 0);
-            //this.degreePredictionTabPage.Name = "degreePredictionTabPage";
-            //this.degreePredictionTabPage.Size = new System.Drawing.Size(200, 100);
-            //this.degreePredictionTabPage.TabIndex = 0;
-            //// 
-            //// degreePredictionPnl
-            //// 
-            //this.degreePredictionPnl.Location = new System.Drawing.Point(0, 0);
-            //this.degreePredictionPnl.Name = "degreePredictionPnl";
-            //this.degreePredictionPnl.Size = new System.Drawing.Size(200, 100);
-            //this.degreePredictionPnl.TabIndex = 0;
-            //// 
-            //// dgSummaryTitle
-            //// 
-            //this.dgSummaryTitle.Location = new System.Drawing.Point(0, 0);
-            //this.dgSummaryTitle.Name = "dgSummaryTitle";
-            //this.dgSummaryTitle.Size = new System.Drawing.Size(100, 23);
-            //this.dgSummaryTitle.TabIndex = 0;
-            //// 
-            //// dgPredictUsernamePnl
-            //// 
-            //this.dgPredictUsernamePnl.Location = new System.Drawing.Point(0, 0);
-            //this.dgPredictUsernamePnl.Name = "dgPredictUsernamePnl";
-            //this.dgPredictUsernamePnl.Size = new System.Drawing.Size(200, 100);
-            //this.dgPredictUsernamePnl.TabIndex = 0;
-            //// 
-            //// dgCourseNameLbl
-            //// 
-            //this.dgCourseNameLbl.Location = new System.Drawing.Point(0, 0);
-            //this.dgCourseNameLbl.Name = "dgCourseNameLbl";
-            //this.dgCourseNameLbl.Size = new System.Drawing.Size(100, 23);
-            //this.dgCourseNameLbl.TabIndex = 0;
-            //// 
-            //// dgUsernameLbl
-            //// 
-            //this.dgUsernameLbl.Location = new System.Drawing.Point(0, 0);
-            //this.dgUsernameLbl.Name = "dgUsernameLbl";
-            //this.dgUsernameLbl.Size = new System.Drawing.Size(100, 23);
-            //this.dgUsernameLbl.TabIndex = 0;
-            //// 
-            //// dgTotalOutComeLbl
-            //// 
-            //this.dgTotalOutComeLbl.Location = new System.Drawing.Point(0, 0);
-            //this.dgTotalOutComeLbl.Name = "dgTotalOutComeLbl";
-            //this.dgTotalOutComeLbl.Size = new System.Drawing.Size(100, 23);
-            //this.dgTotalOutComeLbl.TabIndex = 0;
-            // 
-            // covertab3Pnl
-            // 
+          
             this.covertab3Pnl.Controls.Add(this.labelg);
             this.covertab3Pnl.Location = new System.Drawing.Point(9, 9);
             this.covertab3Pnl.Name = "covertab3Pnl";
@@ -183,228 +123,7 @@ namespace OOP._0._1._1
             this.labelg.Size = new System.Drawing.Size(477, 81);
             this.labelg.TabIndex = 0;
             this.labelg.Text = "Grade Predictor";
-            //// 
-            //// mainAddGradePanel
-            //// 
-            //this.mainAddGradePanel.Controls.Add(this.label25);
-            //this.mainAddGradePanel.Controls.Add(this.addGradesBtn);
-            //this.mainAddGradePanel.Controls.Add(this.label24);
-            //this.mainAddGradePanel.Controls.Add(this.label23);
-            //this.mainAddGradePanel.Controls.Add(this.label22);
-            //this.mainAddGradePanel.Controls.Add(this.label21);
-            //this.mainAddGradePanel.Controls.Add(this.assessment4WeightTxt);
-            //this.mainAddGradePanel.Controls.Add(this.label19);
-            //this.mainAddGradePanel.Controls.Add(this.assessment4GradeTxt);
-            //this.mainAddGradePanel.Controls.Add(this.label20);
-            //this.mainAddGradePanel.Controls.Add(this.assessment3WeightTxt);
-            //this.mainAddGradePanel.Controls.Add(this.label17);
-            //this.mainAddGradePanel.Controls.Add(this.assessment3GradeTxt);
-            //this.mainAddGradePanel.Controls.Add(this.label18);
-            //this.mainAddGradePanel.Controls.Add(this.assessment2WeightTxt);
-            //this.mainAddGradePanel.Controls.Add(this.label16);
-            //this.mainAddGradePanel.Controls.Add(this.assessment2GradeTxt);
-            //this.mainAddGradePanel.Controls.Add(this.label15);
-            //this.mainAddGradePanel.Controls.Add(this.assessment1WeightTxt);
-            //this.mainAddGradePanel.Controls.Add(this.label14);
-            //this.mainAddGradePanel.Controls.Add(this.assessment1GradeTxt);
-            //this.mainAddGradePanel.Controls.Add(this.label13);
-            //this.mainAddGradePanel.Controls.Add(this.availableModulesCbo);
-            //this.mainAddGradePanel.Controls.Add(this.label12);
-            //this.mainAddGradePanel.Location = new System.Drawing.Point(36, 12);
-            //this.mainAddGradePanel.Name = "mainAddGradePanel";
-            //this.mainAddGradePanel.Size = new System.Drawing.Size(1025, 515);
-            //this.mainAddGradePanel.TabIndex = 1;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(649, 278);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(21, 18);
-            this.label24.TabIndex = 21;
-            this.label24.Text = "%";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(649, 234);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(21, 18);
-            this.label23.TabIndex = 20;
-            this.label23.Text = "%";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(649, 190);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(21, 18);
-            this.label22.TabIndex = 19;
-            this.label22.Text = "%";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(649, 148);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(21, 18);
-            this.label21.TabIndex = 18;
-            this.label21.Text = "%";
-            // 
-            // assessment4WeightTxt
-            // 
-            this.assessment4WeightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assessment4WeightTxt.Location = new System.Drawing.Point(546, 275);
-            this.assessment4WeightTxt.Name = "assessment4WeightTxt";
-            this.assessment4WeightTxt.Size = new System.Drawing.Size(100, 24);
-            this.assessment4WeightTxt.TabIndex = 17;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(479, 275);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(58, 18);
-            this.label19.TabIndex = 16;
-            this.label19.Text = "Weight:";
-            // 
-            // assessment4GradeTxt
-            // 
-            this.assessment4GradeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assessment4GradeTxt.Location = new System.Drawing.Point(376, 275);
-            this.assessment4GradeTxt.Name = "assessment4GradeTxt";
-            this.assessment4GradeTxt.Size = new System.Drawing.Size(85, 24);
-            this.assessment4GradeTxt.TabIndex = 15;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(222, 278);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(151, 18);
-            this.label20.TabIndex = 14;
-            this.label20.Text = "Assessment 4 Grade:";
-            // 
-            // assessment3WeightTxt
-            // 
-            this.assessment3WeightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assessment3WeightTxt.Location = new System.Drawing.Point(546, 231);
-            this.assessment3WeightTxt.Name = "assessment3WeightTxt";
-            this.assessment3WeightTxt.Size = new System.Drawing.Size(100, 24);
-            this.assessment3WeightTxt.TabIndex = 13;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(479, 231);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(58, 18);
-            this.label17.TabIndex = 12;
-            this.label17.Text = "Weight:";
-            // 
-            // assessment3GradeTxt
-            // 
-            this.assessment3GradeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assessment3GradeTxt.Location = new System.Drawing.Point(376, 231);
-            this.assessment3GradeTxt.Name = "assessment3GradeTxt";
-            this.assessment3GradeTxt.Size = new System.Drawing.Size(85, 24);
-            this.assessment3GradeTxt.TabIndex = 11;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(222, 234);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(151, 18);
-            this.label18.TabIndex = 10;
-            this.label18.Text = "Assessment 3 Grade:";
-            // 
-            // assessment2WeightTxt
-            // 
-            this.assessment2WeightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assessment2WeightTxt.Location = new System.Drawing.Point(546, 187);
-            this.assessment2WeightTxt.Name = "assessment2WeightTxt";
-            this.assessment2WeightTxt.Size = new System.Drawing.Size(100, 24);
-            this.assessment2WeightTxt.TabIndex = 9;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(479, 187);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(58, 18);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "Weight:";
-            // 
-            // assessment2GradeTxt
-            // 
-            this.assessment2GradeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assessment2GradeTxt.Location = new System.Drawing.Point(376, 187);
-            this.assessment2GradeTxt.Name = "assessment2GradeTxt";
-            this.assessment2GradeTxt.Size = new System.Drawing.Size(85, 24);
-            this.assessment2GradeTxt.TabIndex = 7;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(222, 190);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(151, 18);
-            this.label15.TabIndex = 6;
-            this.label15.Text = "Assessment 2 Grade:";
-            // 
-            // assessment1WeightTxt
-            // 
-            this.assessment1WeightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assessment1WeightTxt.Location = new System.Drawing.Point(546, 143);
-            this.assessment1WeightTxt.Name = "assessment1WeightTxt";
-            this.assessment1WeightTxt.Size = new System.Drawing.Size(100, 24);
-            this.assessment1WeightTxt.TabIndex = 5;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(479, 146);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(58, 18);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Weight:";
-            // 
-            // assessment1GradeTxt
-            // 
-            this.assessment1GradeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assessment1GradeTxt.Location = new System.Drawing.Point(376, 143);
-            this.assessment1GradeTxt.Name = "assessment1GradeTxt";
-            this.assessment1GradeTxt.Size = new System.Drawing.Size(85, 24);
-            this.assessment1GradeTxt.TabIndex = 3;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(222, 146);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(151, 18);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Assessment 1 Grade:";
-            // 
-            // availableModulesCbo
-            // 
-            this.availableModulesCbo.Location = new System.Drawing.Point(0, 0);
-            this.availableModulesCbo.Name = "availableModulesCbo";
-            this.availableModulesCbo.Size = new System.Drawing.Size(121, 21);
-            this.availableModulesCbo.TabIndex = 24;
+          
             // 
             // label12
             // 
@@ -923,26 +642,26 @@ namespace OOP._0._1._1
         private System.Windows.Forms.Panel mainAddGradePanel;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label addGradesBtn;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label percent4Lbl;
+        private System.Windows.Forms.Label percent3Lbl;
+        private System.Windows.Forms.Label percent2Lbl;
+        private System.Windows.Forms.Label percent1Lbl;
         private System.Windows.Forms.TextBox assessment4WeightTxt;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label assGrade4WeightLbl;
         private System.Windows.Forms.TextBox assessment4GradeTxt;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label assGrade4Lbl;
         private System.Windows.Forms.TextBox assessment3WeightTxt;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label assGrade3WeightLbl;
         private System.Windows.Forms.TextBox assessment3GradeTxt;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label assGrade3Lbl;
         private System.Windows.Forms.TextBox assessment2WeightTxt;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label assGrade2WeightLbl;
         private System.Windows.Forms.TextBox assessment2GradeTxt;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label assGrade2Lbl;
         private System.Windows.Forms.TextBox assessment1WeightTxt;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label assGrade1WeightLbl;
         private System.Windows.Forms.TextBox assessment1GradeTxt;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label assGrade1Lbl;
         private System.Windows.Forms.ComboBox availableModulesCbo;
         private System.Windows.Forms.ComboBox hiddenCombo;
      
